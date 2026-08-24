@@ -7,26 +7,45 @@ interface Props {
 }
 
 const {
-  title = "SPARK — Beauty Growth System",
-  description = "Un système marketing pensé pour aider les salons de beauté à attirer plus de clientes et remplir leur agenda.",
+  title = "SPARK — Système de Croissance pour Centres Esthétiques, Médecins & Kinés",
+  description = "Acquisition de patientes et clientes pour Centres d'Esthétique, Médecins Esthétiques et Cabinet de Kinésithérapie. Moins de trous dans l'agenda, plus de rendez-vous confirmés.",
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="fr">
+<html lang="fr" data-theme="light" dir="ltr">
   <head>
     <meta charset="UTF-8" />
-
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-
     <title>{title}</title>
-
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <!-- Anti-flicker Theme & Language Initialization -->
+    <script is:inline>
+      (function() {
+        const savedTheme = localStorage.getItem('spark-theme');
+        if (savedTheme === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+
+        const savedLang = localStorage.getItem('spark-lang');
+        if (savedLang === 'ar') {
+          document.documentElement.setAttribute('dir', 'rtl');
+          document.documentElement.setAttribute('lang', 'ar');
+        } else {
+          document.documentElement.setAttribute('dir', 'ltr');
+          document.documentElement.setAttribute('lang', 'fr');
+        }
+      })();
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
   </head>
 
   <body>

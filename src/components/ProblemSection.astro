@@ -2,2071 +2,531 @@
 const problems = [
   {
     number: "01",
-    title: "Des périodes creuses",
-    description:
-      "Certains jours ou certaines périodes, votre agenda manque de rendez-vous.",
-    consequence: "Des créneaux disponibles qui pourraient être occupés.",
+    titleKey: "p1Title",
+    descKey: "p1Desc",
+    impactKey: "p1Impact",
+    title: "Créneaux vides dans l'agenda",
+    description: "Des journées ou heures creuses inutilisées alors que vos charges fixes restent identiques.",
+    consequence: "Manque à gagner direct chaque semaine.",
     icon: "calendar",
   },
   {
     number: "02",
-    title: "Beaucoup de visibilité, peu de clientes",
-    description:
-      "Des vues et des likes, mais pas suffisamment de nouvelles demandes.",
-    consequence: "Votre audience grandit, mais votre agenda ne suit pas.",
+    titleKey: "p2Title",
+    descKey: "p2Desc",
+    impactKey: "p2Impact",
+    title: "Des likes, mais pas de patientes",
+    description: "Une présence sur Instagram qui génère des réactions mais très peu de prises de rendez-vous réelles.",
+    consequence: "Visibilité sans impact financier sur votre cabinet.",
     icon: "visibility",
   },
   {
     number: "03",
-    title: "Des publicités sans vraie stratégie",
-    description:
-      "Vous investissez dans la publicité sans toujours savoir ce qui fonctionne réellement.",
-    consequence: "Vous dépensez sans avoir une vision claire des résultats.",
+    titleKey: "p3Title",
+    descKey: "p3Desc",
+    impactKey: "p3Impact",
+    title: "Publicités sans retour clair",
+    description: "Des budgets dépensés en annonces sans savoir combien de patientes/clientes cela vous rapporte.",
+    consequence: "Incertitude et gaspillage de votre budget marketing.",
     icon: "ads",
   },
   {
     number: "04",
-    title: "Pas le temps de tout gérer",
-    description:
-      "Vous avez un salon à gérer. Votre marketing ne devrait pas vous prendre toute votre énergie.",
-    consequence: "Votre marketing passe souvent après le reste.",
+    titleKey: "p4Title",
+    descKey: "p4Desc",
+    impactKey: "p4Impact",
+    title: "Pas le temps de faire du marketing",
+    description: "Votre cœur de métier est de soigner et sublimer, pas de passer 4h/jour à paramétrer des pubs.",
+    consequence: "La communication passe toujours au second plan.",
     icon: "time",
   },
 ];
 ---
 
-<section
-  id="problem"
-  class="ps"
-  aria-labelledby="problem-title"
->
+<section id="problem" class="ps" aria-labelledby="problem-title">
   <div class="ps-wrap">
-
-    <!-- ══════════════════════════════════════
-         CHAPTER ONE — LE PROBLÈME
-    ══════════════════════════════════════ -->
-
+    <!-- CHAPTER ONE — LE PROBLÈME -->
     <div class="chapter chapter-problem">
-
       <header class="ps-header">
-
         <p class="ps-eyebrow">
           <span class="ps-eyebrow-rule"></span>
-          VOTRE SALON MÉRITE PLUS
+          <span data-i18n="problemEyebrow">LES DÉFIS DU QUOTIDIEN</span>
         </p>
 
         <div class="ps-heading-row">
-
           <h2 id="problem-title" class="ps-h2">
-            Votre salon mérite<br>
-            <em>plus que des likes.</em>
+            <span data-i18n="problemTitleMain">Votre cabinet mérite</span><br>
+            <em data-i18n="problemTitleHighlight">des rendez-vous, pas des likes.</em>
           </h2>
 
-          <p class="ps-lead">
-            Avoir une belle présence sur Instagram est important.
-            Mais ce qui compte vraiment, c'est ce qu'elle génère
-            pour votre salon.
+          <p class="ps-lead" data-i18n="problemLead">
+            Que vous soyez Médecin Esthétique, Kinésithérapeute ou Responsable d'un Centre d'Esthétique, votre temps est précieux. Votre système marketing doit amener des patientes/clientes qualifiées directement sur WhatsApp.
           </p>
-
         </div>
-
       </header>
 
-
-      <!-- Problem cards -->
-
+      <!-- Problem cards grid -->
       <div class="ps-grid" role="list">
-
         {problems.map((p) => (
-
           <article class="ps-card" role="listitem">
-
             <div class="ps-card-head">
-
-              <span class="ps-card-num">
-                {p.number}
-              </span>
-
-              <span
-                class="ps-card-icon"
-                aria-hidden="true"
-              >
-
+              <span class="ps-card-num">{p.number}</span>
+              <span class="ps-card-icon" aria-hidden="true">
                 {p.icon === "calendar" && (
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <rect
-                      x="4"
-                      y="5"
-                      width="16"
-                      height="15"
-                      rx="3"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                    />
-                    <path
-                      d="M8 3V7M16 3V7M4 10H20"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                    />
-                    <path
-                      d="M8 14H10M12 14H14M8 17H10M12 17H14"
-                      stroke="currentColor"
-                      stroke-width="1.4"
-                      stroke-linecap="round"
-                    />
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
                   </svg>
                 )}
-
                 {p.icon === "visibility" && (
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M3.5 12C5.7 7.9 8.5 6 12 6C15.5 6 18.3 7.9 20.5 12C18.3 16.1 15.5 18 12 18C8.5 18 5.7 16.1 3.5 12Z"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                    />
-                    <circle
-                      cx="12"
-                      cy="12"
-                      r="3"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                    />
-                    <circle
-                      cx="12"
-                      cy="12"
-                      r="1"
-                      fill="currentColor"
-                    />
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                    <circle cx="12" cy="12" r="3"/>
                   </svg>
                 )}
-
                 {p.icon === "ads" && (
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M5 17L8.5 13.5L11.5 16L19 8.5"
-                      stroke="currentColor"
-                      stroke-width="1.6"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M14.5 8.5H19V13"
-                      stroke="currentColor"
-                      stroke-width="1.6"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M5 20H19"
-                      stroke="currentColor"
-                      stroke-width="1.3"
-                      stroke-linecap="round"
-                    />
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M23 6l-9.5 9.5-5-5L1 18"/>
+                    <path d="M17 6h6v6"/>
                   </svg>
                 )}
-
                 {p.icon === "time" && (
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <circle
-                      cx="12"
-                      cy="12"
-                      r="8"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                    />
-                    <path
-                      d="M12 7V12L15 14"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
                   </svg>
                 )}
-
               </span>
-
             </div>
-
 
             <div class="ps-card-body">
-
-              <span class="ps-card-label">
-                LE DÉFI
-              </span>
-
-              <h3>
-                {p.title}
-              </h3>
-
-              <p>
-                {p.description}
-              </p>
-
+              <span class="ps-card-label" data-i18n="pivotLabelLeft">LE CONSTAT</span>
+              <h3 data-i18n={p.titleKey}>{p.title}</h3>
+              <p data-i18n={p.descKey}>{p.description}</p>
             </div>
-
 
             <div class="ps-card-foot">
-
-              <span
-                class="ps-card-arrow"
-                aria-hidden="true"
-              >
-                →
-              </span>
-
+              <span class="ps-card-arrow" aria-hidden="true">→</span>
               <div>
-
-                <span class="ps-consequence-label">
-                  CONSÉQUENCE
-                </span>
-
-                <p>
-                  {p.consequence}
-                </p>
-
+                <span class="ps-consequence-label">IMPACT</span>
+                <p data-i18n={p.impactKey}>{p.consequence}</p>
               </div>
-
             </div>
-
-
-            <div
-              class="ps-card-bar"
-              aria-hidden="true"
-            >
-              <span></span>
-            </div>
-
           </article>
-
         ))}
-
       </div>
-
     </div>
 
-
-    <!-- ══════════════════════════════════════
-         PIVOT — THE VISUAL HINGE
-    ══════════════════════════════════════ -->
-
-    <div
-      class="ps-pivot"
-      aria-hidden="true"
-    >
-
+    <!-- PIVOT HINGE -->
+    <div class="ps-pivot" aria-hidden="true">
       <div class="ps-pivot-line"></div>
-
       <div class="ps-pivot-node">
         <span class="ps-pivot-dot"></span>
       </div>
-
       <div class="ps-pivot-labels">
-        <span>LE PROBLÈME</span>
-        <span>LA SOLUTION</span>
+        <span data-i18n="pivotLabelLeft">LE CONSTAT</span>
+        <span data-i18n="pivotLabelRight">LA SOLUTION SPARK</span>
       </div>
-
     </div>
 
-
-    <!-- ══════════════════════════════════════
-         CHAPTER TWO — LA SOLUTION
-    ══════════════════════════════════════ -->
-
+    <!-- CHAPTER TWO — LA SOLUTION -->
     <div class="chapter chapter-solution">
-
       <div class="ps-resolution">
-
         <div class="ps-resolution-copy">
-
           <p class="ps-resolution-eyebrow">
-
-            <span
-              class="ps-eyebrow-rule ps-eyebrow-rule--cyan"
-            ></span>
-
-            LE PASSAGE À L'ACTION
-
+            <span class="ps-eyebrow-rule ps-eyebrow-rule--cyan"></span>
+            <span data-i18n="solutionEyebrow">LA SOLUTION SPARK</span>
           </p>
-
 
           <h2 class="ps-resolution-h2">
-
-            Votre marketing doit
-            <em>
-              travailler pour<br />
-              votre salon.
-            </em>
-
+            <span data-i18n="solutionTitleMain">Un système automatique</span><br />
+            <em data-i18n="solutionTitleHighlight">pensé pour votre activité.</em>
           </h2>
 
-
-          <p class="ps-resolution-body">
-
-            Spark transforme votre visibilité en un système pensé
-            pour attirer, convertir et optimiser les demandes
-            de nouvelles clientes.
-
+          <p class="ps-resolution-body" data-i18n="solutionBody">
+            Spark crée des campagnes ciblées qui incitent les patientes et clientes locales à demander un rendez-vous directement via WhatsApp, réduisant les créneaux vacants.
           </p>
-
         </div>
-
 
         <div class="ps-resolution-right">
-
-          <!-- Outcome pillars -->
-
           <div class="ps-pillars">
-
             <div class="ps-pillar">
-
-              <span class="ps-pillar-num">
-                +
-              </span>
-
+              <span class="ps-pillar-num">01</span>
               <div>
-
-                <strong>
-                  Demandes réelles
-                </strong>
-
-                <p>
-                  Pas des vues. Des messages de clientes intéressées.
-                </p>
-
+                <strong data-i18n="solutionPillar1Title">Demandes WhatsApp Qualifiées</strong>
+                <p data-i18n="solutionPillar1Desc">Pas des simples vues. Des messages de personnes motivées.</p>
               </div>
-
             </div>
 
-
             <div class="ps-pillar">
-
-              <span class="ps-pillar-num">
-                +
-              </span>
-
+              <span class="ps-pillar-num">02</span>
               <div>
-
-                <strong>
-                  Agenda rempli
-                </strong>
-
-                <p>
-                  Des rendez-vous concrets, pas des impressions.
-                </p>
-
+                <strong data-i18n="solutionPillar2Title">Agenda Rempli Régulièrement</strong>
+                <p data-i18n="solutionPillar2Desc">Des prises de RDV simples et rapides à confirmer.</p>
               </div>
-
             </div>
 
-
             <div class="ps-pillar">
-
-              <span class="ps-pillar-num">
-                +
-              </span>
-
+              <span class="ps-pillar-num">03</span>
               <div>
-
-                <strong>
-                  Budget maîtrisé
-                </strong>
-
-                <p>
-                  Vous savez exactement ce que chaque dirham rapporte.
-                </p>
-
+                <strong data-i18n="solutionPillar3Title">Zéro Gestion Technique</strong>
+                <p data-i18n="solutionPillar3Desc">Nous gérons tout A à Z pour que vous vous concentriez sur vos soins.</p>
               </div>
-
             </div>
-
           </div>
 
-
-          <a
-            href="#spark-system"
-            class="ps-cta"
-            aria-label="Découvrir le système Spark"
-          >
-
-            <span>
-              Découvrir le système Spark
-            </span>
-
-            <span
-              class="ps-cta-icon"
-              aria-hidden="true"
-            >
-              →
-            </span>
-
+          <a href="#spark-system" class="ps-cta" aria-label="Découvrir le fonctionnement du système">
+            <span data-i18n="solutionCta">Découvrir le fonctionnement</span>
+            <span class="ps-cta-icon" aria-hidden="true">→</span>
           </a>
-
         </div>
-
       </div>
-
-
-      <!-- Journey marker -->
-
-      <div class="ps-journey">
-
-        <div class="ps-journey-node ps-journey-node--done">
-
-          <span></span>
-
-          <strong>
-            PROBLÈME IDENTIFIÉ
-          </strong>
-
-        </div>
-
-
-        <div class="ps-journey-track">
-
-          <span class="ps-journey-fill"></span>
-
-        </div>
-
-
-        <div class="ps-journey-node ps-journey-node--active">
-
-          <span></span>
-
-          <strong>
-            SYSTÈME SPARK
-          </strong>
-
-        </div>
-
-
-        <div class="ps-journey-track ps-journey-track--dim">
-
-          <span></span>
-
-        </div>
-
-
-        <div class="ps-journey-node">
-
-          <span></span>
-
-          <strong>
-            RÉSULTATS
-          </strong>
-
-        </div>
-
-      </div>
-
     </div>
-
   </div>
 </section>
 
-
 <style>
-
-/* ============================================================
-   SPARK COLOR SYSTEM
-   Same palette as the Experience / Proof section
-============================================================ */
-
-.ps {
-
-  /* Primary brand */
-  --ink: #011640;
-
-  /* Primary blue */
-  --blue: #0B5FA5;
-
-  /* Secondary dark blue */
-  --blue-dark: #0A4A82;
-
-  /* Primary cyan */
-  --cyan: #00BFC8;
-
-  /* Body text */
-  --body: #3F3F3F;
-
-  /* Muted text */
-  --muted: #7A858C;
-
-  /* Main border */
-  --border: #DDE5EA;
-
-  /* Soft border */
-  --border-soft: #E8EEF2;
-
-  /* Surface */
-  --surface: #FFFFFF;
-
-  /* Background */
-  --background: #F3FAFF;
-
-  /* Soft cyan background */
-  --cyan-soft: #E8F8F9;
-
-  /* Cyan transparency */
-  --cyan-mid: rgba(0, 191, 200, 0.14);
-
-  position: relative;
-  isolation: isolate;
-
-  background: var(--background);
-
-  color: var(--ink);
-
-  overflow: hidden;
-
-}
-
-
-/* ============================================================
-   BACKGROUND ATMOSPHERE
-============================================================ */
-
-.ps::before {
-
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  z-index: 0;
-
-  pointer-events: none;
-
-  background-image:
-    linear-gradient(
-      to right,
-      rgba(1, 22, 64, 0.025) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      to bottom,
-      rgba(1, 22, 64, 0.025) 1px,
-      transparent 1px
-    );
-
-  background-size: 72px 72px;
-
-  mask-image:
-    linear-gradient(
-      to bottom,
-      black 0%,
-      transparent 45%
-    );
-
-}
-
-
-/* ============================================================
-   SOFT CYAN ATMOSPHERE
-============================================================ */
-
-.ps::after {
-
-  content: "";
-
-  position: absolute;
-
-  width: 620px;
-
-  height: 620px;
-
-  top: -280px;
-
-  right: -240px;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(0, 191, 200, 0.07),
-      rgba(0, 191, 200, 0.025) 40%,
-      transparent 70%
-    );
-
-  pointer-events: none;
-
-  z-index: 0;
-
-}
-
-
-/* ============================================================
-   WRAPPER
-============================================================ */
-
-.ps-wrap {
-
-  position: relative;
-
-  z-index: 1;
-
-  width:
-    min(
-      calc(100% - 80px),
-      1280px
-    );
-
-  margin: 0 auto;
-
-  padding:
-    128px
-    0
-    140px;
-
-}
-
-
-/* ============================================================
-   EYEBROW
-============================================================ */
-
-.ps-eyebrow {
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 10px;
-
-  margin:
-    0
-    0
-    26px;
-
-  font-size: 9px;
-
-  font-weight: 800;
-
-  letter-spacing: .16em;
-
-  text-transform: uppercase;
-
-  color: var(--blue);
-
-}
-
-
-.ps-eyebrow-rule {
-
-  display: block;
-
-  width: 22px;
-
-  height: 1.5px;
-
-  background: var(--blue);
-
-  flex-shrink: 0;
-
-}
-
-
-.ps-eyebrow-rule--cyan {
-
-  background: var(--cyan);
-
-}
-
-
-/* ============================================================
-   HEADER
-============================================================ */
-
-.ps-header {
-
-  margin-bottom: 44px;
-
-}
-
-
-.ps-heading-row {
-
-  display: grid;
-
-  grid-template-columns:
-    minmax(0, 1.35fr)
-    minmax(260px, .65fr);
-
-  align-items: end;
-
-  gap: 72px;
-
-}
-
-
-.ps-h2 {
-
-  margin: 0;
-
-  font-size:
-    clamp(
-      52px,
-      5.8vw,
-      80px
-    );
-
-  font-weight: 800;
-
-  line-height: .95;
-
-  letter-spacing: -.06em;
-
-  color: var(--ink);
-
-}
-
-
-.ps-h2 em {
-
-  font-style: normal;
-
-  color: var(--blue);
-
-}
-
-
-.ps-lead {
-
-  margin: 0;
-
-  font-size: 14px;
-
-  line-height: 1.75;
-
-  color: var(--body);
-
-  padding-bottom: 4px;
-
-}
-
-
-/* ============================================================
-   PROBLEM CARDS GRID
-============================================================ */
-
-.ps-grid {
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(
-      4,
-      minmax(0, 1fr)
-    );
-
-  border:
-    1px solid
-    var(--border);
-
-  border-radius: 18px;
-
-  overflow: hidden;
-
-  background: var(--border);
-
-  gap: 1px;
-
-  box-shadow:
-    0 16px 48px
-    rgba(
-      1,
-      22,
-      64,
-      0.05
-    );
-
-}
-
-
-/* ============================================================
-   CARD
-============================================================ */
-
-.ps-card {
-
-  display: flex;
-
-  flex-direction: column;
-
-  padding:
-    26px
-    24px
-    22px;
-
-  background: var(--surface);
-
-  min-height: 360px;
-
-  transition:
-    background .22s ease,
-    transform .22s ease,
-    box-shadow .22s ease;
-
-  position: relative;
-
-}
-
-
-.ps-card:hover {
-
-  background: #F8FEFE;
-
-  transform:
-    translateY(-5px);
-
-  box-shadow:
-    0 20px 44px
-    rgba(
-      1,
-      22,
-      64,
-      0.08
-    );
-
-  z-index: 2;
-
-  border-radius: 3px;
-
-}
-
-
-/* ============================================================
-   CARD HEADER
-============================================================ */
-
-.ps-card-head {
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: space-between;
-
-}
-
-
-.ps-card-num {
-
-  font-size: 9px;
-
-  font-weight: 800;
-
-  letter-spacing: .13em;
-
-  color: #9BA6AD;
-
-}
-
-
-/* ============================================================
-   CARD ICON
-============================================================ */
-
-.ps-card-icon {
-
-  width: 42px;
-
-  height: 42px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  border:
-    1px solid
-    rgba(
-      0,
-      191,
-      200,
-      .18
-    );
-
-  border-radius: 11px;
-
-  background: var(--cyan-soft);
-
-  color: var(--cyan);
-
-  transition:
-    transform .22s ease,
-    background .22s ease;
-
-}
-
-
-.ps-card:hover .ps-card-icon {
-
-  transform:
-    translateY(-2px);
-
-  background: #E0F7F8;
-
-}
-
-
-.ps-card-icon svg {
-
-  width: 18px;
-
-  height: 18px;
-
-}
-
-
-/* ============================================================
-   CARD BODY
-============================================================ */
-
-.ps-card-body {
-
-  margin-top: 48px;
-
-  flex: 1;
-
-}
-
-
-.ps-card-label {
-
-  display: block;
-
-  font-size: 7px;
-
-  font-weight: 800;
-
-  letter-spacing: .15em;
-
-  color: var(--blue);
-
-  margin-bottom: 10px;
-
-}
-
-
-.ps-card h3 {
-
-  margin: 0;
-
-  font-size: 18.5px;
-
-  line-height: 1.18;
-
-  letter-spacing: -.033em;
-
-  font-weight: 760;
-
-  color: var(--ink);
-
-  max-width: 240px;
-
-}
-
-
-.ps-card-body p {
-
-  margin:
-    12px
-    0
-    0;
-
-  font-size: 12.5px;
-
-  line-height: 1.68;
-
-  color: var(--body);
-
-  max-width: 250px;
-
-}
-
-
-/* ============================================================
-   CARD FOOT
-============================================================ */
-
-.ps-card-foot {
-
-  display: flex;
-
-  gap: 10px;
-
-  margin-top: 28px;
-
-  padding-top: 20px;
-
-  border-top:
-    1px solid
-    var(--border);
-
-  align-items: flex-start;
-
-}
-
-
-.ps-card-arrow {
-
-  width: 22px;
-
-  height: 22px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  flex-shrink: 0;
-
-  border:
-    1px solid
-    var(--border);
-
-  border-radius: 6px;
-
-  color: var(--cyan);
-
-  background: #FAFDFD;
-
-  font-size: 11px;
-
-  font-weight: 700;
-
-  margin-top: 1px;
-
-}
-
-
-.ps-consequence-label {
-
-  display: block;
-
-  font-size: 6.5px;
-
-  font-weight: 800;
-
-  letter-spacing: .13em;
-
-  color: var(--muted);
-
-  margin-bottom: 4px;
-
-}
-
-
-.ps-card-foot p {
-
-  margin: 0;
-
-  font-size: 10px;
-
-  line-height: 1.5;
-
-  color: var(--body);
-
-  max-width: 200px;
-
-}
-
-
-/* ============================================================
-   CARD BOTTOM BAR
-============================================================ */
-
-.ps-card-bar {
-
-  display: block;
-
-  height: 2px;
-
-  background: var(--border);
-
-  overflow: hidden;
-
-  margin-top: 18px;
-
-  border-radius: 999px;
-
-}
-
-
-.ps-card-bar span {
-
-  display: block;
-
-  width: 26px;
-
-  height: 100%;
-
-  background: var(--cyan);
-
-  border-radius: 999px;
-
-  transition:
-    width .3s ease;
-
-}
-
-
-.ps-card:hover .ps-card-bar span {
-
-  width: 56px;
-
-}
-
-
-/* ============================================================
-   PIVOT
-============================================================ */
-
-.ps-pivot {
-
-  position: relative;
-
-  margin:
-    96px
-    0
-    88px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-}
-
-
-.ps-pivot-line {
-
-  position: absolute;
-
-  left: 0;
-
-  right: 0;
-
-  height: 1px;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent 0%,
-      var(--border) 15%,
-      var(--border) 85%,
-      transparent 100%
-    );
-
-}
-
-
-.ps-pivot-node {
-
-  position: relative;
-
-  z-index: 2;
-
-  width: 36px;
-
-  height: 36px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  background: var(--surface);
-
-  border:
-    1px solid
-    var(--border);
-
-  border-radius: 50%;
-
-  box-shadow:
-    0 0 0 6px var(--background),
-    0 0 0 7px var(--border);
-
-}
-
-
-.ps-pivot-dot {
-
-  width: 10px;
-
-  height: 10px;
-
-  border-radius: 50%;
-
-  background: var(--cyan);
-
-  box-shadow:
-    0 0 12px
-    rgba(
-      0,
-      191,
-      200,
-      .5
-    );
-
-  animation:
-    pivot-pulse
-    2.4s
-    ease-in-out
-    infinite;
-
-}
-
-
-@keyframes pivot-pulse {
-
-  0%,
-  100% {
-
-    box-shadow:
-      0 0 12px
-      rgba(
-        0,
-        191,
-        200,
-        .5
-      );
-
+  .ps {
+    position: relative;
+    background: var(--color-bg-light);
+    color: var(--color-text-main);
+    padding: 100px 0;
+    transition: var(--theme-transition);
   }
 
-  50% {
-
-    box-shadow:
-      0 0 22px
-      rgba(
-        0,
-        191,
-        200,
-        .18
-      );
-
+  [dir="rtl"] .ps {
+    text-align: right;
   }
-
-}
-
-
-.ps-pivot-labels {
-
-  position: absolute;
-
-  left: 0;
-
-  right: 0;
-
-  top:
-    calc(
-      100% + 14px
-    );
-
-  display: flex;
-
-  justify-content: center;
-
-  gap: 120px;
-
-  font-size: 7.5px;
-
-  font-weight: 800;
-
-  letter-spacing: .14em;
-
-  color: var(--muted);
-
-  text-transform: uppercase;
-
-  pointer-events: none;
-
-}
-
-
-/* ============================================================
-   SOLUTION
-============================================================ */
-
-.ps-resolution {
-
-  display: grid;
-
-  grid-template-columns:
-    minmax(0, 1fr)
-    minmax(0, 1fr);
-
-  gap: 80px;
-
-  align-items: start;
-
-}
-
-
-.ps-resolution-eyebrow {
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 10px;
-
-  margin:
-    0
-    0
-    28px;
-
-  font-size: 9px;
-
-  font-weight: 800;
-
-  letter-spacing: .16em;
-
-  text-transform: uppercase;
-
-  color: var(--cyan);
-
-}
-
-
-.ps-resolution-h2 {
-
-  margin:
-    0
-    0
-    24px;
-
-  font-size:
-    clamp(
-      40px,
-      4.4vw,
-      64px
-    );
-
-  font-weight: 800;
-
-  line-height: 1.01;
-
-  letter-spacing: -.055em;
-
-  color: var(--ink);
-
-}
-
-
-.ps-resolution-h2 em {
-
-  font-style: normal;
-
-  color: var(--blue);
-
-}
-
-
-.ps-resolution-body {
-
-  margin: 0;
-
-  font-size: 14px;
-
-  line-height: 1.75;
-
-  color: var(--body);
-
-  max-width: 480px;
-
-}
-
-
-/* ============================================================
-   PILLARS
-============================================================ */
-
-.ps-pillars {
-
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 0;
-
-  margin-bottom: 36px;
-
-  border:
-    1px solid
-    var(--border);
-
-  border-radius: 14px;
-
-  overflow: hidden;
-
-}
-
-
-.ps-pillar {
-
-  display: flex;
-
-  align-items: flex-start;
-
-  gap: 16px;
-
-  padding:
-    18px
-    20px;
-
-  background: var(--surface);
-
-  transition:
-    background .2s ease;
-
-}
-
-
-.ps-pillar + .ps-pillar {
-
-  border-top:
-    1px solid
-    var(--border);
-
-}
-
-
-.ps-pillar:hover {
-
-  background: var(--cyan-soft);
-
-}
-
-
-.ps-pillar-num {
-
-  width: 28px;
-
-  height: 28px;
-
-  flex-shrink: 0;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  border-radius: 8px;
-
-  background: var(--cyan-mid);
-
-  color: var(--cyan);
-
-  font-size: 16px;
-
-  font-weight: 700;
-
-  margin-top: 1px;
-
-}
-
-
-.ps-pillar strong {
-
-  display: block;
-
-  font-size: 13px;
-
-  font-weight: 700;
-
-  color: var(--ink);
-
-  letter-spacing: -.015em;
-
-  margin-bottom: 3px;
-
-}
-
-
-.ps-pillar p {
-
-  margin: 0;
-
-  font-size: 11.5px;
-
-  line-height: 1.55;
-
-  color: var(--body);
-
-}
-
-
-/* ============================================================
-   CTA
-============================================================ */
-
-.ps-cta {
-
-  display: inline-flex;
-
-  align-items: center;
-
-  gap: 12px;
-
-  height: 48px;
-
-  padding:
-    0
-    20px
-    0
-    22px;
-
-  border-radius: 999px;
-
-  border:
-    1px solid
-    var(--border);
-
-  background: var(--surface);
-
-  color: var(--ink);
-
-  font-size: 11.5px;
-
-  font-weight: 750;
-
-  text-decoration: none;
-
-  box-shadow:
-    0 8px 24px
-    rgba(
-      1,
-      22,
-      64,
-      .055
-    );
-
-  transition:
-    transform .18s ease,
-    border-color .18s ease,
-    box-shadow .18s ease;
-
-}
-
-
-.ps-cta:hover {
-
-  transform:
-    translateY(-2px);
-
-  border-color:
-    rgba(
-      0,
-      191,
-      200,
-      .4
-    );
-
-  box-shadow:
-    0 14px 30px
-    rgba(
-      1,
-      22,
-      64,
-      .09
-    );
-
-}
-
-
-.ps-cta-icon {
-
-  width: 26px;
-
-  height: 26px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  border-radius: 50%;
-
-  background: var(--cyan);
-
-  color: #FFFFFF;
-
-  font-size: 13px;
-
-  transition:
-    transform .18s ease;
-
-}
-
-
-.ps-cta:hover .ps-cta-icon {
-
-  transform:
-    translateX(2px);
-
-}
-
-
-/* ============================================================
-   JOURNEY
-============================================================ */
-
-.ps-journey {
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  margin-top: 72px;
-
-  gap: 0;
-
-}
-
-
-.ps-journey-node {
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 8px;
-
-  font-size: 7px;
-
-  font-weight: 800;
-
-  letter-spacing: .12em;
-
-  color: var(--muted);
-
-  white-space: nowrap;
-
-}
-
-
-.ps-journey-node span {
-
-  width: 8px;
-
-  height: 8px;
-
-  border-radius: 50%;
-
-  border:
-    1px solid
-    #B8C5CC;
-
-  background: var(--surface);
-
-  flex-shrink: 0;
-
-}
-
-
-.ps-journey-node--done {
-
-  color: var(--body);
-
-}
-
-
-.ps-journey-node--done span {
-
-  background: #B8C5CC;
-
-  border-color: #B8C5CC;
-
-}
-
-
-.ps-journey-node--active {
-
-  color: var(--ink);
-
-}
-
-
-.ps-journey-node--active span {
-
-  background: var(--cyan);
-
-  border-color:
-    rgba(
-      0,
-      191,
-      200,
-      .35
-    );
-
-  box-shadow:
-    0 0 0 5px
-    rgba(
-      0,
-      191,
-      200,
-      .1
-    );
-
-}
-
-
-.ps-journey-track {
-
-  width: 80px;
-
-  height: 1px;
-
-  background:
-    linear-gradient(
-      90deg,
-      var(--cyan),
-      var(--border)
-    );
-
-  margin:
-    0
-    14px;
-
-  position: relative;
-
-  flex-shrink: 0;
-
-}
-
-
-.ps-journey-track--dim {
-
-  background: var(--border);
-
-}
-
-
-.ps-journey-fill {
-
-  display: block;
-
-  width: 100%;
-
-  height: 100%;
-
-  background: var(--cyan);
-
-}
-
-
-/* ============================================================
-   TABLET
-============================================================ */
-
-@media (max-width: 1050px) {
-
-  .ps-heading-row {
-
-    grid-template-columns:
-      minmax(0, 1.2fr)
-      minmax(240px, .8fr);
-
-    gap: 50px;
-
-  }
-
-
-  .ps-h2 {
-
-    font-size:
-      clamp(
-        46px,
-        6vw,
-        66px
-      );
-
-  }
-
-
-  .ps-grid {
-
-    grid-template-columns:
-      repeat(
-        2,
-        minmax(0, 1fr)
-      );
-
-  }
-
-
-  .ps-resolution {
-
-    grid-template-columns: 1fr;
-
-    gap: 44px;
-
-  }
-
-
-  .ps-resolution-body {
-
-    max-width: 600px;
-
-  }
-
-
-  .ps-pillars {
-
-    max-width: 600px;
-
-  }
-
-}
-
-
-/* ============================================================
-   MOBILE
-============================================================ */
-
-@media (max-width: 768px) {
 
   .ps-wrap {
-
-    width:
-      min(
-        calc(100% - 32px),
-        640px
-      );
-
-    padding:
-      88px
-      0
-      100px;
-
+    width: min(1240px, calc(100% - 48px));
+    margin: 0 auto;
   }
 
+  .ps-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    color: var(--color-teal);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .ps-eyebrow-rule {
+    width: 24px;
+    height: 2px;
+    background: var(--color-teal);
+  }
 
   .ps-heading-row {
-
-    grid-template-columns: 1fr;
-
-    gap: 22px;
-
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 60px;
+    align-items: flex-end;
+    margin-bottom: 50px;
   }
-
 
   .ps-h2 {
-
-    font-size:
-      clamp(
-        42px,
-        11vw,
-        58px
-      );
-
+    margin: 0;
+    font-size: clamp(38px, 4.5vw, 60px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--color-primary);
   }
 
+  .ps-h2 em {
+    font-style: normal;
+    color: var(--color-teal);
+  }
+
+  .ps-lead {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+  }
 
   .ps-grid {
-
-    grid-template-columns: 1fr;
-
-    border-radius: 14px;
-
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
   }
-
 
   .ps-card {
-
-    min-height: auto;
-
-    padding:
-      22px
-      20px
-      20px;
-
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 18px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: var(--shadow-sm);
+    transition: transform 200ms ease, box-shadow 200ms ease, var(--theme-transition);
   }
-
 
   .ps-card:hover {
-
-    transform: none;
-
-    box-shadow: none;
-
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-teal);
   }
 
+  .ps-card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .ps-card-num {
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--color-text-light);
+  }
+
+  .ps-card-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: var(--color-surface-hover);
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ps-card-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .ps-card-label {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+  }
+
+  .ps-card-body h3 {
+    margin: 6px 0 10px;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1.25;
+  }
+
+  .ps-card-body p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+
+  .ps-card-foot {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--color-border);
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .ps-card-arrow {
+    color: #e11d48;
+    font-weight: 700;
+  }
+
+  [dir="rtl"] .ps-card-arrow {
+    transform: rotate(180deg);
+  }
+
+  .ps-consequence-label {
+    font-size: 9px;
+    font-weight: 800;
+    color: #e11d48;
+    letter-spacing: 0.08em;
+    display: block;
+  }
+
+  .ps-card-foot p {
+    margin: 2px 0 0;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-text-main);
+  }
 
   .ps-pivot {
-
-    margin:
-      72px
-      0
-      66px;
-
+    margin: 70px 0;
+    text-align: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
+  .ps-pivot-line {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: var(--color-border);
+    z-index: 1;
+  }
 
   .ps-pivot-labels {
-
-    gap: 64px;
-
-    font-size: 7px;
-
+    position: relative;
+    z-index: 2;
+    background: var(--color-surface);
+    padding: 8px 24px;
+    border: 1px solid var(--color-border);
+    border-radius: 99px;
+    display: flex;
+    gap: 20px;
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--color-primary);
+    letter-spacing: 0.1em;
   }
-
 
   .ps-resolution {
-
-    gap: 32px;
-
+    background: linear-gradient(135deg, #0a2540 0%, #0f4c81 100%);
+    border-radius: 24px;
+    padding: 50px;
+    color: #ffffff;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 50px;
+    align-items: center;
+    box-shadow: 0 20px 45px -15px rgba(10, 37, 64, 0.2);
   }
 
-
-  .ps-resolution-h2 {
-
-    font-size:
-      clamp(
-        36px,
-        9vw,
-        50px
-      );
-
+  [data-theme="dark"] .ps-resolution {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    border: 1px solid rgba(100, 238, 234, 0.2);
   }
 
-
-  .ps-cta {
-
-    width: fit-content;
-
-  }
-
-
-  .ps-journey {
-
-    flex-wrap: wrap;
-
-    justify-content: center;
-
+  .ps-resolution-eyebrow {
+    display: flex;
+    align-items: center;
     gap: 10px;
-
-    margin-top: 52px;
-
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    color: #64eeea;
   }
 
-
-  .ps-journey-track {
-
-    width: 40px;
-
-    margin:
-      0
-      8px;
-
+  .ps-eyebrow-rule--cyan {
+    background: #64eeea;
   }
-
-
-  .ps-journey-node {
-
-    font-size: 6.5px;
-
-  }
-
-}
-
-
-/* ============================================================
-   SMALL MOBILE
-============================================================ */
-
-@media (max-width: 420px) {
-
-  .ps-wrap {
-
-    width:
-      min(
-        calc(100% - 28px),
-        640px
-      );
-
-  }
-
-
-  .ps-h2 {
-
-    font-size: 40px;
-
-  }
-
-
-  .ps-card h3 {
-
-    font-size: 17px;
-
-  }
-
 
   .ps-resolution-h2 {
-
-    font-size: 34px;
-
+    margin: 16px 0;
+    font-size: clamp(32px, 3.8vw, 48px);
+    font-weight: 800;
+    line-height: 1.1;
+    color: #ffffff;
   }
 
+  .ps-resolution-h2 em {
+    font-style: normal;
+    color: #64eeea;
+  }
+
+  .ps-resolution-body {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .ps-pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .ps-pillar {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 16px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .ps-pillar-num {
+    font-size: 14px;
+    font-weight: 800;
+    color: #64eeea;
+    background: rgba(0, 168, 150, 0.2);
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .ps-pillar strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  .ps-pillar p {
+    margin: 2px 0 0;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.75);
+  }
 
   .ps-cta {
-
-    width: 100%;
-
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-
+    gap: 10px;
+    width: 100%;
+    padding: 16px;
+    border-radius: 12px;
+    background: #00a896;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    transition: background 200ms ease, transform 200ms ease;
   }
 
-
-  .ps-pivot-labels {
-
-    gap: 40px;
-
-    font-size: 6.5px;
-
+  [dir="rtl"] .ps-cta-icon {
+    transform: rotate(180deg);
   }
 
-}
-
-
-/* ============================================================
-   REDUCED MOTION
-============================================================ */
-
-@media (prefers-reduced-motion: reduce) {
-
-  .ps-pivot-dot {
-
-    animation: none;
-
+  .ps-cta:hover {
+    background: #028090;
+    transform: translateY(-2px);
   }
 
-
-  .ps-card,
-  .ps-card-icon,
-  .ps-card-bar span,
-  .ps-pillar,
-  .ps-cta,
-  .ps-cta-icon {
-
-    transition: none;
-
+  @media (max-width: 1024px) {
+    .ps-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .ps-heading-row, .ps-resolution {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
   }
 
-}
-
+  @media (max-width: 640px) {
+    .ps-grid {
+      grid-template-columns: 1fr;
+    }
+    .ps-resolution {
+      padding: 30px 20px;
+    }
+  }
 </style>

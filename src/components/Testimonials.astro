@@ -1,2220 +1,447 @@
 ---
-/*
- * ============================================================
- * SPARK — EXPERIENCE & CLIENTS
- * ============================================================
- *
- * DEMO CONTENT
- * ------------------------------------------------------------
- * The clients, reviews and metrics below are examples for
- * visual development only.
- *
- * Replace them with verified SPARK data before publishing.
- */
-
-/* ============================================================
-   EXPERIENCE / PROOF
-============================================================ */
-
-const proofPoints = [
-  {
-    value: "+25",
-    label: "salons accompagnés",
-    note: "Exemple de donnée",
-  },
-  {
-    value: "80+",
-    label: "campagnes lancées",
-    note: "Exemple de donnée",
-  },
-  {
-    value: "6",
-    label: "villes accompagnées",
-    note: "Exemple de donnée",
-  },
-  {
-    value: "4 ans",
-    label: "d’expérience",
-    note: "Exemple de donnée",
-  },
+const stats = [
+  { valKey: "m1Val", labelKey: "m1Label", noteKey: "m1Note", value: "+35%", label: "De Rendez-vous Confirmés", note: "Moyenne constatée à 30 jours" },
+  { valKey: "m2Val", labelKey: "m2Label", noteKey: "m2Note", value: "30+", label: "Praticiens & Centres", note: "Médecins, Kinés, Esthétique" },
+  { valKey: "m3Val", labelKey: "m3Label", noteKey: "m3Note", value: "98%", label: "Taux de Satisfaction", note: "Renouvellement mensuel" },
+  { valKey: "m4Val", labelKey: "m4Label", noteKey: "m4Note", value: "0", label: "Contrat d'Engagement", note: "Liberté totale & sans contrainte" },
 ];
 
-
-/* ============================================================
-   CLIENTS
-============================================================ */
-
-const clients = [
+const caseStudies = [
   {
-    name: "Maison Élégance",
-    category: "Beauty & Hair",
+    catKey: "c1Cat",
+    nameKey: "c1Name",
+    detailKey: "c1Detail",
+    locKey: "c1Loc",
+    resKey: "c1Res",
+    category: "Médecine Esthétique",
+    name: "Dr. Amina Benjelloun",
+    detail: "Médecine Anti-âge & Esthétique",
     location: "Casablanca",
-    logo:
-      "https://placehold.co/300x100/F3FAFF/011640?text=MAISON+ELEGANCE",
+    result: "+40% de consultations laser & injections",
   },
   {
-    name: "Studio Noor",
-    category: "Beauty Studio",
+    catKey: "c2Cat",
+    nameKey: "c2Name",
+    detailKey: "c2Detail",
+    locKey: "c2Loc",
+    resKey: "c2Res",
+    category: "Kinésithérapie",
+    name: "Centre Kiné & Sport",
+    detail: "Rééducation & Kiné du Sport",
     location: "Rabat",
-    logo:
-      "https://placehold.co/300x100/F3FAFF/011640?text=STUDIO+NOOR",
+    result: "Agenda complet à 2 semaines d'avance",
   },
   {
-    name: "Luna Beauty",
-    category: "Beauty Salon",
+    catKey: "c3Cat",
+    nameKey: "c3Name",
+    detailKey: "c3Detail",
+    locKey: "c3Loc",
+    resKey: "c3Res",
+    category: "Centre d'Esthétique",
+    name: "Maison Éclat Esthétique",
+    detail: "Cures Visage & Soins Corps",
     location: "Marrakech",
-    logo:
-      "https://placehold.co/300x100/F3FAFF/011640?text=LUNA+BEAUTY",
-  },
-  {
-    name: "Éclat Studio",
-    category: "Hair & Beauty",
-    location: "Agadir",
-    logo:
-      "https://placehold.co/300x100/F3FAFF/011640?text=ECLAT+STUDIO",
+    result: "+28 nouvelles clientes par mois",
   },
 ];
-
-
-/* ============================================================
-   TESTIMONIAL
-============================================================ */
-
-const testimonial = {
-  quote:
-    "Nous avions déjà essayé de communiquer sur les réseaux sociaux, mais sans véritable structure. Avec Spark, nous avons enfin une approche claire : une offre, des campagnes et un parcours pensé pour générer des rendez-vous.",
-  name: "Sarah El Mansouri",
-  salon: "Maison Élégance",
-  location: "Casablanca, Maroc",
-  role: "Fondatrice",
-};
-
-
-/* ============================================================
-   MINI CASE STUDY
-============================================================ */
-
-const caseStudy = {
-  result: "+32%",
-  metric: "demandes de rendez-vous",
-  period: "Exemple — sur 90 jours",
-};
 ---
 
-
-<section
-  id="experience"
-  class="experience-section"
-  aria-labelledby="experience-title"
->
-
-  <div class="experience-container">
-
-    <!-- =====================================================
-         INTRODUCTION
-    ====================================================== -->
-
-    <header class="experience-header">
-
-      <div class="experience-eyebrow">
-
-        <span class="eyebrow-number">
-          05
-        </span>
-
-        <span
-          class="eyebrow-line"
-          aria-hidden="true"
-        ></span>
-
-        <span>
-          NOTRE EXPÉRIENCE
-        </span>
-
+<section id="testimonials" class="testimonials-section" aria-labelledby="testimonials-title">
+  <div class="testimonials-container">
+    <!-- SECTION HEADER -->
+    <header class="testimonials-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        <span data-i18n="testimonialsEyebrow">PREUVES & RÉSULTATS</span>
       </div>
-
-
-      <div class="experience-heading">
-
-        <div class="heading-main">
-
-          <span class="section-index">
-            EXPÉRIENCE / PREUVE
-          </span>
-
-          <h2 id="experience-title">
-            Une expérience pensée
-            <span>pour les salons.</span>
-          </h2>
-
-        </div>
-
-
-        <div class="heading-side">
-
-          <p>
-            Nous construisons des systèmes marketing conçus autour
-            d’un objectif simple : transformer l’attention en rendez-vous.
-          </p>
-
-
-          <div class="specialization">
-
-            <span
-              class="specialization-dot"
-              aria-hidden="true"
-            ></span>
-
-            <span>
-              Spécialisé dans l’univers de la beauté
-            </span>
-
-          </div>
-
-        </div>
-
-      </div>
-
+      <h2 id="testimonials-title" class="testimonials-h2">
+        <span data-i18n="testimonialsTitleMain">Ce que disent</span>
+        <em data-i18n="testimonialsTitleHighlight">nos praticiens & directeurs.</em>
+      </h2>
+      <p class="testimonials-lead" data-i18n="testimonialsDesc">
+        Des résultats mesurables pour des cabinets médicalisés, centres de soins et cabinets de kinésithérapie au Maroc.
+      </p>
     </header>
 
-
-
-    <!-- =====================================================
-         EXPERIENCE / PROOF
-    ====================================================== -->
-
-    <div class="experience-proof">
-
-      <div class="proof-intro">
-
-        <span class="proof-label">
-          L’EXPÉRIENCE SPARK
-        </span>
-
-
-        <h3>
-          Comprendre le salon
-          <span>avant de construire le système.</span>
-        </h3>
-
-
-        <p>
-          Un salon ne cherche pas simplement plus de visibilité.
-          Il cherche des conversations qualifiées, des demandes
-          concrètes et davantage d’opportunités de rendez-vous.
-        </p>
-
-
-        <div class="proof-note">
-
-          <span class="proof-note-dot"></span>
-
-          <span>
-            Données présentées à titre d’exemple
+    <!-- STATS GRID (4 METRICS) -->
+    <div class="stats-grid">
+      {stats.map((stat) => (
+        <div class="stat-card">
+          <span class="stat-value font-mono" data-i18n={stat.valKey}>
+            {stat.value}
           </span>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- =================================================
-           METRICS
-      ================================================== -->
-
-      <div class="proof-points">
-
-        {proofPoints.map((point, index) => (
-
-          <div class="proof-point">
-
-            <span class="proof-index">
-              {String(index + 1).padStart(2, "0")}
-            </span>
-
-
-            <div class="proof-content">
-
-              <strong>
-                {point.value}
-              </strong>
-
-              <span>
-                {point.label}
-              </span>
-
-              <small>
-                {point.note}
-              </small>
-
-            </div>
-
+          <div class="stat-body">
+            <h3 class="stat-label" data-i18n={stat.labelKey}>
+              {stat.label}
+            </h3>
+            <p class="stat-note" data-i18n={stat.noteKey}>
+              {stat.note}
+            </p>
           </div>
-
-        ))}
-
-      </div>
-
+        </div>
+      ))}
     </div>
 
+    <!-- FEATURED MAIN TESTIMONIAL CARD (Dr. Amina Benjelloun) -->
+    <div class="featured-card">
+      <div class="featured-watermark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+        </svg>
+      </div>
 
-
-    <!-- =====================================================
-         CLIENTS
-    ====================================================== -->
-
-    <div class="clients-area">
-
-      <div class="clients-header">
-
-        <div>
-
-          <span class="clients-kicker">
-            ILS NOUS FONT CONFIANCE
-          </span>
-
-          <h3>
-            Des salons qui avancent
-            <span>avec une vraie stratégie.</span>
-          </h3>
-
+      <div class="featured-content">
+        <div class="featured-badge">
+          <span>✓</span>
+          <span data-i18n="featuredVerified">Cabinet Partenaire Vérifié SPARK</span>
         </div>
 
-
-        <p>
-          Quelques exemples de présentation pour illustrer
-          comment les partenaires SPARK peuvent être mis en avant
-          sans transformer la section en portfolio classique.
-        </p>
-
-      </div>
-
-
-
-      <!-- =================================================
-           LOGO LIST
-      ================================================== -->
-
-      <div class="client-logos">
-
-        {clients.map((client, index) => (
-
-          <div class="client-logo">
-
-            <div class="logo-index">
-              0{index + 1}
-            </div>
-
-
-            <div class="logo-image">
-
-              <img
-                src={client.logo}
-                alt={`Logo ${client.name}`}
-                loading="lazy"
-                decoding="async"
-              />
-
-            </div>
-
-
-            <div class="logo-information">
-
-              <strong>
-                {client.name}
-              </strong>
-
-              <span>
-                {client.category}
-              </span>
-
-              <small>
-                {client.location}
-              </small>
-
-            </div>
-
-          </div>
-
-        ))}
-
-      </div>
-
-    </div>
-
-
-
-    <!-- =====================================================
-         CLIENT VOICE + CASE STUDY
-    ====================================================== -->
-
-    <article class="client-voice">
-
-
-      <!-- LEFT MARKER -->
-
-      <div class="voice-marker">
-
-        <span class="voice-index">
-          06
-        </span>
-
-        <span class="voice-label">
-          VOIX CLIENT
-        </span>
-
-      </div>
-
-
-
-      <!-- TESTIMONIAL -->
-
-      <div class="voice-content">
-
-        <span class="voice-kicker">
-          RETOUR D’EXPÉRIENCE
-        </span>
-
-
-        <span
-          class="quote-mark"
-          aria-hidden="true"
-        >
-          “
-        </span>
-
-
-        <blockquote>
-          {testimonial.quote}
+        <blockquote class="featured-quote">
+          "<span data-i18n="mainQuoteText">Avant Spark, nous avions des likes mais peu de vrais rendez-vous. Aujourd'hui, les patientes nous contactent directement sur WhatsApp pour réserver leurs séances. Notre agenda s'est rempli très naturellement sans qu'on passe nos journées au téléphone.</span>"
         </blockquote>
 
-
-        <div class="client-information">
-
-          <div
-            class="client-avatar"
-            aria-hidden="true"
-          >
-            S
+        <div class="featured-author">
+          <div class="avatar-circle">AB</div>
+          <div>
+            <h4 class="author-name" data-i18n="mainAuthor">Dr. Amina Benjelloun</h4>
+            <p class="author-role" data-i18n="mainRole">Médecin Esthétique & Laser · Casablanca</p>
           </div>
-
-
-          <div class="client-details">
-
-            <strong>
-              {testimonial.name}
-            </strong>
-
-            <span>
-              {testimonial.salon}
-            </span>
-
-            <small>
-              {testimonial.role} · {testimonial.location}
-            </small>
-
-          </div>
-
         </div>
-
       </div>
-
-
-
-      <!-- RESULT -->
-
-      <aside class="case-result">
-
-        <span class="case-result-label">
-          RÉSULTAT
-        </span>
-
-
-        <strong>
-          {caseStudy.result}
-        </strong>
-
-
-        <span class="case-result-metric">
-          {caseStudy.metric}
-        </span>
-
-
-        <small>
-          {caseStudy.period}
-        </small>
-
-
-        <div class="case-result-line">
-          <span></span>
-        </div>
-
-      </aside>
-
-    </article>
-
-
-
-    <!-- =====================================================
-         CLOSING STATEMENT
-    ====================================================== -->
-
-    <div class="experience-closing">
-
-      <div class="closing-rule"></div>
-
-
-      <p>
-        Pas une agence généraliste.
-        <strong>
-          Un système pensé pour les salons.
-        </strong>
-      </p>
-
-
-      <div class="closing-rule closing-rule-right"></div>
-
     </div>
 
-  </div>
+    <!-- SECONDARY CASE STUDIES GRID (3 NICHE CARDS) -->
+    <div class="cases-grid">
+      {caseStudies.map((item) => (
+        <div class="case-card">
+          <div class="case-top">
+            <span class="case-category" data-i18n={item.catKey}>{item.category}</span>
+            <span class="case-location" data-i18n={item.locKey}>{item.location}</span>
+          </div>
 
+          <div class="case-body">
+            <h4 class="case-name" data-i18n={item.nameKey}>{item.name}</h4>
+            <p class="case-detail" data-i18n={item.detailKey}>{item.detail}</p>
+          </div>
+
+          <div class="case-result">
+            <span class="result-arrow" aria-hidden="true">↗</span>
+            <span data-i18n={item.resKey}>{item.result}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
 </section>
 
-
-
 <style>
-
-/* ============================================================
-   DESIGN TOKENS
-============================================================ */
-
-.experience-section {
-
-  --color-ink: #011640;
-
-  --color-blue-dark: #0A4A82;
-
-  --color-blue: #0B5FA5;
-
-  --color-cyan: #3BC9DB;
-
-  --color-body: #3F3F3F;
-
-  --color-background: #F3FAFF;
-
-  --color-surface: #FFFFFF;
-
-  --color-neutral: #F1F3F5;
-
-  --color-muted: #7A858C;
-
-  --color-border: #DDE5EA;
-
-  --color-border-soft: #E8EEF2;
-
-
-  position: relative;
-
-  isolation: isolate;
-
-  overflow: hidden;
-
-  background: var(--color-background);
-
-  color: var(--color-ink);
-
-}
-
-
-
-/* ============================================================
-   BACKGROUND ATMOSPHERE
-============================================================ */
-
-.experience-section::before {
-
-  position: absolute;
-
-  top: -280px;
-
-  right: -220px;
-
-  width: 650px;
-
-  height: 650px;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(59, 201, 219, 0.09),
-      rgba(59, 201, 219, 0.025) 40%,
-      transparent 70%
-    );
-
-  content: "";
-
-  pointer-events: none;
-
-}
-
-
-.experience-section::after {
-
-  position: absolute;
-
-  bottom: -300px;
-
-  left: -260px;
-
-  width: 580px;
-
-  height: 580px;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(10, 74, 130, 0.055),
-      transparent 70%
-    );
-
-  content: "";
-
-  pointer-events: none;
-
-}
-
-
-
-/* ============================================================
-   CONTAINER
-============================================================ */
-
-.experience-container {
-
-  position: relative;
-
-  z-index: 2;
-
-  width:
-    min(
-      1180px,
-      calc(100% - 64px)
-    );
-
-  margin-inline: auto;
-
-  padding:
-    145px
-    0
-    135px;
-
-}
-
-
-
-/* ============================================================
-   HEADER
-============================================================ */
-
-.experience-header {
-
-  margin-bottom: 92px;
-
-}
-
-
-.experience-eyebrow {
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 11px;
-
-  color: var(--color-blue);
-
-  font-size: 9px;
-
-  font-weight: 800;
-
-  letter-spacing: 0.18em;
-
-}
-
-
-.eyebrow-number {
-
-  color: var(--color-muted);
-
-  font-size: 8px;
-
-}
-
-
-.eyebrow-line {
-
-  width: 34px;
-
-  height: 1px;
-
-  background: var(--color-blue);
-
-}
-
-
-.experience-heading {
-
-  display: grid;
-
-  grid-template-columns:
-    minmax(0, 1.35fr)
-    minmax(280px, 0.65fr);
-
-  gap: 90px;
-
-  align-items: end;
-
-  margin-top: 27px;
-
-}
-
-
-.section-index {
-
-  display: block;
-
-  margin-bottom: 18px;
-
-  color: #8C979E;
-
-  font-size: 8px;
-
-  font-weight: 800;
-
-  letter-spacing: 0.16em;
-
-}
-
-
-.heading-main h2 {
-
-  max-width: 800px;
-
-  margin: 0;
-
-  color: var(--color-ink);
-
-  font-size:
-    clamp(
-      52px,
-      6vw,
-      80px
-    );
-
-  line-height: 0.95;
-
-  letter-spacing: -0.065em;
-
-  font-weight: 800;
-
-}
-
-
-.heading-main h2 span {
-
-  display: block;
-
-  color: var(--color-blue);
-
-}
-
-
-.heading-side {
-
-  padding-bottom: 4px;
-
-}
-
-
-.heading-side > p {
-
-  max-width: 390px;
-
-  margin: 0;
-
-  color: var(--color-body);
-
-  font-size: 14px;
-
-  line-height: 1.8;
-
-}
-
-
-.specialization {
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 10px;
-
-  margin-top: 25px;
-
-  color: var(--color-blue-dark);
-
-  font-size: 8px;
-
-  font-weight: 800;
-
-  letter-spacing: 0.09em;
-
-  text-transform: uppercase;
-
-}
-
-
-.specialization-dot {
-
-  width: 7px;
-
-  height: 7px;
-
-  border-radius: 50%;
-
-  background: var(--color-cyan);
-
-}
-
-
-
-/* ============================================================
-   EXPERIENCE / PROOF
-============================================================ */
-
-.experience-proof {
-
-  display: grid;
-
-  grid-template-columns:
-    minmax(280px, 0.82fr)
-    minmax(0, 1.18fr);
-
-  gap: 80px;
-
-  padding:
-    42px
-    0
-    55px;
-
-  border-top:
-    1px solid
-    var(--color-border);
-
-  border-bottom:
-    1px solid
-    var(--color-border);
-
-}
-
-
-.proof-intro {
-
-  max-width: 390px;
-
-}
-
-
-.proof-label {
-
-  display: block;
-
-  margin-bottom: 19px;
-
-  color: var(--color-blue);
-
-  font-size: 8px;
-
-  font-weight: 800;
-
-  letter-spacing: 0.16em;
-
-}
-
-
-.proof-intro h3 {
-
-  margin: 0;
-
-  color: var(--color-ink);
-
-  font-size:
-    clamp(
-      28px,
-      3vw,
-      38px
-    );
-
-  line-height: 1.05;
-
-  letter-spacing: -0.045em;
-
-  font-weight: 750;
-
-}
-
-
-.proof-intro h3 span {
-
-  display: block;
-
-  color: var(--color-blue-dark);
-
-}
-
-
-.proof-intro p {
-
-  max-width: 360px;
-
-  margin:
-    21px
-    0
-    0;
-
-  color: var(--color-body);
-
-  font-size: 12px;
-
-  line-height: 1.8;
-
-}
-
-
-.proof-note {
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 8px;
-
-  margin-top: 24px;
-
-  color: var(--color-muted);
-
-  font-size: 8px;
-
-  letter-spacing: 0.03em;
-
-}
-
-
-.proof-note-dot {
-
-  width: 5px;
-
-  height: 5px;
-
-  border-radius: 50%;
-
-  background: var(--color-cyan);
-
-}
-
-
-
-/* ============================================================
-   PROOF POINTS
-============================================================ */
-
-.proof-points {
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(2, 1fr);
-
-  border-top:
-    1px solid
-    var(--color-border-soft);
-
-  border-left:
-    1px solid
-    var(--color-border-soft);
-
-}
-
-
-.proof-point {
-
-  display: flex;
-
-  min-height: 154px;
-
-  padding:
-    25px
-    27px;
-
-  background:
-    rgba(
-      255,
-      255,
-      255,
-      0.45
-    );
-
-  border-right:
-    1px solid
-    var(--color-border-soft);
-
-  border-bottom:
-    1px solid
-    var(--color-border-soft);
-
-  transition:
-    background 220ms ease,
-    transform 220ms ease;
-
-}
-
-
-.proof-point:hover {
-
-  background:
-    var(--color-surface);
-
-  transform:
-    translateY(-2px);
-
-}
-
-
-.proof-index {
-
-  margin-right: 24px;
-
-  color: #9BA6AD;
-
-  font-size: 7px;
-
-  font-weight: 800;
-
-  letter-spacing: 0.13em;
-
-}
-
-
-.proof-content {
-
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: flex-start;
-
-}
-
-
-.proof-content strong {
-
-  color: var(--color-ink);
-
-  font-size:
-    clamp(
-      34px,
-      3.6vw,
-      49px
-    );
-
-  line-height: 0.95;
-
-  letter-spacing: -0.065em;
-
-  font-weight: 800;
-
-}
-
-
-.proof-content > span {
-
-  margin-top: 10px;
-
-  color: var(--color-body);
-
-  font-size: 9px;
-
-  font-weight: 750;
-
-  letter-spacing: 0.07em;
-
-  text-transform: uppercase;
-
-}
-
-
-.proof-content small {
-
-  margin-top: 9px;
-
-  color: var(--color-muted);
-
-  font-size: 7px;
-
-  line-height: 1.4;
-
-}
-
-
-
-/* ============================================================
-   CLIENT AREA
-============================================================ */
-
-.clients-area {
-
-  padding:
-    67px
-    0
-    72px;
-
-}
-
-
-.clients-header {
-
-  display: grid;
-
-  grid-template-columns:
-    minmax(0, 1fr)
-    minmax(260px, 0.55fr);
-
-  gap: 60px;
-
-  align-items: end;
-
-}
-
-
-.clients-kicker {
-
-  display: block;
-
-  margin-bottom: 12px;
-
-  color: var(--color-blue);
-
-  font-size: 8px;
-
-  font-weight: 800;
-
-  letter-spacing: 0.17em;
-
-}
-
-
-.clients-heading h3 {
-
-  margin: 0;
-
-  color: var(--color-ink);
-
-  font-size:
-    clamp(
-      28px,
-      3vw,
-      38px
-    );
-
-  line-height: 1;
-
-  letter-spacing: -0.045em;
-
-  font-weight: 750;
-
-}
-
-
-.clients-heading h3 span {
-
-  display: block;
-
-  color: var(--color-blue-dark);
-
-}
-
-
-.clients-header > p {
-
-  max-width: 340px;
-
-  margin: 0;
-
-  color: var(--color-body);
-
-  font-size: 11px;
-
-  line-height: 1.7;
-
-}
-
-
-
-/* ============================================================
-   CLIENT LOGOS
-============================================================ */
-
-.client-logos {
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(4, 1fr);
-
-  margin-top: 35px;
-
-  background:
-    rgba(
-      255,
-      255,
-      255,
-      0.45
-    );
-
-  border-top:
-    1px solid
-    var(--color-border-soft);
-
-  border-bottom:
-    1px solid
-    var(--color-border-soft);
-
-}
-
-
-.client-logo {
-
-  min-height: 115px;
-
-  display: flex;
-
-  flex-direction: column;
-
-  justify-content: center;
-
-  gap: 10px;
-
-  padding:
-    18px
-    22px;
-
-  border-right:
-    1px solid
-    var(--color-border-soft);
-
-  transition:
-    background 220ms ease;
-
-}
-
-
-.client-logo:last-child {
-
-  border-right: 0;
-
-}
-
-
-.client-logo:hover {
-
-  background:
-    rgba(
-      255,
-      255,
-      255,
-      0.9
-    );
-
-}
-
-
-.logo-index {
-
-  color: #A0AAB0;
-
-  font-size: 7px;
-
-  font-weight: 800;
-
-  letter-spacing: 0.14em;
-
-}
-
-
-.logo-image {
-
-  width: 100%;
-
-  height: 45px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: flex-start;
-
-}
-
-
-.logo-image img {
-
-  display: block;
-
-  width: 170px;
-
-  max-width: 100%;
-
-  height: 52px;
-
-  object-fit: contain;
-
-  object-position: left center;
-
-  filter:
-    grayscale(1)
-    contrast(0.8);
-
-  opacity: 0.7;
-
-  transition:
-    filter 220ms ease,
-    opacity 220ms ease;
-
-}
-
-
-.client-logo:hover img {
-
-  filter:
-    grayscale(0)
-    contrast(1);
-
-  opacity: 1;
-
-}
-
-
-.logo-information {
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 7px;
-
-}
-
-
-.logo-information strong {
-
-  color: var(--color-ink);
-
-  font-size: 8px;
-
-  font-weight: 800;
-
-  letter-spacing: 0.04em;
-
-}
-
-
-.logo-information span {
-
-  color: var(--color-muted);
-
-  font-size: 7px;
-
-}
-
-
-.logo-information small {
-
-  color: #9AA4AA;
-
-  font-size: 6px;
-
-}
-
-
-
-/* ============================================================
-   CLIENT VOICE
-============================================================ */
-
-.client-voice {
-
-  display: grid;
-
-  grid-template-columns:
-    105px
-    minmax(0, 1fr)
-    210px;
-
-  gap: 55px;
-
-  padding:
-    55px
-    0
-    48px;
-
-  border-top:
-    1px solid
-    var(--color-border);
-
-  border-bottom:
-    1px solid
-    var(--color-border);
-
-}
-
-
-.voice-marker {
-
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 9px;
-
-}
-
-
-.voice-index {
-
-  color: var(--color-blue);
-
-  font-size: 9px;
-
-  font-weight: 800;
-
-  letter-spacing: 0.13em;
-
-}
-
-
-.voice-label {
-
-  color: #9BA5AA;
-
-  font-size: 7px;
-
-  font-weight: 800;
-
-  line-height: 1.5;
-
-  letter-spacing: 0.14em;
-
-}
-
-
-.voice-content {
-
-  position: relative;
-
-}
-
-
-.voice-kicker {
-
-  display: block;
-
-  margin-bottom: 17px;
-
-  color: var(--color-blue);
-
-  font-size: 7px;
-
-  font-weight: 800;
-
-  letter-spacing: 0.15em;
-
-}
-
-
-.quote-mark {
-
-  position: absolute;
-
-  top: -38px;
-
-  left: -10px;
-
-  color:
-    rgba(
-      59,
-      201,
-      219,
-      0.18
-    );
-
-  font-family: Georgia, serif;
-
-  font-size: 82px;
-
-  line-height: 1;
-
-}
-
-
-.voice-content blockquote {
-
-  position: relative;
-
-  max-width: 710px;
-
-  margin: 0;
-
-  color: var(--color-ink);
-
-  font-size:
-    clamp(
-      24px,
-      2.7vw,
-      36px
-    );
-
-  line-height: 1.18;
-
-  letter-spacing: -0.04em;
-
-  font-weight: 600;
-
-}
-
-
-.client-information {
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 13px;
-
-  margin-top: 32px;
-
-}
-
-
-.client-avatar {
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  width: 40px;
-
-  height: 40px;
-
-  flex: 0 0 auto;
-
-  border:
-    1px solid
-    rgba(
-      11,
-      95,
-      165,
-      0.22
-    );
-
-  border-radius: 50%;
-
-  background:
-    var(--color-surface);
-
-  color:
-    var(--color-blue);
-
-  font-size: 11px;
-
-  font-weight: 800;
-
-}
-
-
-.client-details {
-
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 3px;
-
-}
-
-
-.client-details strong {
-
-  color: var(--color-ink);
-
-  font-size: 10px;
-
-  font-weight: 800;
-
-}
-
-
-.client-details span {
-
-  color: var(--color-body);
-
-  font-size: 9px;
-
-}
-
-
-.client-details small {
-
-  color: var(--color-muted);
-
-  font-size: 7px;
-
-}
-
-
-
-/* ============================================================
-   CASE RESULT
-============================================================ */
-
-.case-result {
-
-  align-self: end;
-
-  padding-left: 25px;
-
-  border-left:
-    1px solid
-    var(--color-border);
-
-}
-
-
-.case-result-label {
-
-  display: block;
-
-  margin-bottom: 13px;
-
-  color: var(--color-blue);
-
-  font-size: 7px;
-
-  font-weight: 800;
-
-  letter-spacing: 0.15em;
-
-}
-
-
-.case-result strong {
-
-  display: block;
-
-  color: var(--color-ink);
-
-  font-size: 42px;
-
-  line-height: 0.95;
-
-  letter-spacing: -0.06em;
-
-  font-weight: 800;
-
-}
-
-
-.case-result-metric {
-
-  display: block;
-
-  margin-top: 9px;
-
-  color: var(--color-body);
-
-  font-size: 9px;
-
-  line-height: 1.4;
-
-}
-
-
-.case-result small {
-
-  display: block;
-
-  margin-top: 6px;
-
-  color: var(--color-muted);
-
-  font-size: 7px;
-
-}
-
-
-.case-result-line {
-
-  width: 55px;
-
-  margin-top: 20px;
-
-}
-
-
-.case-result-line span {
-
-  display: block;
-
-  width: 100%;
-
-  height: 2px;
-
-  background:
-    var(--color-cyan);
-
-}
-
-
-
-/* ============================================================
-   CLOSING
-============================================================ */
-
-.experience-closing {
-
-  display: grid;
-
-  grid-template-columns:
-    1fr
-    auto
-    1fr;
-
-  align-items: center;
-
-  gap: 26px;
-
-  padding-top: 46px;
-
-}
-
-
-.experience-closing p {
-
-  margin: 0;
-
-  color: var(--color-body);
-
-  font-size: 10px;
-
-  text-align: center;
-
-}
-
-
-.experience-closing strong {
-
-  color: var(--color-ink);
-
-}
-
-
-.closing-rule {
-
-  height: 1px;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      var(--color-border)
-    );
-
-}
-
-
-.closing-rule-right {
-
-  background:
-    linear-gradient(
-      90deg,
-      var(--color-border),
-      transparent
-    );
-
-}
-
-
-
-/* ============================================================
-   TABLET
-============================================================ */
-
-@media (max-width: 1000px) {
-
-  .experience-container {
-
-    width:
-      min(
-        900px,
-        calc(100% - 48px)
-      );
-
-    padding:
-      115px
-      0
-      110px;
+  .testimonials-section {
+    position: relative;
+    background: var(--color-bg-light);
+    color: var(--color-text-main);
+    padding: 100px 0;
+    border-top: 1px solid var(--color-border);
+    transition: var(--theme-transition);
+  }
+
+  [dir="rtl"] .testimonials-section {
+    text-align: right;
+  }
+
+  .testimonials-container {
+    width: min(1240px, calc(100% - 48px));
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .testimonials-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    color: var(--color-teal);
+    margin-bottom: 16px;
+    white-space: nowrap;
+  }
+
+  .eyebrow-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-teal);
+  }
+
+  .testimonials-h2 {
+    margin: 0 0 16px;
+    font-size: clamp(34px, 4.2vw, 54px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--color-primary);
+  }
+
+  .testimonials-h2 em {
+    font-style: normal;
+    color: var(--color-teal);
+    display: block;
+  }
+
+  .testimonials-lead {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--color-text-muted);
+  }
+
+  /* STATS GRID */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .stat-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 20px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: var(--shadow-sm);
+    transition: transform 200ms ease, box-shadow 200ms ease, var(--theme-transition);
+  }
+
+  .stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-teal);
+  }
+
+  .stat-value {
+    font-size: clamp(36px, 3.5vw, 48px);
+    font-weight: 800;
+    color: var(--color-primary);
+    line-height: 1;
+  }
+
+  .stat-body {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .stat-label {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  .stat-note {
+    margin: 4px 0 0;
+    font-size: 12px;
+    color: var(--color-text-muted);
+  }
+
+  /* FEATURED CARD */
+  .featured-card {
+    position: relative;
+    background: linear-gradient(135deg, #0a2540 0%, #0d3154 50%, #0f4c81 100%);
+    border-radius: 24px;
+    padding: 48px;
+    color: #ffffff;
+    overflow: hidden;
+    box-shadow: 0 20px 45px -15px rgba(10, 37, 64, 0.25);
+  }
+
+  [data-theme="dark"] .featured-card {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    border: 1px solid rgba(100, 238, 234, 0.2);
+  }
+
+  .featured-watermark {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    opacity: 0.12;
+    width: 100px;
+    height: 100px;
+    pointer-events: none;
+  }
+
+  [dir="rtl"] .featured-watermark {
+    right: auto;
+    left: 24px;
+  }
+
+  .featured-content {
+    position: relative;
+    z-index: 2;
+    max-width: 840px;
 
   }
 
-
-  .experience-heading {
-
-    gap: 50px;
-
+  .featured-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 99px;
+    background: rgba(0, 168, 150, 0.2);
+    border: 1px solid rgba(0, 168, 150, 0.3);
+    color: #64eeea;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 20px;
   }
 
-
-  .experience-proof {
-
-    grid-template-columns: 1fr;
-
-    gap: 45px;
-
+  .featured-quote {
+    margin: 0 0 28px;
+    font-size: clamp(18px, 2.2vw, 24px);
+    font-weight: 500;
+    line-height: 1.6;
+    color: #ffffff;
+    font-style: italic;
   }
 
-
-  .proof-intro {
-
-    max-width: 600px;
-
+  .featured-author {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
   }
 
-
-  .client-logos {
-
-    grid-template-columns:
-      repeat(2, 1fr);
-
+  .avatar-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00a896 0%, #64eeea 100%);
+    color: #0a2540;
+    font-size: 18px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
   }
 
-
-  .client-logo:nth-child(2) {
-
-    border-right: 0;
-
+  .author-name {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 700;
+    color: #ffffff;
   }
 
-
-  .client-logo:nth-child(-n + 2) {
-
-    border-bottom:
-      1px solid
-      var(--color-border-soft);
-
+  .author-role {
+    margin: 2px 0 0;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.75);
   }
 
-
-  .client-voice {
-
-    grid-template-columns:
-      75px
-      minmax(0, 1fr);
-
-    gap: 35px;
-
+  /* CASES GRID */
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
   }
 
+  .case-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 20px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    box-shadow: var(--shadow-sm);
+    transition: transform 200ms ease, box-shadow 200ms ease, var(--theme-transition);
+  }
+
+  .case-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-teal);
+  }
+
+  .case-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+  }
+
+  .case-category {
+    font-weight: 800;
+    color: var(--color-teal);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .case-location {
+    color: var(--color-text-light);
+    font-weight: 600;
+  }
+
+  .case-name {
+    margin: 6px 0 2px;
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--color-primary);
+  }
+
+  .case-detail {
+    margin: 0;
+    font-size: 12px;
+    color: var(--color-text-muted);
+  }
 
   .case-result {
-
-    display: none;
-
-  }
-
-}
-
-
-
-/* ============================================================
-   MOBILE
-============================================================ */
-
-@media (max-width: 700px) {
-
-  .experience-container {
-
-    width:
-      calc(100% - 32px);
-
-    padding:
-      88px
-      0
-      88px;
-
-  }
-
-
-  .experience-header {
-
-    margin-bottom: 64px;
-
-  }
-
-
-  .experience-heading {
-
-    grid-template-columns: 1fr;
-
-    gap: 28px;
-
-    margin-top: 21px;
-
-  }
-
-
-  .heading-main h2 {
-
-    font-size:
-      clamp(
-        43px,
-        12vw,
-        62px
-      );
-
-    line-height: 0.96;
-
-  }
-
-
-  .heading-side > p {
-
-    font-size: 13px;
-
-  }
-
-
-  .experience-proof {
-
-    padding:
-      35px
-      0
-      43px;
-
-    gap: 38px;
-
-  }
-
-
-  .proof-intro h3 {
-
-    font-size: 30px;
-
-  }
-
-
-  .proof-points {
-
-    grid-template-columns:
-      repeat(2, 1fr);
-
-  }
-
-
-  .proof-point {
-
-    min-height: 137px;
-
-    padding:
-      20px
-      15px;
-
-  }
-
-
-  .proof-index {
-
-    margin-right: 12px;
-
-  }
-
-
-  .proof-content strong {
-
-    font-size: 33px;
-
-  }
-
-
-  .proof-content > span {
-
-    font-size: 8px;
-
-    line-height: 1.45;
-
-  }
-
-
-  .clients-area {
-
-    padding:
-      52px
-      0
-      55px;
-
-  }
-
-
-  .clients-header {
-
-    grid-template-columns: 1fr;
-
-    gap: 17px;
-
-  }
-
-
-  .client-logos {
-
-    grid-template-columns: 1fr;
-
-    margin-top: 27px;
-
-  }
-
-
-  .client-logo {
-
-    min-height: 105px;
-
-    padding:
-      15px
-      18px;
-
-    border-right: 0;
-
-    border-bottom:
-      1px solid
-      var(--color-border-soft);
-
-  }
-
-
-  .client-logo:nth-child(2) {
-
-    border-right: 0;
-
-  }
-
-
-  .client-logo:last-child {
-
-    border-bottom: 0;
-
-  }
-
-
-  .logo-image {
-
-    height: 42px;
-
-  }
-
-
-  .logo-image img {
-
-    width: 190px;
-
-  }
-
-
-  .client-voice {
-
-    grid-template-columns: 1fr;
-
-    gap: 25px;
-
-    padding:
-      40px
-      0
-      40px;
-
-  }
-
-
-  .voice-marker {
-
-    flex-direction: row;
-
+    padding-top: 14px;
+    border-top: 1px solid var(--color-border);
+    display: flex;
     align-items: center;
-
-    gap: 13px;
-
+    gap: 8px;
+    color: var(--color-teal);
+    font-size: 13px;
+    font-weight: 700;
   }
 
-
-  .voice-content blockquote {
-
-    font-size: 25px;
-
-    line-height: 1.2;
-
+  .result-arrow {
+    font-size: 15px;
   }
 
-
-  .quote-mark {
-
-    top: -17px;
-
-    left: -4px;
-
-    font-size: 60px;
-
+  [dir="rtl"] .result-arrow {
+    transform: rotate(90deg);
   }
 
-
-  .client-information {
-
-    margin-top: 28px;
-
+  @media (max-width: 1024px) {
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .cases-grid {
+      grid-template-columns: 1fr;
+    }
   }
 
-
-  .experience-closing {
-
-    grid-template-columns: 1fr;
-
-    gap: 17px;
-
-    padding-top: 36px;
-
+  @media (max-width: 640px) {
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+    .featured-card {
+      padding: 30px 20px;
+    }
   }
-
-
-  .experience-closing p {
-
-    font-size: 9px;
-
-    line-height: 1.6;
-
-  }
-
-
-  .closing-rule {
-
-    width: 65px;
-
-    margin-inline: auto;
-
-  }
-
-}
-
-
-
-/* ============================================================
-   SMALL MOBILE
-============================================================ */
-
-@media (max-width: 430px) {
-
-  .experience-container {
-
-    width:
-      calc(100% - 24px);
-
-  }
-
-
-  .heading-main h2 {
-
-    font-size: 41px;
-
-  }
-
-
-  .proof-point {
-
-    min-height: 125px;
-
-    padding:
-      17px
-      11px;
-
-  }
-
-
-  .proof-index {
-
-    margin-right: 8px;
-
-    font-size: 6px;
-
-  }
-
-
-  .proof-content strong {
-
-    font-size: 28px;
-
-  }
-
-
-  .proof-content > span {
-
-    font-size: 7px;
-
-  }
-
-
-  .voice-content blockquote {
-
-    font-size: 23px;
-
-  }
-
-
-  .logo-image img {
-
-    width: 165px;
-
-  }
-
-}
-
-
-
-/* ============================================================
-   REDUCED MOTION
-============================================================ */
-
-@media (prefers-reduced-motion: reduce) {
-
-  *,
-  *::before,
-  *::after {
-
-    scroll-behavior: auto !important;
-
-    transition: none !important;
-
-  }
-
-}
-
 </style>
