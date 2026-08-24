@@ -1,0 +1,2072 @@
+---
+const problems = [
+  {
+    number: "01",
+    title: "Des périodes creuses",
+    description:
+      "Certains jours ou certaines périodes, votre agenda manque de rendez-vous.",
+    consequence: "Des créneaux disponibles qui pourraient être occupés.",
+    icon: "calendar",
+  },
+  {
+    number: "02",
+    title: "Beaucoup de visibilité, peu de clientes",
+    description:
+      "Des vues et des likes, mais pas suffisamment de nouvelles demandes.",
+    consequence: "Votre audience grandit, mais votre agenda ne suit pas.",
+    icon: "visibility",
+  },
+  {
+    number: "03",
+    title: "Des publicités sans vraie stratégie",
+    description:
+      "Vous investissez dans la publicité sans toujours savoir ce qui fonctionne réellement.",
+    consequence: "Vous dépensez sans avoir une vision claire des résultats.",
+    icon: "ads",
+  },
+  {
+    number: "04",
+    title: "Pas le temps de tout gérer",
+    description:
+      "Vous avez un salon à gérer. Votre marketing ne devrait pas vous prendre toute votre énergie.",
+    consequence: "Votre marketing passe souvent après le reste.",
+    icon: "time",
+  },
+];
+---
+
+<section
+  id="problem"
+  class="ps"
+  aria-labelledby="problem-title"
+>
+  <div class="ps-wrap">
+
+    <!-- ══════════════════════════════════════
+         CHAPTER ONE — LE PROBLÈME
+    ══════════════════════════════════════ -->
+
+    <div class="chapter chapter-problem">
+
+      <header class="ps-header">
+
+        <p class="ps-eyebrow">
+          <span class="ps-eyebrow-rule"></span>
+          VOTRE SALON MÉRITE PLUS
+        </p>
+
+        <div class="ps-heading-row">
+
+          <h2 id="problem-title" class="ps-h2">
+            Votre salon mérite<br>
+            <em>plus que des likes.</em>
+          </h2>
+
+          <p class="ps-lead">
+            Avoir une belle présence sur Instagram est important.
+            Mais ce qui compte vraiment, c'est ce qu'elle génère
+            pour votre salon.
+          </p>
+
+        </div>
+
+      </header>
+
+
+      <!-- Problem cards -->
+
+      <div class="ps-grid" role="list">
+
+        {problems.map((p) => (
+
+          <article class="ps-card" role="listitem">
+
+            <div class="ps-card-head">
+
+              <span class="ps-card-num">
+                {p.number}
+              </span>
+
+              <span
+                class="ps-card-icon"
+                aria-hidden="true"
+              >
+
+                {p.icon === "calendar" && (
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <rect
+                      x="4"
+                      y="5"
+                      width="16"
+                      height="15"
+                      rx="3"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <path
+                      d="M8 3V7M16 3V7M4 10H20"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M8 14H10M12 14H14M8 17H10M12 17H14"
+                      stroke="currentColor"
+                      stroke-width="1.4"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                )}
+
+                {p.icon === "visibility" && (
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M3.5 12C5.7 7.9 8.5 6 12 6C15.5 6 18.3 7.9 20.5 12C18.3 16.1 15.5 18 12 18C8.5 18 5.7 16.1 3.5 12Z"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="3"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="1"
+                      fill="currentColor"
+                    />
+                  </svg>
+                )}
+
+                {p.icon === "ads" && (
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M5 17L8.5 13.5L11.5 16L19 8.5"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M14.5 8.5H19V13"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M5 20H19"
+                      stroke="currentColor"
+                      stroke-width="1.3"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                )}
+
+                {p.icon === "time" && (
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="8"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <path
+                      d="M12 7V12L15 14"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                )}
+
+              </span>
+
+            </div>
+
+
+            <div class="ps-card-body">
+
+              <span class="ps-card-label">
+                LE DÉFI
+              </span>
+
+              <h3>
+                {p.title}
+              </h3>
+
+              <p>
+                {p.description}
+              </p>
+
+            </div>
+
+
+            <div class="ps-card-foot">
+
+              <span
+                class="ps-card-arrow"
+                aria-hidden="true"
+              >
+                →
+              </span>
+
+              <div>
+
+                <span class="ps-consequence-label">
+                  CONSÉQUENCE
+                </span>
+
+                <p>
+                  {p.consequence}
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div
+              class="ps-card-bar"
+              aria-hidden="true"
+            >
+              <span></span>
+            </div>
+
+          </article>
+
+        ))}
+
+      </div>
+
+    </div>
+
+
+    <!-- ══════════════════════════════════════
+         PIVOT — THE VISUAL HINGE
+    ══════════════════════════════════════ -->
+
+    <div
+      class="ps-pivot"
+      aria-hidden="true"
+    >
+
+      <div class="ps-pivot-line"></div>
+
+      <div class="ps-pivot-node">
+        <span class="ps-pivot-dot"></span>
+      </div>
+
+      <div class="ps-pivot-labels">
+        <span>LE PROBLÈME</span>
+        <span>LA SOLUTION</span>
+      </div>
+
+    </div>
+
+
+    <!-- ══════════════════════════════════════
+         CHAPTER TWO — LA SOLUTION
+    ══════════════════════════════════════ -->
+
+    <div class="chapter chapter-solution">
+
+      <div class="ps-resolution">
+
+        <div class="ps-resolution-copy">
+
+          <p class="ps-resolution-eyebrow">
+
+            <span
+              class="ps-eyebrow-rule ps-eyebrow-rule--cyan"
+            ></span>
+
+            LE PASSAGE À L'ACTION
+
+          </p>
+
+
+          <h2 class="ps-resolution-h2">
+
+            Votre marketing doit
+            <em>
+              travailler pour<br />
+              votre salon.
+            </em>
+
+          </h2>
+
+
+          <p class="ps-resolution-body">
+
+            Spark transforme votre visibilité en un système pensé
+            pour attirer, convertir et optimiser les demandes
+            de nouvelles clientes.
+
+          </p>
+
+        </div>
+
+
+        <div class="ps-resolution-right">
+
+          <!-- Outcome pillars -->
+
+          <div class="ps-pillars">
+
+            <div class="ps-pillar">
+
+              <span class="ps-pillar-num">
+                +
+              </span>
+
+              <div>
+
+                <strong>
+                  Demandes réelles
+                </strong>
+
+                <p>
+                  Pas des vues. Des messages de clientes intéressées.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="ps-pillar">
+
+              <span class="ps-pillar-num">
+                +
+              </span>
+
+              <div>
+
+                <strong>
+                  Agenda rempli
+                </strong>
+
+                <p>
+                  Des rendez-vous concrets, pas des impressions.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="ps-pillar">
+
+              <span class="ps-pillar-num">
+                +
+              </span>
+
+              <div>
+
+                <strong>
+                  Budget maîtrisé
+                </strong>
+
+                <p>
+                  Vous savez exactement ce que chaque dirham rapporte.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <a
+            href="#spark-system"
+            class="ps-cta"
+            aria-label="Découvrir le système Spark"
+          >
+
+            <span>
+              Découvrir le système Spark
+            </span>
+
+            <span
+              class="ps-cta-icon"
+              aria-hidden="true"
+            >
+              →
+            </span>
+
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- Journey marker -->
+
+      <div class="ps-journey">
+
+        <div class="ps-journey-node ps-journey-node--done">
+
+          <span></span>
+
+          <strong>
+            PROBLÈME IDENTIFIÉ
+          </strong>
+
+        </div>
+
+
+        <div class="ps-journey-track">
+
+          <span class="ps-journey-fill"></span>
+
+        </div>
+
+
+        <div class="ps-journey-node ps-journey-node--active">
+
+          <span></span>
+
+          <strong>
+            SYSTÈME SPARK
+          </strong>
+
+        </div>
+
+
+        <div class="ps-journey-track ps-journey-track--dim">
+
+          <span></span>
+
+        </div>
+
+
+        <div class="ps-journey-node">
+
+          <span></span>
+
+          <strong>
+            RÉSULTATS
+          </strong>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<style>
+
+/* ============================================================
+   SPARK COLOR SYSTEM
+   Same palette as the Experience / Proof section
+============================================================ */
+
+.ps {
+
+  /* Primary brand */
+  --ink: #011640;
+
+  /* Primary blue */
+  --blue: #0B5FA5;
+
+  /* Secondary dark blue */
+  --blue-dark: #0A4A82;
+
+  /* Primary cyan */
+  --cyan: #00BFC8;
+
+  /* Body text */
+  --body: #3F3F3F;
+
+  /* Muted text */
+  --muted: #7A858C;
+
+  /* Main border */
+  --border: #DDE5EA;
+
+  /* Soft border */
+  --border-soft: #E8EEF2;
+
+  /* Surface */
+  --surface: #FFFFFF;
+
+  /* Background */
+  --background: #F3FAFF;
+
+  /* Soft cyan background */
+  --cyan-soft: #E8F8F9;
+
+  /* Cyan transparency */
+  --cyan-mid: rgba(0, 191, 200, 0.14);
+
+  position: relative;
+  isolation: isolate;
+
+  background: var(--background);
+
+  color: var(--ink);
+
+  overflow: hidden;
+
+}
+
+
+/* ============================================================
+   BACKGROUND ATMOSPHERE
+============================================================ */
+
+.ps::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 0;
+
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(1, 22, 64, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(1, 22, 64, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 72px 72px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      black 0%,
+      transparent 45%
+    );
+
+}
+
+
+/* ============================================================
+   SOFT CYAN ATMOSPHERE
+============================================================ */
+
+.ps::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 620px;
+
+  height: 620px;
+
+  top: -280px;
+
+  right: -240px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0, 191, 200, 0.07),
+      rgba(0, 191, 200, 0.025) 40%,
+      transparent 70%
+    );
+
+  pointer-events: none;
+
+  z-index: 0;
+
+}
+
+
+/* ============================================================
+   WRAPPER
+============================================================ */
+
+.ps-wrap {
+
+  position: relative;
+
+  z-index: 1;
+
+  width:
+    min(
+      calc(100% - 80px),
+      1280px
+    );
+
+  margin: 0 auto;
+
+  padding:
+    128px
+    0
+    140px;
+
+}
+
+
+/* ============================================================
+   EYEBROW
+============================================================ */
+
+.ps-eyebrow {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin:
+    0
+    0
+    26px;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: .16em;
+
+  text-transform: uppercase;
+
+  color: var(--blue);
+
+}
+
+
+.ps-eyebrow-rule {
+
+  display: block;
+
+  width: 22px;
+
+  height: 1.5px;
+
+  background: var(--blue);
+
+  flex-shrink: 0;
+
+}
+
+
+.ps-eyebrow-rule--cyan {
+
+  background: var(--cyan);
+
+}
+
+
+/* ============================================================
+   HEADER
+============================================================ */
+
+.ps-header {
+
+  margin-bottom: 44px;
+
+}
+
+
+.ps-heading-row {
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.35fr)
+    minmax(260px, .65fr);
+
+  align-items: end;
+
+  gap: 72px;
+
+}
+
+
+.ps-h2 {
+
+  margin: 0;
+
+  font-size:
+    clamp(
+      52px,
+      5.8vw,
+      80px
+    );
+
+  font-weight: 800;
+
+  line-height: .95;
+
+  letter-spacing: -.06em;
+
+  color: var(--ink);
+
+}
+
+
+.ps-h2 em {
+
+  font-style: normal;
+
+  color: var(--blue);
+
+}
+
+
+.ps-lead {
+
+  margin: 0;
+
+  font-size: 14px;
+
+  line-height: 1.75;
+
+  color: var(--body);
+
+  padding-bottom: 4px;
+
+}
+
+
+/* ============================================================
+   PROBLEM CARDS GRID
+============================================================ */
+
+.ps-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(0, 1fr)
+    );
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  background: var(--border);
+
+  gap: 1px;
+
+  box-shadow:
+    0 16px 48px
+    rgba(
+      1,
+      22,
+      64,
+      0.05
+    );
+
+}
+
+
+/* ============================================================
+   CARD
+============================================================ */
+
+.ps-card {
+
+  display: flex;
+
+  flex-direction: column;
+
+  padding:
+    26px
+    24px
+    22px;
+
+  background: var(--surface);
+
+  min-height: 360px;
+
+  transition:
+    background .22s ease,
+    transform .22s ease,
+    box-shadow .22s ease;
+
+  position: relative;
+
+}
+
+
+.ps-card:hover {
+
+  background: #F8FEFE;
+
+  transform:
+    translateY(-5px);
+
+  box-shadow:
+    0 20px 44px
+    rgba(
+      1,
+      22,
+      64,
+      0.08
+    );
+
+  z-index: 2;
+
+  border-radius: 3px;
+
+}
+
+
+/* ============================================================
+   CARD HEADER
+============================================================ */
+
+.ps-card-head {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+}
+
+
+.ps-card-num {
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: .13em;
+
+  color: #9BA6AD;
+
+}
+
+
+/* ============================================================
+   CARD ICON
+============================================================ */
+
+.ps-card-icon {
+
+  width: 42px;
+
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(
+      0,
+      191,
+      200,
+      .18
+    );
+
+  border-radius: 11px;
+
+  background: var(--cyan-soft);
+
+  color: var(--cyan);
+
+  transition:
+    transform .22s ease,
+    background .22s ease;
+
+}
+
+
+.ps-card:hover .ps-card-icon {
+
+  transform:
+    translateY(-2px);
+
+  background: #E0F7F8;
+
+}
+
+
+.ps-card-icon svg {
+
+  width: 18px;
+
+  height: 18px;
+
+}
+
+
+/* ============================================================
+   CARD BODY
+============================================================ */
+
+.ps-card-body {
+
+  margin-top: 48px;
+
+  flex: 1;
+
+}
+
+
+.ps-card-label {
+
+  display: block;
+
+  font-size: 7px;
+
+  font-weight: 800;
+
+  letter-spacing: .15em;
+
+  color: var(--blue);
+
+  margin-bottom: 10px;
+
+}
+
+
+.ps-card h3 {
+
+  margin: 0;
+
+  font-size: 18.5px;
+
+  line-height: 1.18;
+
+  letter-spacing: -.033em;
+
+  font-weight: 760;
+
+  color: var(--ink);
+
+  max-width: 240px;
+
+}
+
+
+.ps-card-body p {
+
+  margin:
+    12px
+    0
+    0;
+
+  font-size: 12.5px;
+
+  line-height: 1.68;
+
+  color: var(--body);
+
+  max-width: 250px;
+
+}
+
+
+/* ============================================================
+   CARD FOOT
+============================================================ */
+
+.ps-card-foot {
+
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 28px;
+
+  padding-top: 20px;
+
+  border-top:
+    1px solid
+    var(--border);
+
+  align-items: flex-start;
+
+}
+
+
+.ps-card-arrow {
+
+  width: 22px;
+
+  height: 22px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius: 6px;
+
+  color: var(--cyan);
+
+  background: #FAFDFD;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  margin-top: 1px;
+
+}
+
+
+.ps-consequence-label {
+
+  display: block;
+
+  font-size: 6.5px;
+
+  font-weight: 800;
+
+  letter-spacing: .13em;
+
+  color: var(--muted);
+
+  margin-bottom: 4px;
+
+}
+
+
+.ps-card-foot p {
+
+  margin: 0;
+
+  font-size: 10px;
+
+  line-height: 1.5;
+
+  color: var(--body);
+
+  max-width: 200px;
+
+}
+
+
+/* ============================================================
+   CARD BOTTOM BAR
+============================================================ */
+
+.ps-card-bar {
+
+  display: block;
+
+  height: 2px;
+
+  background: var(--border);
+
+  overflow: hidden;
+
+  margin-top: 18px;
+
+  border-radius: 999px;
+
+}
+
+
+.ps-card-bar span {
+
+  display: block;
+
+  width: 26px;
+
+  height: 100%;
+
+  background: var(--cyan);
+
+  border-radius: 999px;
+
+  transition:
+    width .3s ease;
+
+}
+
+
+.ps-card:hover .ps-card-bar span {
+
+  width: 56px;
+
+}
+
+
+/* ============================================================
+   PIVOT
+============================================================ */
+
+.ps-pivot {
+
+  position: relative;
+
+  margin:
+    96px
+    0
+    88px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+}
+
+
+.ps-pivot-line {
+
+  position: absolute;
+
+  left: 0;
+
+  right: 0;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--border) 15%,
+      var(--border) 85%,
+      transparent 100%
+    );
+
+}
+
+
+.ps-pivot-node {
+
+  position: relative;
+
+  z-index: 2;
+
+  width: 36px;
+
+  height: 36px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: var(--surface);
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 6px var(--background),
+    0 0 0 7px var(--border);
+
+}
+
+
+.ps-pivot-dot {
+
+  width: 10px;
+
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: var(--cyan);
+
+  box-shadow:
+    0 0 12px
+    rgba(
+      0,
+      191,
+      200,
+      .5
+    );
+
+  animation:
+    pivot-pulse
+    2.4s
+    ease-in-out
+    infinite;
+
+}
+
+
+@keyframes pivot-pulse {
+
+  0%,
+  100% {
+
+    box-shadow:
+      0 0 12px
+      rgba(
+        0,
+        191,
+        200,
+        .5
+      );
+
+  }
+
+  50% {
+
+    box-shadow:
+      0 0 22px
+      rgba(
+        0,
+        191,
+        200,
+        .18
+      );
+
+  }
+
+}
+
+
+.ps-pivot-labels {
+
+  position: absolute;
+
+  left: 0;
+
+  right: 0;
+
+  top:
+    calc(
+      100% + 14px
+    );
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 120px;
+
+  font-size: 7.5px;
+
+  font-weight: 800;
+
+  letter-spacing: .14em;
+
+  color: var(--muted);
+
+  text-transform: uppercase;
+
+  pointer-events: none;
+
+}
+
+
+/* ============================================================
+   SOLUTION
+============================================================ */
+
+.ps-resolution {
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  gap: 80px;
+
+  align-items: start;
+
+}
+
+
+.ps-resolution-eyebrow {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin:
+    0
+    0
+    28px;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: .16em;
+
+  text-transform: uppercase;
+
+  color: var(--cyan);
+
+}
+
+
+.ps-resolution-h2 {
+
+  margin:
+    0
+    0
+    24px;
+
+  font-size:
+    clamp(
+      40px,
+      4.4vw,
+      64px
+    );
+
+  font-weight: 800;
+
+  line-height: 1.01;
+
+  letter-spacing: -.055em;
+
+  color: var(--ink);
+
+}
+
+
+.ps-resolution-h2 em {
+
+  font-style: normal;
+
+  color: var(--blue);
+
+}
+
+
+.ps-resolution-body {
+
+  margin: 0;
+
+  font-size: 14px;
+
+  line-height: 1.75;
+
+  color: var(--body);
+
+  max-width: 480px;
+
+}
+
+
+/* ============================================================
+   PILLARS
+============================================================ */
+
+.ps-pillars {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0;
+
+  margin-bottom: 36px;
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius: 14px;
+
+  overflow: hidden;
+
+}
+
+
+.ps-pillar {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 16px;
+
+  padding:
+    18px
+    20px;
+
+  background: var(--surface);
+
+  transition:
+    background .2s ease;
+
+}
+
+
+.ps-pillar + .ps-pillar {
+
+  border-top:
+    1px solid
+    var(--border);
+
+}
+
+
+.ps-pillar:hover {
+
+  background: var(--cyan-soft);
+
+}
+
+
+.ps-pillar-num {
+
+  width: 28px;
+
+  height: 28px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 8px;
+
+  background: var(--cyan-mid);
+
+  color: var(--cyan);
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  margin-top: 1px;
+
+}
+
+
+.ps-pillar strong {
+
+  display: block;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  color: var(--ink);
+
+  letter-spacing: -.015em;
+
+  margin-bottom: 3px;
+
+}
+
+
+.ps-pillar p {
+
+  margin: 0;
+
+  font-size: 11.5px;
+
+  line-height: 1.55;
+
+  color: var(--body);
+
+}
+
+
+/* ============================================================
+   CTA
+============================================================ */
+
+.ps-cta {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  height: 48px;
+
+  padding:
+    0
+    20px
+    0
+    22px;
+
+  border-radius: 999px;
+
+  border:
+    1px solid
+    var(--border);
+
+  background: var(--surface);
+
+  color: var(--ink);
+
+  font-size: 11.5px;
+
+  font-weight: 750;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 8px 24px
+    rgba(
+      1,
+      22,
+      64,
+      .055
+    );
+
+  transition:
+    transform .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease;
+
+}
+
+
+.ps-cta:hover {
+
+  transform:
+    translateY(-2px);
+
+  border-color:
+    rgba(
+      0,
+      191,
+      200,
+      .4
+    );
+
+  box-shadow:
+    0 14px 30px
+    rgba(
+      1,
+      22,
+      64,
+      .09
+    );
+
+}
+
+
+.ps-cta-icon {
+
+  width: 26px;
+
+  height: 26px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--cyan);
+
+  color: #FFFFFF;
+
+  font-size: 13px;
+
+  transition:
+    transform .18s ease;
+
+}
+
+
+.ps-cta:hover .ps-cta-icon {
+
+  transform:
+    translateX(2px);
+
+}
+
+
+/* ============================================================
+   JOURNEY
+============================================================ */
+
+.ps-journey {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin-top: 72px;
+
+  gap: 0;
+
+}
+
+
+.ps-journey-node {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  font-size: 7px;
+
+  font-weight: 800;
+
+  letter-spacing: .12em;
+
+  color: var(--muted);
+
+  white-space: nowrap;
+
+}
+
+
+.ps-journey-node span {
+
+  width: 8px;
+
+  height: 8px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid
+    #B8C5CC;
+
+  background: var(--surface);
+
+  flex-shrink: 0;
+
+}
+
+
+.ps-journey-node--done {
+
+  color: var(--body);
+
+}
+
+
+.ps-journey-node--done span {
+
+  background: #B8C5CC;
+
+  border-color: #B8C5CC;
+
+}
+
+
+.ps-journey-node--active {
+
+  color: var(--ink);
+
+}
+
+
+.ps-journey-node--active span {
+
+  background: var(--cyan);
+
+  border-color:
+    rgba(
+      0,
+      191,
+      200,
+      .35
+    );
+
+  box-shadow:
+    0 0 0 5px
+    rgba(
+      0,
+      191,
+      200,
+      .1
+    );
+
+}
+
+
+.ps-journey-track {
+
+  width: 80px;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--cyan),
+      var(--border)
+    );
+
+  margin:
+    0
+    14px;
+
+  position: relative;
+
+  flex-shrink: 0;
+
+}
+
+
+.ps-journey-track--dim {
+
+  background: var(--border);
+
+}
+
+
+.ps-journey-fill {
+
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  background: var(--cyan);
+
+}
+
+
+/* ============================================================
+   TABLET
+============================================================ */
+
+@media (max-width: 1050px) {
+
+  .ps-heading-row {
+
+    grid-template-columns:
+      minmax(0, 1.2fr)
+      minmax(240px, .8fr);
+
+    gap: 50px;
+
+  }
+
+
+  .ps-h2 {
+
+    font-size:
+      clamp(
+        46px,
+        6vw,
+        66px
+      );
+
+  }
+
+
+  .ps-grid {
+
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+
+  }
+
+
+  .ps-resolution {
+
+    grid-template-columns: 1fr;
+
+    gap: 44px;
+
+  }
+
+
+  .ps-resolution-body {
+
+    max-width: 600px;
+
+  }
+
+
+  .ps-pillars {
+
+    max-width: 600px;
+
+  }
+
+}
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width: 768px) {
+
+  .ps-wrap {
+
+    width:
+      min(
+        calc(100% - 32px),
+        640px
+      );
+
+    padding:
+      88px
+      0
+      100px;
+
+  }
+
+
+  .ps-heading-row {
+
+    grid-template-columns: 1fr;
+
+    gap: 22px;
+
+  }
+
+
+  .ps-h2 {
+
+    font-size:
+      clamp(
+        42px,
+        11vw,
+        58px
+      );
+
+  }
+
+
+  .ps-grid {
+
+    grid-template-columns: 1fr;
+
+    border-radius: 14px;
+
+  }
+
+
+  .ps-card {
+
+    min-height: auto;
+
+    padding:
+      22px
+      20px
+      20px;
+
+  }
+
+
+  .ps-card:hover {
+
+    transform: none;
+
+    box-shadow: none;
+
+  }
+
+
+  .ps-pivot {
+
+    margin:
+      72px
+      0
+      66px;
+
+  }
+
+
+  .ps-pivot-labels {
+
+    gap: 64px;
+
+    font-size: 7px;
+
+  }
+
+
+  .ps-resolution {
+
+    gap: 32px;
+
+  }
+
+
+  .ps-resolution-h2 {
+
+    font-size:
+      clamp(
+        36px,
+        9vw,
+        50px
+      );
+
+  }
+
+
+  .ps-cta {
+
+    width: fit-content;
+
+  }
+
+
+  .ps-journey {
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 52px;
+
+  }
+
+
+  .ps-journey-track {
+
+    width: 40px;
+
+    margin:
+      0
+      8px;
+
+  }
+
+
+  .ps-journey-node {
+
+    font-size: 6.5px;
+
+  }
+
+}
+
+
+/* ============================================================
+   SMALL MOBILE
+============================================================ */
+
+@media (max-width: 420px) {
+
+  .ps-wrap {
+
+    width:
+      min(
+        calc(100% - 28px),
+        640px
+      );
+
+  }
+
+
+  .ps-h2 {
+
+    font-size: 40px;
+
+  }
+
+
+  .ps-card h3 {
+
+    font-size: 17px;
+
+  }
+
+
+  .ps-resolution-h2 {
+
+    font-size: 34px;
+
+  }
+
+
+  .ps-cta {
+
+    width: 100%;
+
+    justify-content: center;
+
+  }
+
+
+  .ps-pivot-labels {
+
+    gap: 40px;
+
+    font-size: 6.5px;
+
+  }
+
+}
+
+
+/* ============================================================
+   REDUCED MOTION
+============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .ps-pivot-dot {
+
+    animation: none;
+
+  }
+
+
+  .ps-card,
+  .ps-card-icon,
+  .ps-card-bar span,
+  .ps-pillar,
+  .ps-cta,
+  .ps-cta-icon {
+
+    transition: none;
+
+  }
+
+}
+
+</style>

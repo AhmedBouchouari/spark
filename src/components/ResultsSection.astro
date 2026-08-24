@@ -1,0 +1,2121 @@
+---
+const metrics = [
+  {
+    number: "01",
+    label: "DEMANDES",
+    description: "Messages générés",
+    value: "—",
+    trend: "NOUVELLES DEMANDES",
+  },
+  {
+    number: "02",
+    label: "LEADS",
+    description: "Prospects intéressés",
+    value: "—",
+    trend: "PROSPECTS QUALIFIÉS",
+  },
+  {
+    number: "03",
+    label: "RENDEZ-VOUS",
+    description: "Opportunités générées",
+    value: "—",
+    trend: "OPPORTUNITÉS",
+  },
+  {
+    number: "04",
+    label: "COÛT / DEMANDE",
+    description: "Efficacité publicitaire",
+    value: "—",
+    trend: "EFFICACITÉ",
+  },
+];
+
+const journey = [
+  {
+    number: "01",
+    label: "VISIBILITÉ",
+  },
+  {
+    number: "02",
+    label: "DEMANDE",
+  },
+  {
+    number: "03",
+    label: "CONVERSATION",
+  },
+  {
+    number: "04",
+    label: "RENDEZ-VOUS",
+  },
+];
+---
+
+<section id="results" class="results-section">
+  <!-- Decorative background -->
+  <div class="results-background" aria-hidden="true">
+    <div class="background-grid"></div>
+    <div class="background-glow"></div>
+    <div class="background-orb"></div>
+  </div>
+
+  <div class="results-container">
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="results-header">
+      <div class="results-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span>PROOF / RESULTS</span>
+      </div>
+
+      <div class="results-heading">
+        <div class="heading-main">
+          <h2>
+            Des résultats
+            <span>qui comptent vraiment.</span>
+          </h2>
+        </div>
+
+        <div class="heading-copy">
+          <p>
+            Pour nous, une campagne réussie ne se résume pas
+            aux likes ou aux vues. Nous suivons les indicateurs
+            qui rapprochent votre salon de nouvelles clientes
+            et de nouveaux rendez-vous.
+          </p>
+
+          <div class="heading-meta">
+            <span class="meta-line"></span>
+            <span>ORIENTÉ PERFORMANCE</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+    <!-- =====================================================
+         PERFORMANCE DASHBOARD
+    ====================================================== -->
+
+    <div class="performance-dashboard">
+
+      <!-- Dashboard top bar -->
+
+      <div class="dashboard-top">
+        <div class="dashboard-identity">
+
+          <div class="dashboard-mark">
+            <span>S</span>
+          </div>
+
+          <div class="dashboard-name">
+            <span>SPARK</span>
+            <strong>PERFORMANCE</strong>
+          </div>
+
+        </div>
+
+        <div class="dashboard-live">
+          <span class="live-indicator"></span>
+          <span>SUIVI ACTIF</span>
+        </div>
+      </div>
+
+
+      <!-- ===================================================
+           MAIN DASHBOARD
+      ==================================================== -->
+
+      <div class="dashboard-main">
+
+        <!-- Metrics -->
+
+        <div class="metrics-grid">
+
+          {metrics.map((metric, index) => (
+            <article class="metric-card">
+
+              <div class="metric-header">
+
+                <span class="metric-number">
+                  {metric.number}
+                </span>
+
+                <span class="metric-index">
+                  0{index + 1}
+                </span>
+
+              </div>
+
+
+              <div class="metric-value">
+                {metric.value}
+              </div>
+
+
+              <div class="metric-information">
+
+                <span class="metric-label">
+                  {metric.label}
+                </span>
+
+                <p>
+                  {metric.description}
+                </p>
+
+              </div>
+
+
+              <div class="metric-footer">
+
+                <span class="metric-status">
+                  <i></i>
+                  {metric.trend}
+                </span>
+
+                <span class="metric-arrow">
+                  ↗
+                </span>
+
+              </div>
+
+            </article>
+          ))}
+
+        </div>
+
+
+        <!-- =================================================
+             VISUAL DATA AREA
+        ================================================== -->
+
+        <div class="visual-panel">
+
+          <div class="visual-header">
+
+            <div class="visual-title">
+              <span>PERFORMANCE FLOW</span>
+              <strong>
+                Du premier contact au rendez-vous.
+              </strong>
+            </div>
+
+            <div class="visual-period">
+              <span class="period-dot"></span>
+              EN CONTINU
+            </div>
+
+          </div>
+
+
+          <!-- Graph -->
+
+          <div class="performance-visual">
+
+            <div class="graph-grid" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+
+
+            <svg
+              class="performance-graph"
+              viewBox="0 0 900 210"
+              fill="none"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <defs>
+                <linearGradient
+                  id="sparkGraphGradient"
+                  x1="0"
+                  y1="0"
+                  x2="1"
+                  y2="0"
+                >
+                  <stop
+                    offset="0%"
+                    stop-color="#00afb9"
+                    stop-opacity="0.15"
+                  />
+
+                  <stop
+                    offset="50%"
+                    stop-color="#00afb9"
+                    stop-opacity="0.9"
+                  />
+
+                  <stop
+                    offset="100%"
+                    stop-color="#00afb9"
+                    stop-opacity="0.2"
+                  />
+                </linearGradient>
+
+                <linearGradient
+                  id="sparkAreaGradient"
+                  x1="0"
+                  y1="0"
+                  x2="0"
+                  y2="1"
+                >
+                  <stop
+                    offset="0%"
+                    stop-color="#00afb9"
+                    stop-opacity="0.13"
+                  />
+
+                  <stop
+                    offset="100%"
+                    stop-color="#00afb9"
+                    stop-opacity="0"
+                  />
+                </linearGradient>
+              </defs>
+
+
+              <!-- Area -->
+
+              <path
+                class="graph-area"
+                d="
+                  M0 176
+                  L70 166
+                  L145 171
+                  L220 142
+                  L295 150
+                  L370 119
+                  L445 128
+                  L520 92
+                  L595 104
+                  L670 72
+                  L745 83
+                  L825 46
+                  L900 55
+                  L900 210
+                  L0 210
+                  Z
+                "
+              />
+
+
+              <!-- Main line -->
+
+              <path
+                class="graph-line"
+                d="
+                  M0 176
+                  L70 166
+                  L145 171
+                  L220 142
+                  L295 150
+                  L370 119
+                  L445 128
+                  L520 92
+                  L595 104
+                  L670 72
+                  L745 83
+                  L825 46
+                  L900 55
+                "
+              />
+
+
+              <!-- Highlight -->
+
+              <path
+                class="graph-highlight"
+                d="
+                  M0 176
+                  L70 166
+                  L145 171
+                  L220 142
+                  L295 150
+                  L370 119
+                  L445 128
+                  L520 92
+                  L595 104
+                  L670 72
+                  L745 83
+                  L825 46
+                  L900 55
+                "
+              />
+            </svg>
+
+
+            <!-- Graph points -->
+
+            <span class="graph-point point-1"></span>
+            <span class="graph-point point-2"></span>
+            <span class="graph-point point-3"></span>
+            <span class="graph-point point-4"></span>
+            <span class="graph-point point-5"></span>
+
+
+            <div class="graph-label graph-label-start">
+              VISIBILITÉ
+            </div>
+
+            <div class="graph-label graph-label-end">
+              RENDEZ-VOUS
+            </div>
+
+          </div>
+
+
+          <!-- Graph footer -->
+
+          <div class="visual-footer">
+
+            <span>
+              LES INDICATEURS SONT SUIVIS
+              POUR GUIDER LES OPTIMISATIONS.
+            </span>
+
+            <div class="visual-progress">
+              <span></span>
+            </div>
+
+            <span class="visual-code">
+              SPK / 04
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             MEASUREMENT JOURNEY
+        ================================================== -->
+
+        <div class="measurement">
+
+          <div class="measurement-header">
+
+            <div>
+              <span class="measurement-label">
+                CE QUE NOUS MESURONS
+              </span>
+
+              <strong>
+                Chaque étape du parcours.
+              </strong>
+            </div>
+
+            <span class="measurement-count">
+              04 ÉTAPES
+            </span>
+
+          </div>
+
+
+          <div class="journey">
+
+            <div
+              class="journey-track"
+              aria-hidden="true"
+            >
+              <span></span>
+            </div>
+
+
+            {journey.map((step, index) => (
+              <div
+                class:list={[
+                  "journey-step",
+                  { active: index < 3 },
+                ]}
+              >
+
+                <div class="journey-node">
+                  <span>{step.number}</span>
+                </div>
+
+                <span class="journey-title">
+                  {step.label}
+                </span>
+
+              </div>
+            ))}
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             NOTE
+        ================================================== -->
+
+        <div class="measurement-note">
+
+          <div class="note-icon">
+            i
+          </div>
+
+          <p>
+            Nous suivons les performances pour identifier
+            ce qui fonctionne, ajuster les campagnes et
+            améliorer progressivement les résultats.
+          </p>
+
+          <span class="note-mark">
+            ↗
+          </span>
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- =====================================================
+         STATEMENT
+    ====================================================== -->
+
+    <div class="results-statement">
+
+      <div class="statement-line"></div>
+
+      <div class="statement-content">
+
+        <span>
+          NOTRE PHILOSOPHIE
+        </span>
+
+        <h3>
+          Mesurer.
+          <em>Comprendre.</em>
+          Optimiser.
+        </h3>
+
+        <p>
+          Pas seulement générer de la visibilité.
+          Construire un système qui apprend.
+        </p>
+
+      </div>
+
+      <div class="statement-line statement-line-right"></div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<style>
+  /* =========================================================
+     SECTION
+  ========================================================= */
+
+  .results-section {
+    position: relative;
+    overflow: hidden;
+
+    background:
+      linear-gradient(
+        180deg,
+        #f7f9fa 0%,
+        #f4f7f8 100%
+      );
+
+    color: #0b1115;
+  }
+
+
+  .results-container {
+    position: relative;
+    z-index: 2;
+
+    width: min(
+      1180px,
+      calc(100% - 48px)
+    );
+
+    margin: 0 auto;
+
+    padding:
+      125px 0
+      120px;
+  }
+
+
+  /* =========================================================
+     BACKGROUND
+  ========================================================= */
+
+  .results-background {
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+  }
+
+
+  .background-grid {
+    position: absolute;
+    inset: 0;
+
+    opacity: 0.45;
+
+    background-image:
+      linear-gradient(
+        rgba(7, 17, 22, 0.025) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        rgba(7, 17, 22, 0.025) 1px,
+        transparent 1px
+      );
+
+    background-size: 70px 70px;
+
+    mask-image:
+      linear-gradient(
+        to bottom,
+        transparent,
+        black 20%,
+        black 75%,
+        transparent
+      );
+  }
+
+
+  .background-glow {
+    position: absolute;
+
+    top: 20%;
+    right: -180px;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background:
+      rgba(0, 175, 185, 0.055);
+
+    filter: blur(100px);
+  }
+
+
+  .background-orb {
+    position: absolute;
+
+    top: 8%;
+    left: -260px;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    border:
+      1px solid
+      rgba(0, 175, 185, 0.06);
+  }
+
+
+  /* =========================================================
+     HEADER
+  ========================================================= */
+
+  .results-header {
+    margin-bottom: 58px;
+  }
+
+
+  .results-eyebrow {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    color: #008c96;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: 0.16em;
+  }
+
+
+  .eyebrow-line {
+    width: 27px;
+    height: 1px;
+
+    background: #00afb9;
+  }
+
+
+  .results-heading {
+    display: grid;
+
+    grid-template-columns:
+      minmax(0, 1.15fr)
+      minmax(280px, 0.85fr);
+
+    align-items: end;
+
+    gap: 80px;
+
+    margin-top: 20px;
+  }
+
+
+  .results-heading h2 {
+    max-width: 760px;
+
+    margin: 0;
+
+    color: #0b1115;
+
+    font-size:
+      clamp(
+        46px,
+        5.2vw,
+        70px
+      );
+
+    line-height: 0.97;
+
+    letter-spacing: -0.055em;
+
+    font-weight: 800;
+  }
+
+
+  .results-heading h2 span {
+    display: block;
+
+    color: #008c96;
+  }
+
+
+  .heading-copy {
+    max-width: 420px;
+  }
+
+
+  .heading-copy p {
+    margin: 0;
+
+    color: #66747b;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+  }
+
+
+  .heading-meta {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 23px;
+
+    color: #8b969b;
+
+    font-size: 7px;
+    font-weight: 800;
+
+    letter-spacing: 0.13em;
+  }
+
+
+  .meta-line {
+    width: 20px;
+    height: 1px;
+
+    background: #00afb9;
+  }
+
+
+  /* =========================================================
+     DASHBOARD
+  ========================================================= */
+
+  .performance-dashboard {
+    overflow: hidden;
+
+    border:
+      1px solid #dce3e6;
+
+    border-radius: 16px;
+
+    background: #ffffff;
+
+    box-shadow:
+      0 30px 90px
+      rgba(15, 28, 34, 0.075);
+  }
+
+
+  /* =========================================================
+     DASHBOARD TOP
+  ========================================================= */
+
+  .dashboard-top {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding:
+      21px 28px;
+
+    border-bottom:
+      1px solid #e6ebed;
+  }
+
+
+  .dashboard-identity {
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+  }
+
+
+  .dashboard-mark {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 35px;
+    height: 35px;
+
+    border-radius: 8px;
+
+    background: #0b1115;
+
+    color: #ffffff;
+
+    font-size: 12px;
+    font-weight: 900;
+  }
+
+
+  .dashboard-name {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+  }
+
+
+  .dashboard-name span {
+    color: #008c96;
+
+    font-size: 7px;
+    font-weight: 800;
+
+    letter-spacing: 0.17em;
+  }
+
+
+  .dashboard-name strong {
+    color: #182126;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: 0.1em;
+  }
+
+
+  .dashboard-live {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: #7e8b91;
+
+    font-size: 7px;
+    font-weight: 800;
+
+    letter-spacing: 0.12em;
+  }
+
+
+  .live-indicator {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #00afb9;
+
+    box-shadow:
+      0 0 0 4px
+      rgba(0, 175, 185, 0.09);
+
+    animation:
+      livePulse 2.5s ease-in-out infinite;
+  }
+
+
+  @keyframes livePulse {
+    0%,
+    100% {
+      box-shadow:
+        0 0 0 4px
+        rgba(0, 175, 185, 0.08);
+    }
+
+    50% {
+      box-shadow:
+        0 0 0 7px
+        rgba(0, 175, 185, 0.03);
+    }
+  }
+
+
+  /* =========================================================
+     METRICS
+  ========================================================= */
+
+  .metrics-grid {
+    display: grid;
+
+    grid-template-columns:
+      repeat(4, 1fr);
+  }
+
+
+  .metric-card {
+    position: relative;
+
+    min-height: 210px;
+
+    padding:
+      23px 23px
+      22px;
+
+    border-right:
+      1px solid #e6ebed;
+
+    background: #ffffff;
+
+    transition:
+      background 220ms ease,
+      transform 220ms ease;
+  }
+
+
+  .metric-card:last-child {
+    border-right: 0;
+  }
+
+
+  .metric-card:hover {
+    z-index: 2;
+
+    background: #fbfdfd;
+
+    transform: translateY(-2px);
+  }
+
+
+  .metric-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+  }
+
+
+  .metric-number {
+    color: #a1adb2;
+
+    font-size: 7px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.13em;
+  }
+
+
+  .metric-index {
+    color: #c0c8cb;
+
+    font-size: 7px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.1em;
+  }
+
+
+  .metric-value {
+    margin-top: 36px;
+
+    color: #0b1115;
+
+    font-size: 56px;
+
+    line-height: 0.85;
+
+    letter-spacing: -0.065em;
+
+    font-weight: 800;
+  }
+
+
+  .metric-information {
+    margin-top: 18px;
+  }
+
+
+  .metric-label {
+    display: block;
+
+    color: #253138;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.11em;
+  }
+
+
+  .metric-information p {
+    margin:
+      6px 0 0;
+
+    color: #89959b;
+
+    font-size: 9px;
+
+    line-height: 1.4;
+  }
+
+
+  .metric-footer {
+    position: absolute;
+
+    right: 23px;
+    bottom: 20px;
+    left: 23px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding-top: 12px;
+
+    border-top:
+      1px solid #eef1f2;
+  }
+
+
+  .metric-status {
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    color: #98a3a8;
+
+    font-size: 6px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.09em;
+  }
+
+
+  .metric-status i {
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+
+    background: #00afb9;
+  }
+
+
+  .metric-arrow {
+    color: #00afb9;
+
+    font-size: 12px;
+  }
+
+
+  /* =========================================================
+     VISUAL PANEL
+  ========================================================= */
+
+  .visual-panel {
+    position: relative;
+
+    padding:
+      29px 28px
+      25px;
+
+    border-top:
+      1px solid #e6ebed;
+
+    background:
+      linear-gradient(
+        135deg,
+        #fbfcfc 0%,
+        #f6f9f9 100%
+      );
+  }
+
+
+  .visual-header {
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: space-between;
+
+    margin-bottom: 27px;
+  }
+
+
+  .visual-title {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+  }
+
+
+  .visual-title span {
+    color: #929da2;
+
+    font-size: 7px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.14em;
+  }
+
+
+  .visual-title strong {
+    color: #1a252b;
+
+    font-size: 13px;
+
+    font-weight: 700;
+  }
+
+
+  .visual-period {
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    color: #008c96;
+
+    font-size: 7px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.1em;
+  }
+
+
+  .period-dot {
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #00afb9;
+  }
+
+
+  /* =========================================================
+     GRAPH
+  ========================================================= */
+
+  .performance-visual {
+    position: relative;
+
+    height: 210px;
+
+    overflow: hidden;
+
+    border:
+      1px solid #e2e9eb;
+
+    border-radius: 10px;
+
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.8),
+        rgba(244, 248, 248, 0.9)
+      );
+  }
+
+
+  .graph-grid {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding:
+      20px 0;
+
+    pointer-events: none;
+  }
+
+
+  .graph-grid span {
+    width: 100%;
+    height: 1px;
+
+    background:
+      rgba(11, 17, 21, 0.055);
+  }
+
+
+  .performance-graph {
+    position: absolute;
+
+    inset:
+      0;
+
+    width: 100%;
+    height: 100%;
+  }
+
+
+  .graph-area {
+    fill:
+      url("#sparkAreaGradient");
+  }
+
+
+  .graph-line {
+    fill: none;
+
+    stroke:
+      rgba(0, 175, 185, 0.18);
+
+    stroke-width: 3;
+  }
+
+
+  .graph-highlight {
+    fill: none;
+
+    stroke:
+      url("#sparkGraphGradient");
+
+    stroke-width: 1.4;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+
+    stroke-dasharray: 1200;
+
+    stroke-dashoffset: 1200;
+
+    animation:
+      drawGraph 2.4s
+      cubic-bezier(0.65, 0, 0.35, 1)
+      forwards;
+  }
+
+
+  @keyframes drawGraph {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+
+  .graph-point {
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    border:
+      2px solid #ffffff;
+
+    border-radius: 50%;
+
+    background: #00afb9;
+
+    box-shadow:
+      0 0 0 3px
+      rgba(0, 175, 185, 0.1);
+  }
+
+
+  .point-1 {
+    left: 24%;
+
+    top: 67%;
+  }
+
+
+  .point-2 {
+    left: 41%;
+
+    top: 56%;
+  }
+
+
+  .point-3 {
+    left: 58%;
+
+    top: 43%;
+  }
+
+
+  .point-4 {
+    left: 75%;
+
+    top: 35%;
+  }
+
+
+  .point-5 {
+    left: 91%;
+
+    top: 26%;
+  }
+
+
+  .graph-label {
+    position: absolute;
+
+    bottom: 12px;
+
+    color: #8a969b;
+
+    font-size: 6px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.1em;
+  }
+
+
+  .graph-label-start {
+    left: 16px;
+  }
+
+
+  .graph-label-end {
+    right: 16px;
+
+    color: #008c96;
+  }
+
+
+  /* =========================================================
+     VISUAL FOOTER
+  ========================================================= */
+
+  .visual-footer {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    margin-top: 15px;
+
+    color: #9aa4a8;
+
+    font-size: 6px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.1em;
+  }
+
+
+  .visual-progress {
+    flex: 1;
+
+    height: 1px;
+
+    background: #dfe6e8;
+  }
+
+
+  .visual-progress span {
+    display: block;
+
+    width: 62%;
+
+    height: 100%;
+
+    background:
+      linear-gradient(
+        90deg,
+        #00afb9,
+        transparent
+      );
+  }
+
+
+  .visual-code {
+    color: #00afb9;
+  }
+
+
+  /* =========================================================
+     MEASUREMENT
+  ========================================================= */
+
+  .measurement {
+    padding:
+      29px 28px
+      33px;
+
+    border-top:
+      1px solid #e6ebed;
+
+    background: #ffffff;
+  }
+
+
+  .measurement-header {
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: space-between;
+
+    margin-bottom: 34px;
+  }
+
+
+  .measurement-header > div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+  }
+
+
+  .measurement-label {
+    color: #929da2;
+
+    font-size: 7px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.14em;
+  }
+
+
+  .measurement-header strong {
+    color: #1a252b;
+
+    font-size: 13px;
+
+    font-weight: 700;
+  }
+
+
+  .measurement-count {
+    color: #008c96;
+
+    font-size: 7px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.12em;
+  }
+
+
+  /* =========================================================
+     JOURNEY
+  ========================================================= */
+
+  .journey {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+      repeat(4, 1fr);
+
+    align-items: start;
+  }
+
+
+  .journey-track {
+    position: absolute;
+
+    top: 8px;
+
+    left: 6%;
+    right: 6%;
+
+    height: 1px;
+
+    background: #dfe6e8;
+  }
+
+
+  .journey-track span {
+    display: block;
+
+    width: 72%;
+
+    height: 100%;
+
+    background:
+      linear-gradient(
+        90deg,
+        #00afb9,
+        rgba(0, 175, 185, 0.2)
+      );
+  }
+
+
+  .journey-step {
+    position: relative;
+
+    z-index: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 12px;
+  }
+
+
+  .journey-node {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 17px;
+    height: 17px;
+
+    border:
+      1px solid
+      rgba(0, 175, 185, 0.3);
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    box-shadow:
+      0 0 0 4px #ffffff;
+  }
+
+
+  .journey-node span {
+    color: #008c96;
+
+    font-size: 5px;
+
+    font-weight: 900;
+  }
+
+
+  .journey-step:last-child .journey-node {
+    border-color: #d8e0e3;
+  }
+
+
+  .journey-step:last-child .journey-node span {
+    color: #9aa5aa;
+  }
+
+
+  .journey-title {
+    color: #647179;
+
+    font-size: 7px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.09em;
+  }
+
+
+  .journey-step.active .journey-title {
+    color: #008c96;
+  }
+
+
+  /* =========================================================
+     NOTE
+  ========================================================= */
+
+  .measurement-note {
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    padding:
+      16px 28px;
+
+    border-top:
+      1px solid #e6ebed;
+
+    background: #fafbfb;
+  }
+
+
+  .note-icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 18px;
+    height: 18px;
+
+    flex: 0 0 auto;
+
+    border:
+      1px solid
+      rgba(0, 140, 150, 0.22);
+
+    border-radius: 50%;
+
+    color: #008c96;
+
+    font-size: 9px;
+
+    font-weight: 800;
+  }
+
+
+  .measurement-note p {
+    max-width: 760px;
+
+    margin: 0;
+
+    color: #7b878d;
+
+    font-size: 9px;
+
+    line-height: 1.55;
+  }
+
+
+  .note-mark {
+    margin-left: auto;
+
+    color: #00afb9;
+
+    font-size: 13px;
+  }
+
+
+  /* =========================================================
+     STATEMENT
+  ========================================================= */
+
+  .results-statement {
+    display: grid;
+
+    grid-template-columns:
+      1fr auto 1fr;
+
+    align-items: center;
+
+    gap: 34px;
+
+    margin-top: 82px;
+  }
+
+
+  .statement-line {
+    height: 1px;
+
+    background:
+      linear-gradient(
+        90deg,
+        transparent,
+        #dce3e6
+      );
+  }
+
+
+  .statement-line-right {
+    background:
+      linear-gradient(
+        90deg,
+        #dce3e6,
+        transparent
+      );
+  }
+
+
+  .statement-content {
+    text-align: center;
+  }
+
+
+  .statement-content > span {
+    display: block;
+
+    margin-bottom: 13px;
+
+    color: #008c96;
+
+    font-size: 7px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.17em;
+  }
+
+
+  .statement-content h3 {
+    margin: 0;
+
+    color: #0b1115;
+
+    font-size:
+      clamp(
+        28px,
+        3.2vw,
+        43px
+      );
+
+    line-height: 1;
+
+    letter-spacing: -0.045em;
+
+    font-weight: 750;
+
+    white-space: nowrap;
+  }
+
+
+  .statement-content em {
+    color: #008c96;
+
+    font-style: normal;
+  }
+
+
+  .statement-content p {
+    max-width: 430px;
+
+    margin:
+      16px auto 0;
+
+    color: #7d898f;
+
+    font-size: 10px;
+
+    line-height: 1.6;
+  }
+
+
+  /* =========================================================
+     TABLET
+  ========================================================= */
+
+  @media (max-width: 900px) {
+
+    .results-container {
+      width: min(
+        850px,
+        calc(100% - 40px)
+      );
+    }
+
+
+    .results-heading {
+      gap: 45px;
+    }
+
+
+    .metric-card {
+      padding:
+        20px 17px;
+    }
+
+
+    .metric-value {
+      font-size: 45px;
+    }
+
+
+    .metric-footer {
+      right: 17px;
+      left: 17px;
+    }
+
+  }
+
+
+  /* =========================================================
+     MOBILE
+  ========================================================= */
+
+  @media (max-width: 680px) {
+
+    .results-container {
+      width: calc(100% - 28px);
+
+      padding:
+        82px 0
+        90px;
+    }
+
+
+    .results-header {
+      margin-bottom: 42px;
+    }
+
+
+    .results-heading {
+      grid-template-columns: 1fr;
+
+      gap: 20px;
+    }
+
+
+    .results-heading h2 {
+      font-size: 43px;
+    }
+
+
+    .heading-copy p {
+      font-size: 12px;
+    }
+
+
+    .heading-meta {
+      margin-top: 18px;
+    }
+
+
+    /* Dashboard */
+
+    .dashboard-top {
+      padding:
+        18px;
+    }
+
+
+    .metrics-grid {
+      grid-template-columns:
+        repeat(2, 1fr);
+    }
+
+
+    .metric-card {
+      min-height: 175px;
+
+      padding:
+        18px 16px;
+
+      border-bottom:
+        1px solid #e6ebed;
+    }
+
+
+    .metric-card:nth-child(2) {
+      border-right: 0;
+    }
+
+
+    .metric-card:nth-child(3),
+    .metric-card:nth-child(4) {
+      border-bottom: 0;
+    }
+
+
+    .metric-card:nth-child(4) {
+      border-right: 0;
+    }
+
+
+    .metric-value {
+      margin-top: 30px;
+
+      font-size: 40px;
+    }
+
+
+    .metric-information {
+      margin-top: 14px;
+    }
+
+
+    .metric-label {
+      font-size: 8px;
+    }
+
+
+    .metric-information p {
+      font-size: 8px;
+    }
+
+
+    .metric-footer {
+      right: 16px;
+      bottom: 17px;
+      left: 16px;
+    }
+
+
+    .metric-status {
+      font-size: 5.5px;
+    }
+
+
+    /* Graph */
+
+    .visual-panel {
+      padding:
+        24px 17px
+        22px;
+    }
+
+
+    .visual-header {
+      align-items: flex-start;
+
+      gap: 20px;
+    }
+
+
+    .visual-title strong {
+      font-size: 12px;
+    }
+
+
+    .visual-period {
+      white-space: nowrap;
+
+      font-size: 6px;
+    }
+
+
+    .performance-visual {
+      height: 170px;
+    }
+
+
+    .graph-point {
+      width: 6px;
+      height: 6px;
+    }
+
+
+    .visual-footer {
+      gap: 8px;
+
+      font-size: 5px;
+    }
+
+
+    /* Measurement */
+
+    .measurement {
+      padding:
+        24px 17px
+        28px;
+    }
+
+
+    .measurement-header {
+      display: block;
+
+      margin-bottom: 30px;
+    }
+
+
+    .measurement-count {
+      display: block;
+
+      margin-top: 7px;
+    }
+
+
+    .journey {
+      display: flex;
+
+      justify-content: space-between;
+    }
+
+
+    .journey-track {
+      left: 0;
+      right: 0;
+    }
+
+
+    .journey-track span {
+      width: 70%;
+    }
+
+
+    .journey-title {
+      max-width: 60px;
+
+      text-align: center;
+
+      font-size: 6px;
+
+      line-height: 1.3;
+    }
+
+
+    /* Note */
+
+    .measurement-note {
+      align-items: flex-start;
+
+      padding:
+        15px 17px;
+    }
+
+
+    .measurement-note p {
+      font-size: 8px;
+    }
+
+
+    .note-mark {
+      display: none;
+    }
+
+
+    /* Statement */
+
+    .results-statement {
+      display: block;
+
+      margin-top: 65px;
+    }
+
+
+    .statement-line {
+      width: 40px;
+
+      margin:
+        0 auto
+        25px;
+    }
+
+
+    .statement-line-right {
+      display: none;
+    }
+
+
+    .statement-content h3 {
+      white-space: normal;
+
+      font-size: 31px;
+
+      line-height: 1.05;
+    }
+
+
+    .statement-content p {
+      font-size: 9px;
+    }
+
+  }
+
+
+  /* =========================================================
+     SMALL MOBILE
+  ========================================================= */
+
+  @media (max-width: 400px) {
+
+    .results-heading h2 {
+      font-size: 38px;
+    }
+
+
+    .dashboard-live {
+      font-size: 6px;
+    }
+
+
+    .metric-value {
+      font-size: 36px;
+    }
+
+
+    .metric-label {
+      font-size: 7px;
+    }
+
+
+    .metric-information p {
+      font-size: 7px;
+    }
+
+
+    .journey-title {
+      max-width: 48px;
+
+      font-size: 5.5px;
+    }
+
+
+    .statement-content h3 {
+      font-size: 28px;
+    }
+
+  }
+
+
+  /* =========================================================
+     REDUCED MOTION
+  ========================================================= */
+
+  @media (prefers-reduced-motion: reduce) {
+
+    .results-section *,
+    .results-section *::before,
+    .results-section *::after {
+      animation: none !important;
+
+      transition: none !important;
+    }
+
+  }
+</style>

@@ -1,0 +1,794 @@
+---
+import { Image } from "astro:assets";
+import sparkLogo from "../assets/images/logo/spark-logo2.png";
+
+const navigation = [
+  { label: "Accueil", href: "/" },
+  { label: "Le système", href: "#system" },
+  { label: "L'offre", href: "#offer" },
+  { label: "Résultats", href: "#results" },
+  { label: "Pourquoi Spark", href: "#why-spark" },
+];
+
+const services = [
+  "Facebook & Instagram Ads",
+  "Génération de demandes",
+  "Optimisation des campagnes",
+];
+
+const socialLinks = [
+  {
+    label: "Instagram",
+    href: "#",
+  },
+  {
+    label: "Facebook",
+    href: "#",
+  },
+];
+---
+
+<footer class="site-footer">
+
+  <!-- =========================================
+       MAIN FOOTER
+  ========================================== -->
+
+  <div class="footer-main">
+
+    <div class="footer-grid">
+
+      <!-- BRAND -->
+
+      <div class="footer-brand">
+
+        <a
+          href="/"
+          class="logo"
+          aria-label="Spark — Accueil"
+        >
+          <Image
+            src={sparkLogo}
+            alt="Spark"
+            class="logo-image"
+            width={150}
+            height={45}
+          />
+        </a>
+
+        <p class="brand-description">
+          Un système marketing pensé pour aider
+          les salons de beauté à générer davantage
+          de demandes et de rendez-vous.
+        </p>
+
+        <div class="brand-status">
+          <span class="status-dot"></span>
+
+          <span>
+            BEAUTY GROWTH SYSTEM
+          </span>
+        </div>
+
+      </div>
+
+
+      <!-- NAVIGATION -->
+
+      <div class="footer-column">
+
+        <span class="column-label">
+          NAVIGATION
+        </span>
+
+        <nav class="footer-links">
+
+          {navigation.map((item) => (
+            <a href={item.href}>
+              {item.label}
+
+              <span>↗</span>
+            </a>
+          ))}
+
+        </nav>
+
+      </div>
+
+
+      <!-- SERVICES -->
+
+      <div class="footer-column">
+
+        <span class="column-label">
+          CE QUE NOUS FAISONS
+        </span>
+
+        <div class="service-list">
+
+          {services.map((service) => (
+            <span>
+              {service}
+            </span>
+          ))}
+
+        </div>
+
+      </div>
+
+
+      <!-- CONTACT -->
+
+      <div class="footer-column footer-contact">
+
+        <span class="column-label">
+          COMMENÇONS
+        </span>
+
+        <a
+          href="#contact"
+          class="contact-link"
+        >
+          Parlons de votre salon
+
+          <span>↗</span>
+        </a>
+
+        <p>
+          Vous souhaitez savoir si Spark
+          correspond à votre salon ?
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================
+       FOOTER BOTTOM
+  ========================================== -->
+
+  <div class="footer-bottom">
+
+    <div class="footer-bottom-inner">
+
+      <span>
+        © {new Date().getFullYear()} SPARK.
+        TOUS DROITS RÉSERVÉS.
+      </span>
+
+      <div class="bottom-links">
+
+        <a href="#">
+          Mentions légales
+        </a>
+
+        <a href="#">
+          Politique de confidentialité
+        </a>
+
+      </div>
+
+      <div class="socials">
+
+        {socialLinks.map((social) => (
+          <a
+            href={social.href}
+            aria-label={social.label}
+          >
+            {social.label}
+          </a>
+        ))}
+
+      </div>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<style>
+
+/* ==================================================
+   FOOTER
+================================================== */
+
+.site-footer {
+  position: relative;
+  overflow: hidden;
+  background: #000203;
+  color: #ffffff;
+}
+
+
+/* ==================================================
+   MAIN FOOTER
+================================================== */
+
+.footer-main {
+  border-bottom:
+    1px solid
+    rgba(255, 255, 255, 0.09);
+}
+
+
+.footer-grid {
+  display: grid;
+
+  grid-template-columns:
+    1.6fr
+    0.9fr
+    1.15fr
+    1.1fr;
+
+  gap: 70px;
+
+  width: min(
+    1180px,
+    calc(100% - 48px)
+  );
+
+  margin: 0 auto;
+
+  padding:
+    70px 0
+    75px;
+}
+
+
+/* ==================================================
+   BRAND
+================================================== */
+
+.footer-brand {
+  max-width: 300px;
+}
+
+
+/* INTERNAL LOGO */
+
+.logo {
+
+  align-items: center;
+
+  width: fit-content;
+
+  color: #ffffff;
+
+  text-decoration: none;
+}
+
+
+.logo-image {
+  display: block;
+
+  width: 200px;
+
+  height: auto;
+
+  max-width: 100%;
+
+  object-fit: contain;
+}
+
+
+/* ==================================================
+   BRAND DESCRIPTION
+================================================== */
+
+.brand-description {
+  margin: 22px 0 0;
+
+  color: #7f8d92;
+
+  font-size: 11px;
+
+  line-height: 1.8;
+}
+
+
+.brand-status {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin-top: 24px;
+
+  color: #68767b;
+
+  font-size: 7px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.12em;
+}
+
+
+.status-dot {
+  width: 6px;
+
+  height: 6px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #00afb9;
+
+  box-shadow:
+    0 0 0 4px
+    rgba(0, 175, 185, 0.08);
+}
+
+
+/* ==================================================
+   FOOTER COLUMNS
+================================================== */
+
+.footer-column {
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+.column-label {
+  margin-bottom: 23px;
+
+  color: #59666b;
+
+  font-size: 7px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.15em;
+}
+
+
+/* ==================================================
+   LINKS
+================================================== */
+
+.footer-links {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 13px;
+}
+
+
+.footer-links a {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  width: 130px;
+
+  color: #b5c0c4;
+
+  text-decoration: none;
+
+  font-size: 10px;
+
+  transition:
+    color 200ms ease;
+}
+
+
+.footer-links a span {
+  color: #4f5c61;
+
+  font-size: 9px;
+
+  opacity: 0;
+
+  transform:
+    translate(-4px, 4px);
+
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease;
+}
+
+
+.footer-links a:hover {
+  color: #00afb9;
+}
+
+
+.footer-links a:hover span {
+  opacity: 1;
+
+  transform:
+    translate(0, 0);
+}
+
+
+/* ==================================================
+   SERVICES
+================================================== */
+
+.service-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 13px;
+}
+
+
+.service-list span {
+  max-width: 190px;
+
+  color: #89969a;
+
+  font-size: 10px;
+
+  line-height: 1.4;
+}
+
+
+/* ==================================================
+   CONTACT
+================================================== */
+
+.contact-link {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  line-height: 1.4;
+
+  transition:
+    color 200ms ease;
+}
+
+
+.contact-link span {
+  color: #00afb9;
+
+  font-size: 12px;
+}
+
+
+.contact-link:hover {
+  color: #00afb9;
+}
+
+
+.footer-contact p {
+  max-width: 190px;
+
+  margin: 17px 0 0;
+
+  color: #707d82;
+
+  font-size: 9px;
+
+  line-height: 1.7;
+}
+
+
+/* ==================================================
+   BOTTOM
+================================================== */
+
+.footer-bottom {
+  background: #080d10;
+}
+
+
+.footer-bottom-inner {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    auto
+    auto;
+
+  align-items: center;
+
+  gap: 35px;
+
+  width: min(
+    1180px,
+    calc(100% - 48px)
+  );
+
+  min-height: 68px;
+
+  margin: 0 auto;
+}
+
+
+.footer-bottom-inner > span {
+  color: #4f5b60;
+
+  font-size: 6px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.11em;
+}
+
+
+.bottom-links {
+  display: flex;
+
+  align-items: center;
+
+  gap: 22px;
+}
+
+
+.bottom-links a {
+  color: #58656a;
+
+  text-decoration: none;
+
+  font-size: 7px;
+
+  transition:
+    color 200ms ease;
+}
+
+
+.bottom-links a:hover {
+  color: #00afb9;
+}
+
+
+/* ==================================================
+   SOCIALS
+================================================== */
+
+.socials {
+  display: flex;
+
+  align-items: center;
+
+  gap: 17px;
+}
+
+
+.socials a {
+  color: #657277;
+
+  text-decoration: none;
+
+  font-size: 7px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.05em;
+
+  transition:
+    color 200ms ease;
+}
+
+
+.socials a:hover {
+  color: #00afb9;
+}
+
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 900px) {
+
+  .footer-grid,
+  .footer-bottom-inner {
+    width: min(
+      850px,
+      calc(100% - 40px)
+    );
+  }
+
+
+  .footer-grid {
+    grid-template-columns:
+      1.4fr
+      1fr
+      1fr;
+
+    gap: 45px;
+  }
+
+
+  .footer-brand {
+    grid-row: span 2;
+  }
+
+
+  .footer-bottom-inner {
+    grid-template-columns:
+      1fr
+      auto;
+
+    padding:
+      18px 0;
+  }
+
+
+  .socials {
+    grid-column: 2;
+
+    grid-row: 1;
+  }
+
+
+  .bottom-links {
+    grid-column: 1;
+
+    grid-row: 2;
+  }
+
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 680px) {
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+
+    gap: 42px;
+
+    width: calc(100% - 28px);
+
+    padding:
+      55px 0
+      58px;
+  }
+
+
+  .footer-brand {
+    grid-row: auto;
+
+    max-width: 360px;
+  }
+
+
+  /* Responsive internal logo */
+
+  .logo-image {
+    width: 135px;
+  }
+
+
+  .brand-description {
+    max-width: 320px;
+  }
+
+
+  .footer-column {
+    padding-top: 0;
+  }
+
+
+  .column-label {
+    margin-bottom: 17px;
+  }
+
+
+  .footer-links {
+    gap: 12px;
+  }
+
+
+  .service-list {
+    gap: 11px;
+  }
+
+
+  .footer-contact {
+    padding-top: 8px;
+  }
+
+
+  /* Bottom */
+
+  .footer-bottom-inner {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 20px;
+
+    width: calc(100% - 28px);
+
+    padding:
+      28px 0
+      32px;
+  }
+
+
+  .footer-bottom-inner > span {
+    order: 3;
+
+    line-height: 1.5;
+  }
+
+
+  .bottom-links {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px 18px;
+
+    order: 2;
+  }
+
+
+  .socials {
+    order: 1;
+
+    gap: 18px;
+  }
+
+}
+
+
+/* ==================================================
+   SMALL MOBILE
+================================================== */
+
+@media (max-width: 400px) {
+
+  .footer-grid {
+    gap: 38px;
+  }
+
+
+  .logo-image {
+    width: 120px;
+  }
+
+}
+
+
+/* ==================================================
+   REDUCED MOTION
+================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .footer-links a,
+  .footer-links a span,
+  .contact-link,
+  .bottom-links a,
+  .socials a {
+    transition: none;
+  }
+
+}
+
+</style>
+```

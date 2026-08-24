@@ -1,0 +1,550 @@
+---
+const differentiators = [
+  {
+    number: "01",
+    label: "SPÉCIALISÉ",
+    title: "Nous comprenons les salons.",
+    description:
+      "Notre approche part des réalités d'un salon : offres, périodes creuses, demandes et rendez-vous.",
+  },
+  {
+    number: "02",
+    label: "ORIENTÉ RÉSULTATS",
+    title: "Des rendez-vous, pas seulement des likes.",
+    description:
+      "Chaque action est pensée pour transformer l'attention en demandes qualifiées.",
+  },
+  {
+    number: "03",
+    label: "SIMPLE",
+    title: "Un système clair.",
+    description:
+      "Vous savez ce qui est fait, pourquoi c'est fait et ce que nous cherchons à améliorer.",
+  },
+  {
+    number: "04",
+    label: "OPTIMISÉ",
+    title: "Une approche qui évolue.",
+    description:
+      "Nous analysons les données et ajustons progressivement ce qui fonctionne.",
+  },
+];
+---
+
+<section id="why-spark" class="why-spark">
+  <div class="container">
+
+    <!-- HEADER -->
+
+    <header class="section-header">
+
+      <div class="eyebrow">
+        <span></span>
+        POURQUOI SPARK
+      </div>
+
+      <div class="header-grid">
+
+        <div>
+          <h2>
+            Pas une agence
+            <em>généraliste.</em>
+          </h2>
+
+          <p class="lead">
+            Un système marketing conçu pour
+            <strong>les salons de beauté.</strong>
+          </p>
+        </div>
+
+        <p class="intro">
+          Nous nous concentrons sur ce qui compte réellement
+          pour un salon : attirer les bonnes clientes, créer
+          des demandes et générer davantage d'opportunités
+          de rendez-vous.
+        </p>
+
+      </div>
+
+    </header>
+
+
+    <!-- DIFFERENTIATORS -->
+
+    <div class="differentiators">
+
+      {differentiators.map((item) => (
+        <article class="differentiator">
+
+          <div class="top">
+            <span>{item.number}</span>
+            <span>{item.label}</span>
+          </div>
+
+          <div class="content">
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </div>
+
+          <span class="line"></span>
+
+        </article>
+      ))}
+
+    </div>
+
+
+    <!-- MANIFESTO -->
+
+    <div class="manifesto">
+
+      <span class="manifesto-label">
+        NOTRE PHILOSOPHIE
+      </span>
+
+      <div class="manifesto-content">
+        <p>
+          Vous n'avez pas besoin d'une agence
+          qui fait tout.
+        </p>
+
+        <strong>
+          Vous avez besoin d'un système
+          qui comprend votre salon.
+        </strong>
+      </div>
+
+      <span class="signature">
+        SPARK /
+      </span>
+
+    </div>
+
+  </div>
+</section>
+
+
+<style>
+  /* ================================================
+     SECTION
+  ================================================= */
+
+  .why-spark {
+    background: #f3faff;
+    color: #011640;
+  }
+
+  .container {
+    width: min(1160px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 120px 0 125px;
+  }
+
+
+  /* ================================================
+     HEADER
+  ================================================= */
+
+  .section-header {
+    margin-bottom: 70px;
+  }
+
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    color: #0b5fa5;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: .16em;
+  }
+
+  .eyebrow span {
+    width: 26px;
+    height: 1px;
+
+    background: #3bc9db;
+  }
+
+  .header-grid {
+    display: grid;
+    grid-template-columns: 1.35fr .65fr;
+
+    gap: 90px;
+    align-items: end;
+
+    margin-top: 22px;
+  }
+
+  h2 {
+    max-width: 720px;
+
+    margin: 0;
+
+    color: #011640;
+
+    font-size: clamp(50px, 6vw, 78px);
+    line-height: .93;
+
+    letter-spacing: -.065em;
+    font-weight: 800;
+  }
+
+  h2 em {
+    display: block;
+
+    color: #0a4a82;
+
+    font-style: normal;
+  }
+
+  .lead {
+    max-width: 680px;
+
+    margin: 24px 0 0;
+
+    color: #3f3f3f;
+
+    font-size: clamp(21px, 2.2vw, 28px);
+    line-height: 1.2;
+
+    letter-spacing: -.025em;
+  }
+
+  .lead strong {
+    color: #0b5fa5;
+  }
+
+  .intro {
+    max-width: 390px;
+
+    margin: 0;
+
+    color: #3f3f3f;
+
+    font-size: 13px;
+    line-height: 1.85;
+  }
+
+
+  /* ================================================
+     DIFFERENTIATORS
+  ================================================= */
+
+  .differentiators {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    border-top: 1px solid #d8e1e8;
+    border-bottom: 1px solid #d8e1e8;
+  }
+
+  .differentiator {
+    position: relative;
+
+    min-height: 250px;
+
+    padding: 24px 25px 28px;
+
+    border-right: 1px solid #d8e1e8;
+
+    background: transparent;
+  }
+
+  .differentiator:first-child {
+    border-left: 1px solid #d8e1e8;
+  }
+
+  .top {
+    display: flex;
+    justify-content: space-between;
+
+    color: #0b5fa5;
+
+    font-size: 8px;
+    font-weight: 800;
+
+    letter-spacing: .13em;
+  }
+
+  .top span:first-child {
+    color: #3f3f3f;
+  }
+
+  .content {
+    margin-top: 70px;
+  }
+
+  .content h3 {
+    max-width: 230px;
+
+    margin: 0;
+
+    color: #011640;
+
+    font-size: 22px;
+    line-height: 1.08;
+
+    letter-spacing: -.035em;
+
+    font-weight: 750;
+  }
+
+  .content p {
+    max-width: 230px;
+
+    margin: 13px 0 0;
+
+    color: #3f3f3f;
+
+    font-size: 10px;
+    line-height: 1.7;
+  }
+
+  .line {
+    position: absolute;
+
+    left: 25px;
+    bottom: 27px;
+
+    width: 25px;
+    height: 2px;
+
+    background: #3bc9db;
+  }
+
+
+  /* ================================================
+     MANIFESTO
+  ================================================= */
+
+  .manifesto {
+    display: grid;
+    grid-template-columns: 150px 1fr auto;
+
+    gap: 45px;
+    align-items: end;
+
+    padding: 65px 0 15px;
+  }
+
+  .manifesto-label {
+    color: #0b5fa5;
+
+    font-size: 8px;
+    font-weight: 800;
+
+    letter-spacing: .15em;
+  }
+
+  .manifesto-content {
+    max-width: 760px;
+  }
+
+  .manifesto-content p,
+  .manifesto-content strong {
+    display: block;
+
+    margin: 0;
+
+    font-size: clamp(27px, 3.5vw, 45px);
+    line-height: 1.05;
+
+    letter-spacing: -.045em;
+  }
+
+  .manifesto-content p {
+    color: #3f3f3f;
+  }
+
+  .manifesto-content strong {
+    margin-top: 5px;
+
+    color: #011640;
+
+    font-weight: 750;
+  }
+
+  .signature {
+    color: #0a4a82;
+
+    font-size: 8px;
+    font-weight: 800;
+
+    letter-spacing: .15em;
+  }
+
+
+  /* ================================================
+     TABLET
+  ================================================= */
+
+  @media (max-width: 900px) {
+
+    .container {
+      padding: 100px 0;
+    }
+
+    .header-grid {
+      grid-template-columns: 1fr .7fr;
+      gap: 45px;
+    }
+
+    .differentiators {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .differentiator:nth-child(2) {
+      border-right: 1px solid #d8e1e8;
+    }
+
+    .differentiator:nth-child(3),
+    .differentiator:nth-child(4) {
+      border-top: 1px solid #d8e1e8;
+    }
+
+    .manifesto {
+      grid-template-columns: 100px 1fr;
+    }
+
+    .signature {
+      display: none;
+    }
+  }
+
+
+  /* ================================================
+     MOBILE
+  ================================================= */
+
+  @media (max-width: 680px) {
+
+    .container {
+      width: calc(100% - 32px);
+      padding: 82px 0 88px;
+    }
+
+    .section-header {
+      margin-bottom: 48px;
+    }
+
+    .header-grid {
+      grid-template-columns: 1fr;
+      gap: 22px;
+    }
+
+    h2 {
+      font-size: clamp(43px, 12vw, 60px);
+    }
+
+    .lead {
+      font-size: 21px;
+    }
+
+    .intro {
+      font-size: 12px;
+    }
+
+
+    /* Differentiators */
+
+    .differentiators {
+      grid-template-columns: 1fr;
+    }
+
+    .differentiator {
+      min-height: 210px;
+
+      padding: 22px 20px;
+
+      border-left: 1px solid #d8e1e8;
+      border-right: 1px solid #d8e1e8;
+    }
+
+    .differentiator + .differentiator {
+      border-top: 1px solid #d8e1e8;
+    }
+
+    .content {
+      margin-top: 48px;
+    }
+
+    .content h3 {
+      font-size: 25px;
+    }
+
+    .content p {
+      max-width: 330px;
+      font-size: 11px;
+    }
+
+    .line {
+      left: 20px;
+      bottom: 23px;
+    }
+
+
+    /* Manifesto */
+
+    .manifesto {
+      display: block;
+
+      padding-top: 55px;
+    }
+
+    .manifesto-label {
+      display: block;
+      margin-bottom: 22px;
+    }
+
+    .manifesto-content p,
+    .manifesto-content strong {
+      font-size: 31px;
+    }
+
+    .signature {
+      display: block;
+
+      margin-top: 25px;
+    }
+  }
+
+
+  /* ================================================
+     SMALL MOBILE
+  ================================================= */
+
+  @media (max-width: 400px) {
+
+    .container {
+      width: calc(100% - 24px);
+    }
+
+    h2 {
+      font-size: 40px;
+    }
+
+    .lead {
+      font-size: 19px;
+    }
+
+    .manifesto-content p,
+    .manifesto-content strong {
+      font-size: 28px;
+    }
+  }
+
+
+  /* ================================================
+     REDUCED MOTION
+  ================================================= */
+
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      scroll-behavior: auto !important;
+    }
+  }
+</style>
