@@ -1,15 +1,34 @@
 ---
 import { Image } from "astro:assets";
-import imgEsthetique from "../assets/images/hero/aesthetic_clinic_hero.jpg";
-import imgMedecin from "../assets/images/hero/Gemini_Generated_Image_1ksmqx1ksmqx1ksm.webp";
-import imgKine from "../assets/images/hero/Gemini_Generated_Image_xo9uefxo9uefxo9u.webp";
-import imgBeaute from "../assets/images/hero/beauty-salon.webp";
+import imgBeaute from "../assets/images/hero/Salon de beauté.webp";
+import imgMedecin from "../assets/images/hero/Médecin esthétique.webp";
+import imgKine from "../assets/images/hero/Cabinet kinésithérapie.webp";
 
 const slides = [
-  { src: imgEsthetique, alt: "Centre d'esthétique de luxe", key: "heroFooter1", label: "CENTRES D'ESTHÉTIQUE" },
-  { src: imgMedecin, alt: "Cabinet de médecin esthétique", key: "heroFooter2", label: "MÉDECINS ESTHÉTIQUES" },
-  { src: imgKine, alt: "Cabinet de kinésithérapie", key: "heroFooter3", label: "KINÉSITHÉRAPIE" },
-  { src: imgBeaute, alt: "Salon de beauté et soins", key: "heroFooter4", label: "SALON DE BEAUTÉ" },
+  {
+    src: imgBeaute,
+    alt: "Salon de beauté et soins",
+    key: "heroFooter1",
+    label: "SALON DE BEAUTÉ",
+    descKey: "heroDescBeaute",
+    desc: "Le premier système d'acquisition spécialement conçu pour les Salons de Beauté et Centres de Soins. Transformez votre visibilité en rendez-vous fermes via WhatsApp.",
+  },
+  {
+    src: imgMedecin,
+    alt: "Cabinet de médecin esthétique",
+    key: "heroFooter2",
+    label: "MÉDECINS ESTHÉTIQUES",
+    descKey: "heroDescMedecin",
+    desc: "Le premier système d'acquisition spécialement conçu pour les Médecins Esthétiques et Cliniques. Transformez votre visibilité en consultations fermes via WhatsApp.",
+  },
+  {
+    src: imgKine,
+    alt: "Cabinet de kinésithérapie",
+    key: "heroFooter3",
+    label: "KINÉSITHÉRAPIE",
+    descKey: "heroDescKine",
+    desc: "Le premier système d'acquisition spécialement conçu pour les Cabinets de Kinésithérapie et Rééducation. Transformez votre visibilité en séances de soins confirmées via WhatsApp.",
+  },
 ];
 
 const trustBadges = [
@@ -50,26 +69,34 @@ const whatsappUrl = import.meta.env.PUBLIC_WHATSAPP_URL || "https://wa.me/212600
         <span class="eyebrow-dot"></span>
         <span class="eyebrow-brand" data-i18n="heroEyebrowBrand">SPARK GROWTH SYSTEM</span>
         <span class="eyebrow-divider">|</span>
-        <span class="eyebrow-niche" data-i18n="heroEyebrowNiche">ESTHÉTIQUE • MÉDECINE • KINÉ • BEAUTÉ</span>
+        <span class="eyebrow-niche" data-i18n="heroEyebrowNiche">BEAUTÉ • MÉDECINE • KINÉ</span>
       </div>
 
       <!-- Main Headline -->
       <h1 id="hero-title" class="hero-title">
-        <span data-i18n="heroTitleMain">Plus de clientes & patients.</span><br />
-        <span class="gradient-text" data-i18n="heroTitleGradient">Un agenda rempli sans effort.</span>
+        <span data-i18n="heroTitleMain">Plus de clientes.</span><br />
+        <span class="gradient-text" data-i18n="heroTitleGradient">Un agenda plus rempli.</span>
       </h1>
 
-      <!-- Persuasive Copy -->
-      <p class="hero-description" data-i18n="heroDesc">
-        Le premier système d'acquisition spécialement conçu pour les Centres d'Esthétique, Médecins EstHétiques et Cabinets de Kinésithérapie. Transformez votre visibilité en rendez-vous fermes via WhatsApp.
-      </p>
+      <!-- Dynamic Sector-Tailored Descriptions -->
+      <div class="hero-descriptions-container">
+        {slides.map((slide, index) => (
+          <p
+            class={`hero-description slide-desc ${index === 0 ? 'active' : ''}`}
+            data-slide-desc-index={index}
+            data-i18n={slide.descKey}
+          >
+            {slide.desc}
+          </p>
+        ))}
+      </div>
 
       <!-- Action Buttons -->
       <div class="hero-actions">
         <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn-primary" aria-label="Discuter sur WhatsApp">
           <span class="btn-whatsapp-icon">
             <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current">
-              <path d="M12.012 2c-5.506 0-9.989 4.478-9.989 9.984 0 1.758.459 3.413 1.264 4.852l-1.341 4.9 5.019-1.316c1.393.759 2.977 1.189 4.647 1.189 5.506 0 9.989-4.478 9.989-9.989 0-5.506-4.483-9.984-9.984zm5.789 14.129c-.244.685-1.42 1.309-1.961 1.365-.494.052-1.139.076-3.298-.813-2.76-1.137-4.542-3.948-4.68-4.133-.137-.184-1.121-1.492-1.121-2.845 0-1.353.709-2.018.961-2.285.252-.267.551-.334.734-.334.184 0 .367.002.527.009.171.008.4.004.596.474.206.494.708 1.728.77 1.854.062.126.103.275.02.438-.083.163-.125.267-.247.412-.122.145-.258.324-.367.435-.122.122-.25.254-.108.497.142.244.631 1.042 1.354 1.686.93.829 1.714 1.087 1.958 1.209.244.122.387.103.53-.061.143-.164.618-.72.783-.967.165-.247.33-.206.556-.122.226.084 1.439.678 1.686.802.247.124.412.185.473.288.061.103.061.602-.183 1.287z"/>
+              <path d="M12.012 2c-5.506 0-9.989 4.478-9.989 9.984 0 1.758.459 3.413 1.264 4.852l-1.341 4.9 5.019-1.316c1.393.759 2.977 1.189 4.647 1.189 5.506 0 9.989-4.478 9.989-9.989 0-5.506-4.483-9.984-9.989-9.984zm5.789 14.129c-.244.685-1.42 1.309-1.961 1.365-.494.052-1.139.076-3.298-.813-2.76-1.137-4.542-3.948-4.68-4.133-.137-.184-1.121-1.492-1.121-2.845 0-1.353.709-2.018.961-2.285.252-.267.551-.334.734-.334.184 0 .367.002.527.009.171.008.4.004.596.474.206.494.708 1.728.77 1.854.062.126.103.275.02.438-.083.163-.125.267-.247.412-.122.145-.258.324-.367.435-.122.122-.25.254-.108.497.142.244.631 1.042 1.354 1.686.93.829 1.714 1.087 1.958 1.209.244.122.387.103.53-.061.143-.164.618-.72.783-.967.165-.247.33-.206.556-.122.226.084 1.439.678 1.686.802.247.124.412.185.473.288.061.103.061.602-.183 1.287z"/>
             </svg>
           </span>
           <span data-i18n="heroCtaPrimary">Demander un Échange WhatsApp</span>
@@ -128,20 +155,23 @@ const whatsappUrl = import.meta.env.PUBLIC_WHATSAPP_URL || "https://wa.me/212600
 <script>
   const slideItems = document.querySelectorAll<HTMLElement>('.slide-item');
   const nicheBadges = document.querySelectorAll<HTMLElement>('.slide-niche');
+  const slideDescs = document.querySelectorAll<HTMLElement>('.slide-desc');
 
   if (slideItems.length > 1) {
     let currentIndex = 0;
     setInterval(() => {
-      // Deactivate current slide & niche pill
+      // Deactivate current slide, niche pill, & description
       slideItems[currentIndex]?.classList.remove('active');
       nicheBadges[currentIndex]?.classList.remove('active');
+      slideDescs[currentIndex]?.classList.remove('active');
 
-      // Cycle to next state (0 -> 1 -> 2 -> 3 -> 0)
+      // Cycle to next state (0 -> 1 -> 2 -> 0)
       currentIndex = (currentIndex + 1) % slideItems.length;
 
-      // Activate next slide & niche pill
+      // Activate next slide, niche pill, & description
       slideItems[currentIndex]?.classList.add('active');
       nicheBadges[currentIndex]?.classList.add('active');
+      slideDescs[currentIndex]?.classList.add('active');
     }, 3000);
   }
 </script>
@@ -276,12 +306,29 @@ const whatsappUrl = import.meta.env.PUBLIC_WHATSAPP_URL || "https://wa.me/212600
     -webkit-text-fill-color: transparent;
   }
 
-  .hero-description {
+  .hero-descriptions-container {
+    position: relative;
+    min-height: 68px;
+    margin-bottom: 36px;
+    max-width: 720px;
+  }
+
+  .slide-desc {
+    position: absolute;
+    inset: 0;
+    margin: 0;
     font-size: clamp(16px, 2vw, 19px);
     line-height: 1.65;
     color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 36px;
-    max-width: 720px;
+    opacity: 0;
+    transition: opacity 1000ms ease-in-out;
+    pointer-events: none;
+  }
+
+  .slide-desc.active {
+    position: relative;
+    opacity: 1;
+    pointer-events: auto;
   }
 
   .hero-actions {
