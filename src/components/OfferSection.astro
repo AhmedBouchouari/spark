@@ -45,7 +45,9 @@ const features = [
     ],
   },
 ];
-const whatsappUrl = import.meta.env.PUBLIC_WHATSAPP_URL || "https://wa.me/212600000000";
+import { translations } from "../data/translations";
+const waBase = import.meta.env.PUBLIC_WHATSAPP_URL || "https://wa.me/212680514643";
+const whatsappUrl = `${waBase}?text=${encodeURIComponent(translations.fr.whatsappMessage)}`;
 ---
 
 <section id="offer" class="offer" aria-labelledby="offer-title">
@@ -134,7 +136,7 @@ const whatsappUrl = import.meta.env.PUBLIC_WHATSAPP_URL || "https://wa.me/212600
             <strong data-i18n="footerQuestion">Des questions sur notre fonctionnement ?</strong>
             <span data-i18n="footerAnswer">Échangez directement avec notre responsable par message.</span>
           </div>
-          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="offer-button">
+          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="offer-button" data-whatsapp-link>
             <span data-i18n="offerCta">Démarrer sur WhatsApp</span>
             <span class="arrow" aria-hidden="true">→</span>
           </a>

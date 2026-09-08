@@ -1,15 +1,35 @@
 ---
 import { Image } from "astro:assets";
-import imgEsthetique from "../assets/images/hero/aesthetic_clinic_hero.jpg";
-import imgMedecin from "../assets/images/hero/Gemini_Generated_Image_7dixo97dixo97dix.webp";
-import imgKine from "../assets/images/hero/Gemini_Generated_Image_g6fm4sg6fm4sg6fm.webp";
-import imgBeaute from "../assets/images/hero/Gemini_Generated_Image_tihm9ptihm9ptihm.webp";
+
+import imgBeaute from "../assets/images/hero/Salon de beauté.webp";
+import imgMedecin from "../assets/images/hero/Médecin esthétique.webp";
+import imgKine from "../assets/images/hero/Cabinet kinésithérapie.webp";
 
 const slides = [
-  { src: imgEsthetique, alt: "Centre d'esthétique de luxe", key: "heroFooter1", label: "CENTRES D'ESTHÉTIQUE" },
-  { src: imgMedecin, alt: "Cabinet de médecin esthétique", key: "heroFooter2", label: "MÉDECINS ESTHÉTIQUES" },
-  { src: imgKine, alt: "Cabinet de kinésithérapie", key: "heroFooter3", label: "KINÉSITHÉRAPIE" },
-  { src: imgBeaute, alt: "Salon de beauté et soins", key: "heroFooter4", label: "SALON DE BEAUTÉ" },
+  {
+    src: imgBeaute,
+    alt: "Salon de beauté et soins",
+    key: "heroFooter1",
+    label: "SALON DE BEAUTÉ",
+    descKey: "heroDescBeaute",
+    desc: "Le premier système d'acquisition spécialement conçu pour les Salons de Beauté et Centres de Soins. Transformez votre visibilité en rendez-vous fermes via WhatsApp.",
+  },
+  {
+    src: imgMedecin,
+    alt: "Cabinet de médecin esthétique",
+    key: "heroFooter2",
+    label: "MÉDECINS ESTHÉTIQUES",
+    descKey: "heroDescMedecin",
+    desc: "Le premier système d'acquisition spécialement conçu pour les Médecins Esthétiques et Cliniques. Transformez votre visibilité en consultations fermes via WhatsApp.",
+  },
+  {
+    src: imgKine,
+    alt: "Cabinet de kinésithérapie",
+    key: "heroFooter3",
+    label: "KINÉSITHÉRAPIE",
+    descKey: "heroDescKine",
+    desc: "Le premier système d'acquisition spécialement conçu pour les Cabinets de Kinésithérapie et Rééducation. Transformez votre visibilité en séances de soins confirmées via WhatsApp.",
+  },
 ];
 
 const trustBadges = [
@@ -18,7 +38,9 @@ const trustBadges = [
   { icon: "chart", titleKey: "heroTrust3Title", descKey: "heroTrust3Desc", title: "Budget Maîtrisé", desc: "ROI mesurable" },
 ];
 
-const whatsappUrl = import.meta.env.PUBLIC_WHATSAPP_URL || "https://wa.me/212600000000";
+import { translations } from "../data/translations";
+const waBase = import.meta.env.PUBLIC_WHATSAPP_URL || "https://wa.me/212680514643";
+const whatsappUrl = `${waBase}?text=${encodeURIComponent(translations.fr.whatsappMessage)}`;
 ---
 
 <section id="hero" class="hero" aria-labelledby="hero-title">
@@ -50,26 +72,34 @@ const whatsappUrl = import.meta.env.PUBLIC_WHATSAPP_URL || "https://wa.me/212600
         <span class="eyebrow-dot"></span>
         <span class="eyebrow-brand" data-i18n="heroEyebrowBrand">SPARK GROWTH SYSTEM</span>
         <span class="eyebrow-divider">|</span>
-        <span class="eyebrow-niche" data-i18n="heroEyebrowNiche">ESTHÉTIQUE • MÉDECINE • KINÉ • BEAUTÉ</span>
+        <span class="eyebrow-niche" data-i18n="heroEyebrowNiche">BEAUTÉ • MÉDECINE • KINÉ</span>
       </div>
 
       <!-- Main Headline -->
       <h1 id="hero-title" class="hero-title">
-        <span data-i18n="heroTitleMain">Plus de clientes & patients.</span><br />
-        <span class="gradient-text" data-i18n="heroTitleGradient">Un agenda rempli sans effort.</span>
+        <span data-i18n="heroTitleMain">Plus de clientes.</span><br />
+        <span class="gradient-text" data-i18n="heroTitleGradient">Un agenda plus rempli.</span>
       </h1>
 
-      <!-- Persuasive Copy -->
-      <p class="hero-description" data-i18n="heroDesc">
-        Le premier système d'acquisition spécialement conçu pour les Centres d'Esthétique, Médecins EstHétiques et Cabinets de Kinésithérapie. Transformez votre visibilité en rendez-vous fermes via WhatsApp.
-      </p>
+      <!-- Dynamic Sector-Tailored Descriptions -->
+      <div class="hero-descriptions-container">
+        {slides.map((slide, index) => (
+          <p
+            class={`hero-description slide-desc ${index === 0 ? 'active' : ''}`}
+            data-slide-desc-index={index}
+            data-i18n={slide.descKey}
+          >
+            {slide.desc}
+          </p>
+        ))}
+      </div>
 
       <!-- Action Buttons -->
       <div class="hero-actions">
-        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn-primary" aria-label="Discuter sur WhatsApp">
+        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn-primary" aria-label="Discuter sur WhatsApp" data-whatsapp-link>
           <span class="btn-whatsapp-icon">
             <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current">
-              <path d="M12.012 2c-5.506 0-9.989 4.478-9.989 9.984 0 1.758.459 3.413 1.264 4.852l-1.341 4.9 5.019-1.316c1.393.759 2.977 1.189 4.647 1.189 5.506 0 9.989-4.478 9.989-9.989 0-5.506-4.483-9.984-9.984zm5.789 14.129c-.244.685-1.42 1.309-1.961 1.365-.494.052-1.139.076-3.298-.813-2.76-1.137-4.542-3.948-4.68-4.133-.137-.184-1.121-1.492-1.121-2.845 0-1.353.709-2.018.961-2.285.252-.267.551-.334.734-.334.184 0 .367.002.527.009.171.008.4.004.596.474.206.494.708 1.728.77 1.854.062.126.103.275.02.438-.083.163-.125.267-.247.412-.122.145-.258.324-.367.435-.122.122-.25.254-.108.497.142.244.631 1.042 1.354 1.686.93.829 1.714 1.087 1.958 1.209.244.122.387.103.53-.061.143-.164.618-.72.783-.967.165-.247.33-.206.556-.122.226.084 1.439.678 1.686.802.247.124.412.185.473.288.061.103.061.602-.183 1.287z"/>
+              <path d="M12.012 2c-5.506 0-9.989 4.478-9.989 9.984 0 1.758.459 3.413 1.264 4.852l-1.341 4.9 5.019-1.316c1.393.759 2.977 1.189 4.647 1.189 5.506 0 9.989-4.478 9.989-9.989 0-5.506-4.483-9.984-9.989-9.984zm5.789 14.129c-.244.685-1.42 1.309-1.961 1.365-.494.052-1.139.076-3.298-.813-2.76-1.137-4.542-3.948-4.68-4.133-.137-.184-1.121-1.492-1.121-2.845 0-1.353.709-2.018.961-2.285.252-.267.551-.334.734-.334.184 0 .367.002.527.009.171.008.4.004.596.474.206.494.708 1.728.77 1.854.062.126.103.275.02.438-.083.163-.125.267-.247.412-.122.145-.258.324-.367.435-.122.122-.25.254-.108.497.142.244.631 1.042 1.354 1.686.93.829 1.714 1.087 1.958 1.209.244.122.387.103.53-.061.143-.164.618-.72.783-.967.165-.247.33-.206.556-.122.226.084 1.439.678 1.686.802.247.124.412.185.473.288.061.103.061.602-.183 1.287z"/>
             </svg>
           </span>
           <span data-i18n="heroCtaPrimary">Demander un Échange WhatsApp</span>
@@ -128,20 +158,23 @@ const whatsappUrl = import.meta.env.PUBLIC_WHATSAPP_URL || "https://wa.me/212600
 <script>
   const slideItems = document.querySelectorAll<HTMLElement>('.slide-item');
   const nicheBadges = document.querySelectorAll<HTMLElement>('.slide-niche');
+  const slideDescs = document.querySelectorAll<HTMLElement>('.slide-desc');
 
   if (slideItems.length > 1) {
     let currentIndex = 0;
     setInterval(() => {
-      // Deactivate current slide & niche pill
+      // Deactivate current slide, niche pill, & description
       slideItems[currentIndex]?.classList.remove('active');
       nicheBadges[currentIndex]?.classList.remove('active');
+      slideDescs[currentIndex]?.classList.remove('active');
 
-      // Cycle to next state (0 -> 1 -> 2 -> 3 -> 0)
+      // Cycle to next state (0 -> 1 -> 2 -> 0)
       currentIndex = (currentIndex + 1) % slideItems.length;
 
-      // Activate next slide & niche pill
+      // Activate next slide, niche pill, & description
       slideItems[currentIndex]?.classList.add('active');
       nicheBadges[currentIndex]?.classList.add('active');
+      slideDescs[currentIndex]?.classList.add('active');
     }, 3000);
   }
 </script>
@@ -179,24 +212,37 @@ const whatsappUrl = import.meta.env.PUBLIC_WHATSAPP_URL || "https://wa.me/212600
   }
 
   .hero-bg-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    filter: brightness(0.65) contrast(0.8);
-  }
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 
-  .hero-bg-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background: linear-gradient(
+  /* Keep the original image bright and natural */
+  filter: brightness(0.95) contrast(1.02) saturate(1.05);
+
+  transform: scale(1.02);
+}
+
+/* Light cinematic overlay — keeps text readable without killing the image */
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5, 20, 35, 0.72) 0%,
+      rgba(5, 20, 35, 0.42) 45%,
+      rgba(5, 20, 35, 0.16) 100%
+    ),
+    linear-gradient(
       180deg,
-      rgba(10, 37, 64, 0.85) 0%,
-      rgba(10, 37, 64, 0.75) 50%,
-      rgba(8, 14, 26, 0.95) 100%
+      rgba(5, 20, 35, 0.18) 0%,
+      rgba(5, 20, 35, 0.10) 50%,
+      rgba(5, 20, 35, 0.42) 100%
     );
-  }
+}
 
   .hero-grid {
     position: absolute;
@@ -276,12 +322,29 @@ const whatsappUrl = import.meta.env.PUBLIC_WHATSAPP_URL || "https://wa.me/212600
     -webkit-text-fill-color: transparent;
   }
 
-  .hero-description {
+  .hero-descriptions-container {
+    position: relative;
+    min-height: 68px;
+    margin-bottom: 36px;
+    max-width: 720px;
+  }
+
+  .slide-desc {
+    position: absolute;
+    inset: 0;
+    margin: 0;
     font-size: clamp(16px, 2vw, 19px);
     line-height: 1.65;
     color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 36px;
-    max-width: 720px;
+    opacity: 0;
+    transition: opacity 1000ms ease-in-out;
+    pointer-events: none;
+  }
+
+  .slide-desc.active {
+    position: relative;
+    opacity: 1;
+    pointer-events: auto;
   }
 
   .hero-actions {
@@ -441,16 +504,389 @@ const whatsappUrl = import.meta.env.PUBLIC_WHATSAPP_URL || "https://wa.me/212600
     color: rgba(255, 255, 255, 0.3);
   }
 
-  @media (max-width: 768px) {
-    .hero-trust-cards {
-      grid-template-columns: 1fr;
-    }
-    .hero-actions {
-      flex-direction: column;
-      align-items: stretch;
-    }
-    .btn-primary, .btn-secondary {
-      justify-content: center;
-    }
+  /* ==========================================
+   RESPONSIVE HERO
+   ========================================== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .hero {
+    min-height: auto;
+    padding: 90px 0 50px;
   }
+
+  .hero-container {
+    width: min(calc(100% - 48px), var(--container-width));
+  }
+
+  .hero-content {
+    max-width: 760px;
+  }
+
+  .hero-title {
+    font-size: clamp(42px, 6vw, 62px);
+  }
+
+  .hero-descriptions-container {
+    max-width: 650px;
+  }
+
+  .hero-trust-cards {
+    max-width: 100%;
+    gap: 12px;
+  }
+
+  .trust-card {
+    padding: 13px 14px;
+  }
+
+  .trust-card strong {
+    font-size: 12px;
+  }
+
+  .trust-card p {
+    font-size: 10px;
+  }
+}
+
+
+/* ==========================================
+   MOBILE
+   ========================================== */
+
+@media (max-width: 768px) {
+
+  .hero {
+    min-height: auto;
+    padding: 90px 0 0;
+  }
+
+  /* Container */
+  .hero-container {
+    width: calc(100% - 32px);
+    margin: 0 auto;
+    align-items: flex-start;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: none;
+    padding: 30px 0 50px;
+  }
+
+
+  /* ==========================================
+     BACKGROUND
+     ========================================== */
+
+  .hero-bg-img {
+    object-position: center center;
+    filter: brightness(0.92) contrast(1.02) saturate(1.05);
+  }
+
+  .hero-bg-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(5, 20, 35, 0.45) 0%,
+        rgba(5, 20, 35, 0.48) 45%,
+        rgba(5, 20, 35, 0.72) 100%
+      );
+  }
+
+  .hero-grid {
+    opacity: 0.18;
+    background-size: 24px 24px;
+  }
+
+
+  /* ==========================================
+     EYEBROW
+     ========================================== */
+
+  .hero-eyebrow {
+    max-width: 100%;
+    margin-bottom: 20px;
+
+    padding: 6px 12px;
+    gap: 7px;
+
+    font-size: 9px;
+    letter-spacing: 0.05em;
+
+    white-space: normal;
+    flex-wrap: wrap;
+  }
+
+  .eyebrow-dot {
+    width: 7px;
+    height: 7px;
+    flex-shrink: 0;
+  }
+
+  .eyebrow-divider {
+    display: none;
+  }
+
+
+  /* ==========================================
+     TITLE
+     ========================================== */
+
+  .hero-title {
+    margin-bottom: 18px;
+
+    font-size: clamp(36px, 10vw, 52px);
+    line-height: 1.08;
+
+    letter-spacing: -0.035em;
+  }
+
+
+  /* ==========================================
+     DESCRIPTION
+     ========================================== */
+
+  .hero-descriptions-container {
+    max-width: 100%;
+    min-height: 120px;
+    margin-bottom: 28px;
+  }
+
+  .slide-desc {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+
+  /* ==========================================
+     BUTTONS
+     ========================================== */
+
+  .hero-actions {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    min-height: 54px;
+
+    justify-content: center;
+    text-align: center;
+
+    box-sizing: border-box;
+  }
+
+  .btn-primary {
+    padding: 15px 20px;
+    font-size: 14px;
+  }
+
+  .btn-secondary {
+    padding: 15px 20px;
+    font-size: 14px;
+  }
+
+
+  /* ==========================================
+     TRUST CARDS
+     ========================================== */
+
+  .hero-trust-cards {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+  }
+
+  .trust-card {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 12px 14px;
+
+    border-radius: 14px;
+
+    background: rgba(15, 23, 42, 0.58);
+    backdrop-filter: blur(14px);
+  }
+
+  .trust-card-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+  }
+
+  .trust-card strong {
+    font-size: 12px;
+  }
+
+  .trust-card p {
+    font-size: 10px;
+  }
+
+
+  /* ==========================================
+     FOOTER
+     ========================================== */
+
+  .hero-footer {
+    margin-top: 0;
+    padding: 18px 0;
+
+    background: rgba(5, 20, 35, 0.35);
+    backdrop-filter: blur(8px);
+
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .hero-footer-container {
+    width: calc(100% - 32px);
+
+    gap: 8px 10px;
+  }
+
+  .footer-badge {
+    font-size: 9px;
+    letter-spacing: 0.08em;
+
+    padding: 5px 10px;
+  }
+
+  .footer-dot {
+    font-size: 10px;
+  }
+
+  .slide-item:nth-child(1) .hero-bg-img {
+    object-position: 50% center;
+  }
+
+  .slide-item:nth-child(2) .hero-bg-img {
+    object-position: 50% center;
+  }
+
+  .slide-item:nth-child(3) .hero-bg-img {
+    object-position: 50% top;
+  }
+
+}
+
+
+/* ==========================================
+   SMALL PHONES
+   ========================================== */
+
+@media (max-width: 480px) {
+
+  .hero {
+    padding-top: 78px;
+  }
+
+  .hero-container {
+    width: calc(100% - 24px);
+  }
+
+  .hero-content {
+    padding-top: 24px;
+    padding-bottom: 38px;
+  }
+
+
+  /* Smaller eyebrow */
+  .hero-eyebrow {
+    font-size: 8px;
+    padding: 5px 10px;
+    gap: 6px;
+  }
+
+
+  /* Smaller title */
+  .hero-title {
+    font-size: clamp(34px, 11vw, 44px);
+    line-height: 1.05;
+  }
+
+
+  /* Description */
+  .hero-descriptions-container {
+    min-height: 145px;
+    margin-bottom: 24px;
+  }
+
+  .slide-desc {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+
+  /* Buttons */
+  .btn-primary,
+  .btn-secondary {
+    min-height: 52px;
+    padding: 14px 16px;
+    font-size: 13px;
+  }
+
+
+  /* Trust cards */
+  .trust-card {
+    padding: 11px 12px;
+  }
+
+  .trust-card-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+
+  /* Footer */
+  .hero-footer-container {
+    width: calc(100% - 20px);
+    gap: 6px;
+  }
+
+  .footer-badge {
+    font-size: 8px;
+    padding: 4px 8px;
+  }
+}
+
+
+/* ==========================================
+   VERY SMALL PHONES
+   ========================================== */
+
+@media (max-width: 360px) {
+
+  .hero-title {
+    font-size: 32px;
+  }
+
+  .hero-descriptions-container {
+    min-height: 165px;
+  }
+
+  .slide-desc {
+    font-size: 14px;
+  }
+
+  .hero-eyebrow {
+    font-size: 7px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    font-size: 12px;
+  }
+}
 </style>

@@ -1,5 +1,7 @@
 ---
-const whatsappUrl = import.meta.env.PUBLIC_WHATSAPP_URL || "https://wa.me/212600000000";
+import { translations } from "../data/translations";
+const waBase = import.meta.env.PUBLIC_WHATSAPP_URL || "https://wa.me/212680514643";
+const whatsappUrl = `${waBase}?text=${encodeURIComponent(translations.fr.whatsappMessage)}`;
 const footerPromise = "Centres d'Esthétique • Médecins Esthétiques • Kinésithérapie";
 ---
 
@@ -41,6 +43,7 @@ const footerPromise = "Centres d'Esthétique • Médecins Esthétiques • Kin�
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Parler à Spark sur WhatsApp"
+            data-whatsapp-link
           >
             <span class="whatsapp-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
