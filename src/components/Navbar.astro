@@ -4,7 +4,7 @@ import sparkLogo from "../assets/images/logo/spark-logo.png";
 import { translations } from "../data/translations";
 
 const t = translations.fr;
-const waBase = import.meta.env.PUBLIC_WHATSAPP_URL || "https://wa.me/212680514643";
+const waBase = import.meta.env.PUBLIC_WHATSAPP_URL || "https://wa.me/212605767055";
 const whatsappUrl = `${waBase}?text=${encodeURIComponent(t.whatsappMessage)}`;
 ---
 
@@ -186,7 +186,7 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(t.whatsappMessage)}`;
 
     // Update all WhatsApp links with the language-specific pre-filled message
     const waBase = (document.querySelector<HTMLAnchorElement>("[data-whatsapp-link]")
-      ?.href.split("?")[0]) || "https://wa.me/212680514643";
+      ?.href.split("?")[0]) || "https://wa.me/212605767055";
     const waUrl = `${waBase}?text=${encodeURIComponent(dict.whatsappMessage)}`;
     document.querySelectorAll<HTMLAnchorElement>("[data-whatsapp-link]").forEach((el) => {
       el.href = waUrl;
