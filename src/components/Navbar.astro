@@ -4,49 +4,135 @@ import sparkLogo from "../assets/images/logo/spark-logo.png";
 import { translations } from "../data/translations";
 
 const t = translations.fr;
-const waBase = import.meta.env.PUBLIC_WHATSAPP_URL || "https://wa.me/212605767055";
-const whatsappUrl = `${waBase}?text=${encodeURIComponent(t.whatsappMessage)}`;
+
+const waBase =
+  import.meta.env.PUBLIC_WHATSAPP_URL ||
+  "https://wa.me/212605767055";
+
+const whatsappUrl =
+  `${waBase}?text=${encodeURIComponent(t.whatsappMessage)}`;
 ---
 
 <header class="site-header">
+
+  <!-- TOP BANNER -->
   <div class="top-banner">
     <div class="top-banner-container">
+
       <span class="pulse-dot"></span>
-      <span class="banner-text" data-i18n="solutionFor">{t.solutionFor}</span>
+
+      <span class="banner-text" data-i18n="solutionFor">
+        {t.solutionFor}
+      </span>
+
       <div class="niche-pills">
-        {t.niches.map((niche, idx) => (
-          <span class="niche-pill" data-i18n-niche={idx}>{niche}</span>
-        ))}
+        {
+          t.niches.map((niche, idx) => (
+            <span class="niche-pill" data-i18n-niche={idx}>
+              {niche}
+            </span>
+          ))
+        }
       </div>
+
     </div>
   </div>
 
+
+  <!-- NAVBAR -->
   <nav class="navbar">
+
     <!-- LOGO -->
     <a href="#hero" class="logo" aria-label="Spark — Accueil">
-      <Image src={sparkLogo} alt="Spark - Medical & Aesthetic Growth" class="logo-image" loading="eager" width={140} height={38} />
+      <Image
+        src={sparkLogo}
+        alt="Spark - Medical & Aesthetic Growth"
+        class="logo-image"
+        loading="eager"
+        width={180}
+        height={50}
+      />
     </a>
 
-    <!-- DESKTOP NAVIGATION LINKS WITH HIGH CONTRAST DARK MODE -->
+
+    <!-- DESKTOP NAVIGATION -->
     <div class="desktop-navigation">
-      <a href="#system" class="nav-link" data-i18n="navSystem">{t.navSystem}</a>
-      <a href="#offer" class="nav-link" data-i18n="navOffer">{t.navOffer}</a>
-      <a href="#testimonials" class="nav-link" data-i18n="navTestimonials">{t.navTestimonials}</a>
-      <a href="#why-spark" class="nav-link" data-i18n="navWhySpark">{t.navWhySpark}</a>
+
+      <a
+        href="#system"
+        class="nav-link"
+        data-i18n="navSystem"
+      >
+        {t.navSystem}
+      </a>
+
+      <a
+        href="#offer"
+        class="nav-link"
+        data-i18n="navOffer"
+      >
+        {t.navOffer}
+      </a>
+
+      <a
+        href="#testimonials"
+        class="nav-link"
+        data-i18n="navTestimonials"
+      >
+        {t.navTestimonials}
+      </a>
+
+      <a
+        href="#why-spark"
+        class="nav-link"
+        data-i18n="navWhySpark"
+      >
+        {t.navWhySpark}
+      </a>
+
     </div>
 
-    <!-- RIGHT ACTIONS: LANGUAGE SWITCHER + THEME TOGGLE + WHATSAPP CTA -->
+
+    <!-- RIGHT ACTIONS -->
     <div class="nav-actions">
-      <!-- LANGUAGE SWITCHER BUTTON (FR | العربية) -->
-      <button id="lang-toggle" type="button" class="lang-toggle-btn" aria-label="Changer la langue (Français / العربية)">
-        <span class="lang-icon" aria-hidden="true">🌐</span>
-        <span id="lang-label" class="lang-label">FR | العربية</span>
+
+      <!-- LANGUAGE SWITCHER -->
+      <button
+        id="lang-toggle"
+        type="button"
+        class="lang-toggle-btn"
+        aria-label="Changer la langue"
+      >
+        <span class="lang-icon" aria-hidden="true">
+          🌐
+        </span>
+
+        <span id="lang-label" class="lang-label">
+          FR | العربية
+        </span>
       </button>
 
-      <!-- THEME TOGGLE BUTTON -->
-      <button id="theme-toggle" type="button" class="theme-toggle-btn" aria-label="Changer le thème">
-        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+      <!-- THEME TOGGLE -->
+      <button
+        id="theme-toggle"
+        type="button"
+        class="theme-toggle-btn"
+        aria-label="Changer le thème"
+      >
+
+        <!-- SUN -->
+        <svg
+          class="sun-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
           <circle cx="12" cy="12" r="5"></circle>
+
           <line x1="12" y1="1" x2="12" y2="3"></line>
           <line x1="12" y1="21" x2="12" y2="23"></line>
           <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
@@ -56,212 +142,550 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(t.whatsappMessage)}`;
           <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
           <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
         </svg>
-        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+
+
+        <!-- MOON -->
+        <svg
+          class="moon-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+          ></path>
         </svg>
+
       </button>
 
-      <!-- DESKTOP CTA -->
-      <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="nav-cta" data-whatsapp-link>
+
+      <!-- WHATSAPP CTA -->
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="nav-cta"
+        data-whatsapp-link
+      >
+
         <span class="whatsapp-badge">
-          <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current" aria-hidden="true">
-            <path d="M12.012 2c-5.506 0-9.989 4.478-9.989 9.984 0 1.758.459 3.413 1.264 4.852l-1.341 4.9 5.019-1.316c1.393.759 2.977 1.189 4.647 1.189 5.506 0 9.989-4.478 9.989-9.989 0-5.506-4.483-9.984-9.989-9.984zm5.789 14.129c-.244.685-1.42 1.309-1.961 1.365-.494.052-1.139.076-3.298-.813-2.76-1.137-4.542-3.948-4.68-4.133-.137-.184-1.121-1.492-1.121-2.845 0-1.353.709-2.018.961-2.285.252-.267.551-.334.734-.334.184 0 .367.002.527.009.171.008.4.004.596.474.206.494.708 1.728.77 1.854.062.126.103.275.02.438-.083.163-.125.267-.247.412-.122.145-.258.324-.367.435-.122.122-.25.254-.108.497.142.244.631 1.042 1.354 1.686.93.829 1.714 1.087 1.958 1.209.244.122.387.103.53-.061.143-.164.618-.72.783-.967.165-.247.33-.206.556-.122.226.084 1.439.678 1.686.802.247.124.412.185.473.288.061.103.061.602-.183 1.287z"/>
+          <svg
+            viewBox="0 0 24 24"
+            class="whatsapp-icon"
+            aria-hidden="true"
+          >
+            <path
+              d="M12.012 2c-5.506 0-9.989 4.478-9.989 9.984 0 1.758.459 3.413 1.264 4.852l-1.341 4.9 5.019-1.316c1.393.759 2.977 1.189 4.647 1.189 5.506 0 9.989-4.478 9.989-9.989 0-5.506-4.483-9.984-9.989-9.984zm5.789 14.129c-.244.685-1.42 1.309-1.961 1.365-.494.052-1.139.076-3.298-.813-2.76-1.137-4.542-3.948-4.68-4.133-.137-.184-1.121-1.492-1.121-2.845 0-1.353.709-2.018.961-2.285.252-.267.551-.334.734-.334.184 0 .367.002.527.009.171.008.4.004.596.474.206.494.708 1.728.77 1.854.062.126.103.275.02.438-.083.163-.125.267-.247.412-.122.145-.258.324-.367.435-.122.122-.25.254-.108.497.142.244.631 1.042 1.354 1.686.93.829 1.714 1.087 1.958 1.209.244.122.387.103.53-.061.143-.164.618-.72.783-.967.165-.247.33-.206.556-.122.226.084 1.439.678 1.686.802.247.124.412.185.473.288.061.103.061.602-.183 1.287z"
+            ></path>
           </svg>
         </span>
-        <span data-i18n="navCta">{t.navCta}</span>
-        <span class="nav-cta-arrow" aria-hidden="true">→</span>
+
+        <span data-i18n="navCta">
+          {t.navCta}
+        </span>
+
+        <span class="nav-cta-arrow" aria-hidden="true">
+          →
+        </span>
+
       </a>
 
+
       <!-- MOBILE MENU BUTTON -->
-      <button class="menu-button" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-navigation">
+      <button
+        class="menu-button"
+        type="button"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+        aria-controls="mobile-navigation"
+      >
         <span></span>
         <span></span>
       </button>
+
     </div>
+
   </nav>
 
+
   <!-- MOBILE NAVIGATION -->
-  <div id="mobile-navigation" class="mobile-navigation" hidden>
+  <div
+    id="mobile-navigation"
+    class="mobile-navigation"
+    hidden
+  >
+
     <div class="mobile-niche-bar">
-      <span data-i18n="solutionFor">Spécialisé pour :</span>
+
+      <span data-i18n="solutionFor">
+        Spécialisé pour :
+      </span>
+
       <div class="mobile-pills">
-        {t.niches.map((niche, idx) => (
-          <span class="mobile-pill" data-i18n-niche={idx}>{niche}</span>
-        ))}
+        {
+          t.niches.map((niche, idx) => (
+            <span
+              class="mobile-pill"
+              data-i18n-niche={idx}
+            >
+              {niche}
+            </span>
+          ))
+        }
       </div>
+
     </div>
+
 
     <div class="mobile-controls-row">
-      <button id="mobile-lang-toggle" class="mobile-ctrl-btn" type="button">
-        🌐 <span id="mobile-lang-label">Français / العربية</span>
+
+      <button
+        id="mobile-lang-toggle"
+        class="mobile-ctrl-btn"
+        type="button"
+      >
+        🌐
+        <span id="mobile-lang-label">
+          Français / العربية
+        </span>
       </button>
-      <button id="mobile-theme-toggle" class="mobile-ctrl-btn" type="button">
+
+
+      <button
+        id="mobile-theme-toggle"
+        class="mobile-ctrl-btn"
+        type="button"
+      >
         🌙 / ☀️ Mode
       </button>
+
     </div>
 
-    <a href="#system" class="mobile-nav-link" data-i18n="navSystem">{t.navSystem}</a>
-    <a href="#offer" class="mobile-nav-link" data-i18n="navOffer">{t.navOffer}</a>
-    <a href="#testimonials" class="mobile-nav-link" data-i18n="navTestimonials">{t.navTestimonials}</a>
-    <a href="#why-spark" class="mobile-nav-link" data-i18n="navWhySpark">{t.navWhySpark}</a>
 
-    <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="mobile-nav-cta" data-whatsapp-link>
-      <span data-i18n="navCta">Parler avec un conseiller sur WhatsApp</span>
-      <span aria-hidden="true">→</span>
+    <a
+      href="#system"
+      class="mobile-nav-link"
+      data-i18n="navSystem"
+    >
+      {t.navSystem}
     </a>
+
+    <a
+      href="#offer"
+      class="mobile-nav-link"
+      data-i18n="navOffer"
+    >
+      {t.navOffer}
+    </a>
+
+    <a
+      href="#testimonials"
+      class="mobile-nav-link"
+      data-i18n="navTestimonials"
+    >
+      {t.navTestimonials}
+    </a>
+
+    <a
+      href="#why-spark"
+      class="mobile-nav-link"
+      data-i18n="navWhySpark"
+    >
+      {t.navWhySpark}
+    </a>
+
+
+    <a
+      href={whatsappUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mobile-nav-cta"
+      data-whatsapp-link
+    >
+      <span data-i18n="navCta">
+        {t.navCta}
+      </span>
+
+      <span aria-hidden="true">
+        →
+      </span>
+    </a>
+
   </div>
+
 </header>
+
 
 <script>
   import { translations, type Language } from "../data/translations";
 
-  // Mobile Menu Toggle
-  const button = document.querySelector<HTMLButtonElement>(".menu-button");
-  const mobileNavigation = document.querySelector<HTMLElement>("#mobile-navigation");
+
+  /* MOBILE MENU */
+
+  const button =
+    document.querySelector<HTMLButtonElement>(".menu-button");
+
+  const mobileNavigation =
+    document.querySelector<HTMLElement>("#mobile-navigation");
+
 
   if (button && mobileNavigation) {
+
     button.addEventListener("click", () => {
-      const isOpen = button.getAttribute("aria-expanded") === "true";
-      button.setAttribute("aria-expanded", String(!isOpen));
-      button.setAttribute("aria-label", isOpen ? "Ouvrir le menu" : "Fermer le menu");
+
+      const isOpen =
+        button.getAttribute("aria-expanded") === "true";
+
+      button.setAttribute(
+        "aria-expanded",
+        String(!isOpen)
+      );
+
+      button.setAttribute(
+        "aria-label",
+        isOpen
+          ? "Ouvrir le menu"
+          : "Fermer le menu"
+      );
+
       mobileNavigation.hidden = isOpen;
     });
 
-    mobileNavigation.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        button.setAttribute("aria-expanded", "false");
-        button.setAttribute("aria-label", "Ouvrir le menu");
-        mobileNavigation.hidden = true;
+
+    mobileNavigation
+      .querySelectorAll("a")
+      .forEach((link) => {
+
+        link.addEventListener("click", () => {
+
+          button.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+          button.setAttribute(
+            "aria-label",
+            "Ouvrir le menu"
+          );
+
+          mobileNavigation.hidden = true;
+        });
+
       });
-    });
   }
 
-  // Theme Toggle Script
-  const themeToggle = document.querySelector<HTMLButtonElement>("#theme-toggle");
-  const mobileThemeToggle = document.querySelector<HTMLButtonElement>("#mobile-theme-toggle");
+
+  /* THEME */
+
+  const themeToggle =
+    document.querySelector<HTMLButtonElement>("#theme-toggle");
+
+  const mobileThemeToggle =
+    document.querySelector<HTMLButtonElement>("#mobile-theme-toggle");
+
 
   function toggleTheme() {
-    const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
-    const newTheme = currentTheme === "dark" ? "light" : "dark";
-    document.documentElement.setAttribute("data-theme", newTheme);
-    localStorage.setItem("spark-theme", newTheme);
+
+    const currentTheme =
+      document.documentElement.getAttribute("data-theme") || "light";
+
+    const newTheme =
+      currentTheme === "dark"
+        ? "light"
+        : "dark";
+
+    document.documentElement.setAttribute(
+      "data-theme",
+      newTheme
+    );
+
+    localStorage.setItem(
+      "spark-theme",
+      newTheme
+    );
   }
 
-  themeToggle?.addEventListener("click", toggleTheme);
-  mobileThemeToggle?.addEventListener("click", toggleTheme);
 
-  // Language Switcher & RTL Logic
-  const langToggle = document.querySelector<HTMLButtonElement>("#lang-toggle");
-  const mobileLangToggle = document.querySelector<HTMLButtonElement>("#mobile-lang-toggle");
-  const langLabel = document.querySelector<HTMLElement>("#lang-label");
-  const mobileLangLabel = document.querySelector<HTMLElement>("#mobile-lang-label");
+  themeToggle?.addEventListener(
+    "click",
+    toggleTheme
+  );
+
+  mobileThemeToggle?.addEventListener(
+    "click",
+    toggleTheme
+  );
+
+
+  /* LANGUAGE */
+
+  const langToggle =
+    document.querySelector<HTMLButtonElement>("#lang-toggle");
+
+  const mobileLangToggle =
+    document.querySelector<HTMLButtonElement>("#mobile-lang-toggle");
+
+  const langLabel =
+    document.querySelector<HTMLElement>("#lang-label");
+
+  const mobileLangLabel =
+    document.querySelector<HTMLElement>("#mobile-lang-label");
+
 
   function applyLanguage(lang: Language) {
-    const isAr = lang === "ar";
-    document.documentElement.setAttribute("lang", lang);
-    document.documentElement.setAttribute("dir", isAr ? "rtl" : "ltr");
-    localStorage.setItem("spark-lang", lang);
 
-    if (langLabel) langLabel.textContent = isAr ? "العربية | FR" : "FR | العربية";
-    if (mobileLangLabel) mobileLangLabel.textContent = isAr ? "العربية / FR" : "Français / العربية";
+    const isAr = lang === "ar";
+
+    document.documentElement.setAttribute(
+      "lang",
+      lang
+    );
+
+    document.documentElement.setAttribute(
+      "dir",
+      isAr ? "rtl" : "ltr"
+    );
+
+    localStorage.setItem(
+      "spark-lang",
+      lang
+    );
+
+
+    if (langLabel) {
+      langLabel.textContent =
+        isAr
+          ? "العربية | FR"
+          : "FR | العربية";
+    }
+
+
+    if (mobileLangLabel) {
+      mobileLangLabel.textContent =
+        isAr
+          ? "العربية / FR"
+          : "Français / العربية";
+    }
+
 
     const dict = translations[lang];
+
     if (!dict) return;
 
-    // Update text elements with data-i18n attribute
-    document.querySelectorAll<HTMLElement>("[data-i18n]").forEach((el) => {
-      const key = el.getAttribute("data-i18n") as keyof typeof dict;
-      if (key && dict[key]) {
-        el.textContent = dict[key] as string;
-      }
-    });
 
-    // Update niche pills
-    document.querySelectorAll<HTMLElement>("[data-i18n-niche]").forEach((el) => {
-      const idx = Number(el.getAttribute("data-i18n-niche"));
-      if (!isNaN(idx) && dict.niches[idx]) {
-        el.textContent = dict.niches[idx];
-      }
-    });
+    document
+      .querySelectorAll<HTMLElement>("[data-i18n]")
+      .forEach((el) => {
 
-    // Update all WhatsApp links with the language-specific pre-filled message
-    const waBase = (document.querySelector<HTMLAnchorElement>("[data-whatsapp-link]")
-      ?.href.split("?")[0]) || "https://wa.me/212605767055";
-    const waUrl = `${waBase}?text=${encodeURIComponent(dict.whatsappMessage)}`;
-    document.querySelectorAll<HTMLAnchorElement>("[data-whatsapp-link]").forEach((el) => {
-      el.href = waUrl;
-    });
+        const key =
+          el.getAttribute("data-i18n");
+
+        if (!key) return;
+
+        const value =
+          dict[key as keyof typeof dict];
+
+        if (typeof value === "string") {
+          el.textContent = value;
+        }
+
+      });
+
+
+    document
+      .querySelectorAll<HTMLElement>("[data-i18n-niche]")
+      .forEach((el) => {
+
+        const indexAttribute =
+          el.getAttribute("data-i18n-niche");
+
+        if (indexAttribute === null) return;
+
+        const idx =
+          Number(indexAttribute);
+
+        if (
+          !Number.isNaN(idx) &&
+          dict.niches[idx]
+        ) {
+          el.textContent =
+            dict.niches[idx];
+        }
+
+      });
+
+
+    const firstWhatsAppLink =
+      document.querySelector<HTMLAnchorElement>(
+        "[data-whatsapp-link]"
+      );
+
+    const currentWaBase =
+      firstWhatsAppLink
+        ? firstWhatsAppLink.href.split("?")[0]
+        : "https://wa.me/212605767055";
+
+
+    const waUrl =
+      `${currentWaBase}?text=${encodeURIComponent(
+        dict.whatsappMessage
+      )}`;
+
+
+    document
+      .querySelectorAll<HTMLAnchorElement>(
+        "[data-whatsapp-link]"
+      )
+      .forEach((link) => {
+        link.href = waUrl;
+      });
   }
 
+
   function toggleLanguage() {
-    const currentLang = (document.documentElement.getAttribute("lang") as Language) || "fr";
-    const nextLang: Language = currentLang === "ar" ? "fr" : "ar";
+
+    const currentLang =
+      (document.documentElement.getAttribute("lang") as Language)
+      || "fr";
+
+    const nextLang: Language =
+      currentLang === "ar"
+        ? "fr"
+        : "ar";
+
     applyLanguage(nextLang);
   }
 
-  langToggle?.addEventListener("click", toggleLanguage);
-  mobileLangToggle?.addEventListener("click", toggleLanguage);
 
-  // Initialize on page load
-  const initialLang = (localStorage.getItem("spark-lang") as Language) || "fr";
+  langToggle?.addEventListener(
+    "click",
+    toggleLanguage
+  );
+
+  mobileLangToggle?.addEventListener(
+    "click",
+    toggleLanguage
+  );
+
+
+  const initialLang =
+    (localStorage.getItem("spark-lang") as Language)
+    || "fr";
+
   if (initialLang === "ar") {
     applyLanguage("ar");
   }
+
 </script>
 
+
 <style>
+
+  /* ==========================================
+     HEADER
+     ========================================== */
+
   .site-header {
     position: sticky;
     top: 0;
     z-index: 100;
     width: 100%;
+
     background: rgba(255, 255, 255, 0.94);
+
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--color-border);
+
+    border-bottom:
+      1px solid var(--color-border);
+
     transition: var(--theme-transition);
   }
 
+
   [data-theme="dark"] .site-header {
     background: rgba(8, 14, 26, 0.94);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    border-bottom:
+      1px solid rgba(255, 255, 255, 0.1);
   }
+
+
+  /* ==========================================
+     TOP BANNER
+     ========================================== */
 
   .top-banner {
-    background: linear-gradient(90deg, #0a2540 0%, #0f4c81 100%);
+    background:
+      linear-gradient(
+        90deg,
+        #0a2540 0%,
+        #0f4c81 100%
+      );
+
     color: #ffffff;
     font-size: 11px;
+
     padding: 6px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    border-bottom:
+      1px solid rgba(255, 255, 255, 0.1);
   }
+
 
   [data-theme="dark"] .top-banner {
-    background: linear-gradient(90deg, #0f172a 0%, #1e293b 100%);
+    background:
+      linear-gradient(
+        90deg,
+        #0f172a 0%,
+        #1e293b 100%
+      );
   }
 
+
   .top-banner-container {
-    width: min(calc(100% - 40px), var(--container-width));
+    width:
+      min(
+        calc(100% - 40px),
+        var(--container-width)
+      );
+
     margin: 0 auto;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     gap: 10px;
+
     flex-wrap: wrap;
   }
+
 
   .pulse-dot {
     width: 6px;
     height: 6px;
+
     border-radius: 50%;
+
     background: #00a896;
-    box-shadow: 0 0 10px #00a896;
+
+    box-shadow:
+      0 0 10px #00a896;
   }
+
 
   .banner-text {
     font-weight: 600;
+
     color: rgba(255, 255, 255, 0.9);
+
     letter-spacing: 0.02em;
   }
+
 
   .niche-pills {
     display: flex;
@@ -269,347 +693,657 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(t.whatsappMessage)}`;
     align-items: center;
   }
 
+
   .niche-pill {
-    background: rgba(255, 255, 255, 0.14);
-    border: 1px solid rgba(255, 255, 255, 0.22);
+    background:
+      rgba(255, 255, 255, 0.14);
+
+    border:
+      1px solid rgba(255, 255, 255, 0.22);
+
     padding: 2px 10px;
+
     border-radius: 99px;
+
     font-size: 10px;
     font-weight: 700;
+
     letter-spacing: 0.03em;
+
     color: #ffffff;
   }
 
+
+  /* ==========================================
+     NAVBAR
+     ========================================== */
+
   .navbar {
-    width: min(calc(100% - 40px), var(--container-width));
+    width:
+      min(
+        calc(100% - 40px),
+        var(--container-width)
+      );
+
     min-height: 68px;
+
     margin: 0 auto;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     gap: 24px;
   }
+
+
+  /* ==========================================
+     LOGO
+     ========================================== */
 
   .logo {
     display: inline-flex;
     align-items: center;
+
     flex-shrink: 0;
+
     text-decoration: none;
-    transition: opacity 180ms ease, transform 180ms ease;
+
+    transition:
+      opacity 180ms ease,
+      transform 180ms ease;
   }
+
 
   .logo:hover {
     opacity: 0.9;
+
     transform: translateY(-1px);
   }
 
+
   .logo-image {
     display: block;
+
     width: auto;
-    height: 36px;
+    height: 40px;
+
     object-fit: contain;
+
+    transition:
+      filter 180ms ease;
   }
 
+
+  /*
+    Navy logo -> white logo
+    when dark mode is active
+  */
+
   [data-theme="dark"] .logo-image {
-    filter: brightness(1.2);
+    filter:
+      brightness(0)
+      invert(1);
   }
+
+
+  /* ==========================================
+     DESKTOP NAVIGATION
+     ========================================== */
 
   .desktop-navigation {
     display: flex;
     align-items: center;
+
     gap: 32px;
   }
 
-  /* HIGH CONTRAST NAVBAR LINKS IN BOTH LIGHT & DARK MODE */
+
   .nav-link {
     position: relative;
+
     padding: 6px 0;
+
     color: #334155;
+
     font-size: 14px;
     font-weight: 600;
+
     text-decoration: none;
-    transition: color 180ms ease;
+
+    transition:
+      color 180ms ease;
   }
 
-  /* DARK MODE HIGH CONTRAST FIX FOR NAV LINKS */
+
   [data-theme="dark"] .nav-link {
-    color: #f1f5f9; /* Bright, highly legible slate white */
+    color: #f1f5f9;
   }
+
 
   .nav-link::after {
     content: "";
+
     position: absolute;
+
     left: 0;
     bottom: 0;
+
     width: 0;
     height: 2.5px;
+
     background: var(--color-teal);
-    transition: width 180ms ease;
+
+    transition:
+      width 180ms ease;
+
     border-radius: 99px;
   }
+
 
   .nav-link:hover {
     color: var(--color-teal);
   }
 
+
   [data-theme="dark"] .nav-link:hover {
-    color: #64eeea; /* Bright cyan glow on hover in dark mode */
+    color: #64eeea;
   }
+
 
   .nav-link:hover::after {
     width: 100%;
   }
 
+
+  /* ==========================================
+     ACTIONS
+     ========================================== */
+
   .nav-actions {
     display: flex;
     align-items: center;
+
     gap: 10px;
   }
 
-  /* LANGUAGE SWITCHER BUTTON STYLES */
+
   .lang-toggle-btn {
     display: inline-flex;
     align-items: center;
+
     gap: 6px;
+
     padding: 8px 14px;
+
     border-radius: 99px;
+
     background: var(--color-surface);
-    border: 1px solid var(--color-border);
+
+    border:
+      1px solid var(--color-border);
+
     color: var(--color-text-main);
+
     font-size: 12px;
     font-weight: 700;
+
     cursor: pointer;
+
     box-shadow: var(--shadow-sm);
-    transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease;
+
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      color 180ms ease;
   }
+
 
   .lang-toggle-btn:hover {
     transform: translateY(-1px);
+
     border-color: var(--color-teal);
+
     color: var(--color-teal);
   }
+
 
   .lang-icon {
     font-size: 13px;
   }
 
-  /* THEME TOGGLE BUTTON STYLES */
+
+  /* ==========================================
+     THEME BUTTON
+     ========================================== */
+
   .theme-toggle-btn {
     display: flex;
     align-items: center;
     justify-content: center;
+
     width: 40px;
     height: 40px;
+
     border-radius: 50%;
+
     background: var(--color-surface);
-    border: 1px solid var(--color-border);
+
+    border:
+      1px solid var(--color-border);
+
     color: var(--color-text-main);
+
     cursor: pointer;
+
     box-shadow: var(--shadow-sm);
-    transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease;
+
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      color 180ms ease;
   }
+
 
   .theme-toggle-btn:hover {
     transform: scale(1.08);
+
     border-color: var(--color-teal);
+
     color: var(--color-teal);
   }
+
 
   .theme-toggle-btn svg {
     width: 20px;
     height: 20px;
-    transition: transform 300ms ease;
   }
+
 
   .sun-icon {
     display: none;
   }
+
+
   .moon-icon {
     display: block;
   }
 
+
   [data-theme="dark"] .sun-icon {
     display: block;
+
     color: #e5c158;
   }
+
+
   [data-theme="dark"] .moon-icon {
     display: none;
   }
 
+
+  /* ==========================================
+     WHATSAPP
+     ========================================== */
+
   .nav-cta {
     display: inline-flex;
     align-items: center;
+
     gap: 10px;
+
     padding: 10px 20px;
+
     border-radius: 999px;
-    background: linear-gradient(135deg, #0a2540 0%, #0f4c81 100%);
+
+    background:
+      linear-gradient(
+        135deg,
+        #0a2540 0%,
+        #0f4c81 100%
+      );
+
     color: #ffffff;
+
     font-size: 13px;
     font-weight: 700;
+
     text-decoration: none;
-    box-shadow: 0 4px 14px rgba(10, 37, 64, 0.15);
-    transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+
+    box-shadow:
+      0 4px 14px rgba(10, 37, 64, 0.15);
+
+    transition:
+      transform 180ms ease,
+      box-shadow 180ms ease;
   }
 
+
   [data-theme="dark"] .nav-cta {
-    background: linear-gradient(135deg, #00a896 0%, #028090 100%);
+    background:
+      linear-gradient(
+        135deg,
+        #00a896 0%,
+        #028090 100%
+      );
   }
+
 
   .whatsapp-badge {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
     width: 22px;
     height: 22px;
+
     background: #25d366;
+
     border-radius: 50%;
+
     color: #ffffff;
   }
 
+
+  .whatsapp-icon {
+    width: 16px;
+    height: 16px;
+
+    fill: currentColor;
+  }
+
+
   .nav-cta:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(10, 37, 64, 0.25);
+
+    box-shadow:
+      0 8px 24px rgba(10, 37, 64, 0.25);
   }
+
 
   .nav-cta-arrow {
     color: var(--color-teal);
-    transition: transform 180ms ease;
+
+    transition:
+      transform 180ms ease;
   }
 
-  [dir="rtl"] .nav-cta-arrow {
-    transform: rotate(180deg);
-  }
 
   .nav-cta:hover .nav-cta-arrow {
     transform: translateX(3px);
   }
 
-  [dir="rtl"] .nav-cta:hover .nav-cta-arrow {
-    transform: rotate(180deg) translateX(3px);
+
+  [dir="rtl"] .nav-cta-arrow {
+    transform: rotate(180deg);
   }
+
+
+  /* ==========================================
+     MOBILE MENU BUTTON
+     ========================================== */
 
   .menu-button {
     display: none;
+
     width: 40px;
     height: 40px;
-    border: 1px solid var(--color-border);
+
+    border:
+      1px solid var(--color-border);
+
     border-radius: 10px;
+
     background: var(--color-surface);
+
     cursor: pointer;
+
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
     gap: 5px;
   }
 
+
   .menu-button span {
     display: block;
+
     width: 18px;
     height: 2px;
+
     border-radius: 999px;
+
     background: var(--color-text-main);
   }
+
 
   .mobile-navigation {
     display: none;
   }
 
+
+  /* ==========================================
+     TABLET
+     ========================================== */
+
+  @media (max-width: 1000px) {
+
+    .logo-image {
+      height: 37px;
+    }
+
+  }
+
+
   @media (max-width: 900px) {
+
     .niche-pills {
       display: none;
     }
+
   }
 
+
+  /* ==========================================
+     MOBILE
+     ========================================== */
+
   @media (max-width: 820px) {
+
     .desktop-navigation,
     .nav-cta {
       display: none;
     }
 
+
+    .navbar {
+      width: calc(100% - 32px);
+
+      min-height: 62px;
+
+      gap: 12px;
+    }
+
+
+    .logo-image {
+      height: 32px;
+    }
+
+
     .menu-button {
       display: flex;
     }
 
+
     .mobile-navigation:not([hidden]) {
       display: flex;
+
       flex-direction: column;
+
       gap: 12px;
-      padding: 16px 20px 24px;
-      border-top: 1px solid var(--color-border);
+
+      padding:
+        16px 20px 24px;
+
+      border-top:
+        1px solid var(--color-border);
+
       background: var(--color-surface);
     }
 
+
     .mobile-niche-bar {
       font-size: 11px;
+
       color: var(--color-text-muted);
+
       font-weight: 600;
     }
+
 
     .mobile-controls-row {
       display: flex;
       align-items: center;
+
       gap: 10px;
+
       padding: 8px 0;
-      border-bottom: 1px solid var(--color-border);
+
+      border-bottom:
+        1px solid var(--color-border);
     }
+
 
     .mobile-ctrl-btn {
       flex: 1;
-      background: var(--color-surface-hover);
-      border: 1px solid var(--color-border);
+
+      background:
+        var(--color-surface-hover);
+
+      border:
+        1px solid var(--color-border);
+
       padding: 8px 12px;
+
       border-radius: 8px;
+
       font-size: 12px;
       font-weight: 600;
+
       color: var(--color-text-main);
+
       cursor: pointer;
     }
+
 
     .mobile-pills {
       display: flex;
       flex-wrap: wrap;
+
       gap: 6px;
+
       margin-top: 6px;
     }
 
+
     .mobile-pill {
-      background: var(--color-surface-hover);
+      background:
+        var(--color-surface-hover);
+
       color: var(--color-text-main);
+
       font-size: 10px;
       font-weight: 700;
+
       padding: 4px 10px;
+
       border-radius: 999px;
     }
 
+
     .mobile-nav-link {
       padding: 10px 14px;
+
       border-radius: 10px;
+
       color: var(--color-text-main);
+
       font-size: 15px;
       font-weight: 600;
+
+      text-decoration: none;
     }
+
 
     [data-theme="dark"] .mobile-nav-link {
       color: #f1f5f9;
     }
 
+
     .mobile-nav-link:hover {
-      background: var(--color-surface-hover);
+      background:
+        var(--color-surface-hover);
+
       color: var(--color-teal);
     }
+
 
     .mobile-nav-cta {
       display: flex;
       align-items: center;
       justify-content: center;
+
       gap: 10px;
+
       margin-top: 10px;
+
       padding: 14px;
+
       border-radius: 12px;
+
       background: #25d366;
+
       color: #ffffff;
+
       font-weight: 700;
       font-size: 14px;
+
+      text-decoration: none;
     }
+
   }
+
+
+  /* ==========================================
+     SMALL MOBILE
+     ========================================== */
+
+  @media (max-width: 480px) {
+
+    .navbar {
+      width: calc(100% - 24px);
+    }
+
+
+    .logo-image {
+      height: 29px;
+    }
+
+
+    .lang-toggle-btn {
+      padding: 7px 9px;
+
+      font-size: 10px;
+    }
+
+
+    .theme-toggle-btn,
+    .menu-button {
+      width: 36px;
+      height: 36px;
+    }
+
+  }
+
 </style>
