@@ -131,6 +131,14 @@ const caseStudies = [
         </div>
       ))}
     </div>
+
+    <!-- MID-FUNNEL CTA -->
+    <div class="testimonials-cta">
+      <a href="#contact-form" class="testi-cta-primary">
+        <span data-i18n="midCtaBtn">Demander une étude gratuite</span>
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -442,6 +450,46 @@ const caseStudies = [
     }
     .featured-card {
       padding: 30px 20px;
+    }
+  }
+
+  /* MID-FUNNEL CTA */
+  .testimonials-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+  }
+
+  .testi-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 36px;
+    background: var(--color-teal);
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 15px;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(0, 168, 150, 0.28);
+    transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+  }
+
+  .testi-cta-primary:hover {
+    transform: translateY(-2px);
+    background: var(--color-teal-light);
+    box-shadow: 0 12px 32px rgba(0, 168, 150, 0.38);
+  }
+
+  [dir="rtl"] .testi-cta-primary span:last-child {
+    transform: rotate(180deg);
+    display: inline-block;
+  }
+
+  @media (max-width: 640px) {
+    .testi-cta-primary {
+      width: 100%;
+      justify-content: center;
     }
   }
 </style>

@@ -13,7 +13,7 @@ export const translations = {
     navTestimonials: "Témoignages",
     navWhySpark: "Pourquoi Spark",
     navContact: "Contact",
-    navCta: "Parler avec un conseiller",
+    navCta: "Nous contacter",
     langLabel: "FR",
 
     // Hero
@@ -25,7 +25,7 @@ export const translations = {
     heroDescBeaute: "Le premier système d'acquisition spécialement conçu pour les Salons de Beauté et Centres de Soins. Transformez votre visibilité en rendez-vous fermes via WhatsApp.",
     heroDescMedecin: "Le premier système d'acquisition spécialement conçu pour les Médecins Esthétiques et Cliniques. Transformez votre visibilité en consultations fermes via WhatsApp.",
     heroDescKine: "Le premier système d'acquisition spécialement conçu pour les Cabinets de Kinésithérapie et Rééducation. Transformez votre visibilité en séances de soins confirmées via WhatsApp.",
-    heroCtaPrimary: "Demander un Échange WhatsApp",
+    heroCtaPrimary: "Demander un Rendez-vous",
     heroCtaSecondary: "Découvrir le Système",
     heroTrust1Title: "Rendez-vous Qualifiés",
     heroTrust1Desc: "Moins d'annulations",
@@ -67,6 +67,10 @@ export const translations = {
     solutionPillar3Title: "Zéro Gestion Technique",
     solutionPillar3Desc: "Nous gérons tout A à Z pour que vous vous concentriez sur vos soins.",
     solutionCta: "Découvrir le fonctionnement",
+
+    // Mid-funnel CTAs (Testimonials + WhySpark)
+    midCtaBtn: "Demander une étude gratuite",
+    midCtaWa: "Poser une question sur WhatsApp",
 
     // SparkSystem
     systemEyebrow: "LE SYSTÈME SPARK",
@@ -136,7 +140,8 @@ export const translations = {
     f4i3: "Accompagnement à la confirmation des RDV",
     footerQuestion: "Des questions sur notre fonctionnement ?",
     footerAnswer: "Échangez directement avec notre responsable par message.",
-    offerCta: "Démarrer sur WhatsApp",
+    offerCta: "Démarrer — Demander un Rendez-vous",
+    offerCtaWa: "Question rapide sur WhatsApp",
     visualEyebrow: "CROISSANCE ESTIMÉE",
     visualTitleMain: "Des résultats",
     visualTitleHighlight: "dès le 1er mois.",
@@ -217,7 +222,8 @@ export const translations = {
     ctaTitleMain: "Prêt à remplir votre agenda",
     ctaTitleHighlight: "dès cette semaine ?",
     ctaDesc: "Discutez directement avec un conseiller sur WhatsApp. Nous étudierons votre zone géographique et vos prestations pour vous montrer concrètement les résultats atteignables.",
-    ctaBtn: "Démarrer l'échange sur WhatsApp",
+    ctaBtn: "Remplir le formulaire de contact",
+    ctaBtnWa: "Ou discuter sur WhatsApp →",
     trustItem1: "✓ Sans engagement",
     trustItem2: "✓ Réponse en moins de 5 min",
     trustItem3: "✓ Lancement sous 48h",
@@ -259,7 +265,8 @@ export const translations = {
     s3: "Acquisition Cabinets de Kinésithérapie",
     s4: "Système de Relance WhatsApp",
     footerContactLabel: "CONTACT DIRECT",
-    footerContactLink: "Discuter sur WhatsApp",
+    footerContactLink: "Formulaire de contact",
+    footerContactWa: "WhatsApp direct",
     footerContactNote: "Réponse rapide sous 5 minutes par notre équipe spécialisée.",
     copyright: "© SPARK. TOUS DROITS RÉSERVÉS.",
     legal1: "Mentions légales",
@@ -277,7 +284,7 @@ export const translations = {
     navTestimonials: "آراء العملاء",
     navWhySpark: "لماذا سبارك",
     navContact: "تواصل",
-    navCta: "التحدث مع مستشار",
+    navCta: "تواصل معنا",
     langLabel: "العربية",
 
     // Hero
@@ -289,7 +296,7 @@ export const translations = {
     heroDescBeaute: "النظام الأول لجلب الزبائن المخصص لصالونات ومراكز التجميل. حوّل ظهورك إلى مواعيد مؤكدة مباشرة عبر الواتساب.",
     heroDescMedecin: "النظام الأول لجلب المرضى المخصص لأطباء التجميل والعيادات الطبيبة. حوّل ظهورك إلى استشارات مؤكدة مباشرة عبر الواتساب.",
     heroDescKine: "النظام الأول لجلب المرضى المخصص لعيادات العلاج الطبيعي وإعادة التأهيل. حوّل ظهورك إلى جلسات علاجية مؤكدة مباشرة عبر الواتساب.",
-    heroCtaPrimary: "طلب تواصل عبر الواتساب",
+    heroCtaPrimary: "طلب موعد",
     heroCtaSecondary: "اكتشف النظام",
     heroTrust1Title: "مواعيد مؤكدة",
     heroTrust1Desc: "إلغاءات أقل",
@@ -331,6 +338,10 @@ export const translations = {
     solutionPillar3Title: "بدون أي إدارة تقنية",
     solutionPillar3Desc: "نتكفل بكل شيء من ألف إلى ياء لتركز على عملك الطبي والتجميلي.",
     solutionCta: "اكتشف طريقة العمل",
+
+    // Mid-funnel CTAs (Testimonials + WhySpark)
+    midCtaBtn: "طلب دراسة مجانية",
+    midCtaWa: "طرح سؤال عبر الواتساب",
 
     // SparkSystem
     systemEyebrow: "نظام سبارك Growth System",
@@ -400,7 +411,8 @@ export const translations = {
     f4i3: "مرافقة لتأكيد المواعيد",
     footerQuestion: "لديك أسئلة حول طريقة عملنا؟",
     footerAnswer: "تحدث مباشرة مع مسؤولنا عبر الرسائل.",
-    offerCta: "البدء عبر الواتساب",
+    offerCta: "البدء — طلب موعد",
+    offerCtaWa: "سؤال سريع عبر الواتساب",
     visualEyebrow: "النمو المتوقع",
     visualTitleMain: "نتائج ملموسة",
     visualTitleHighlight: "ابتداءً من الشهر الأول.",
@@ -481,7 +493,8 @@ export const translations = {
     ctaTitleMain: "هل أنت مستعد لملء جدول مواعيدك",
     ctaTitleHighlight: "ابتداءً من هذا الأسبوع؟",
     ctaDesc: "تحدث مباشرة مع مستشارنا عبر الواتساب. سندرس منطقتك الجغرافية وخدماتك لنوضح لك النتائج الحقيقية التي يمكنك تحقيقها.",
-    ctaBtn: "بدء المحادثة عبر الواتساب",
+    ctaBtn: "ملء نموذج التواصل",
+    ctaBtnWa: "أو التحدث عبر الواتساب →",
     trustItem1: "✓ بدون التزام",
     trustItem2: "✓ إجابة في أقل من 5 دقائق",
     trustItem3: "✓ انطلاق خلال 48 ساعة",
@@ -523,7 +536,8 @@ export const translations = {
     s3: "جلب مرضى العلاج الطبيعي",
     s4: "نظام المتابعة عبر الواتساب",
     footerContactLabel: "تواصل مباشر",
-    footerContactLink: "التحدث عبر الواتساب",
+    footerContactLink: "نموذج التواصل",
+    footerContactWa: "واتساب مباشر",
     footerContactNote: "إجابة سريعة في أقل من 5 دقائق من فريقنا المتخصص.",
     copyright: "© سبارك. جميع الحقوق محفوظة.",
     legal1: "الشروط والأحكام",
