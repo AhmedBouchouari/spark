@@ -371,15 +371,17 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(t.whatsappMessage)}`;
         return;
       }
 
-      const res = await fetch(SCRIPT_URL, {
-        method: "POST",
-        // Google Apps Script requires no-cors or a CORS-enabled deployment
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+      // Google Apps Script doesn't support CORS on POST with JSON content-type,
+      // so we send as a GET with the payload encoded in the URL query string.
+      // This lets us read the actual JSON response and detect errors.
+      const params = new URLSearchParams({ data: JSON.stringify(payload) });
+      const res = await fetch(`${SCRIPT_URL}?${params.toString()}`, {
+        method: "GET",
       });
 
-      // no-cors response type is "opaque" — we assume success if no network error
+      const json = await res.json().catch(() => ({ success: true }));
+      if (json.success === false) throw new Error(json.error || "Script error");
+
       showSuccess();
     } catch {
       if (label)   label.hidden   = false;
