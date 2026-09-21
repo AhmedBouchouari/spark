@@ -9,6 +9,7 @@ const waBase =
   import.meta.env.PUBLIC_WHATSAPP_URL ||
   "https://wa.me/212605767055";
 
+  
 const whatsappUrl =
   `${waBase}?text=${encodeURIComponent(t.whatsappMessage)}`;
 ---
@@ -88,6 +89,14 @@ const whatsappUrl =
         data-i18n="navWhySpark"
       >
         {t.navWhySpark}
+      </a>
+
+      <a
+        href="#contact-form"
+        class="nav-link"
+        data-i18n="navContact"
+      >
+        {t.navContact}
       </a>
 
     </div>
@@ -295,6 +304,14 @@ const whatsappUrl =
       data-i18n="navWhySpark"
     >
       {t.navWhySpark}
+    </a>
+
+    <a
+      href="#contact-form"
+      class="mobile-nav-link"
+      data-i18n="navContact"
+    >
+      {t.navContact}
     </a>
 
 
@@ -542,6 +559,11 @@ const whatsappUrl =
       .forEach((link) => {
         link.href = waUrl;
       });
+
+    // Notify other components (e.g. ContactSection) of the language change
+    document.dispatchEvent(
+      new CustomEvent<Language>("spark:langchange", { detail: lang })
+    );
   }
 
 

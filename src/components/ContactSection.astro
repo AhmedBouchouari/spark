@@ -1,0 +1,797 @@
+---
+import { translations } from "../data/translations";
+const t = translations.fr;
+---
+
+<section id="contact-form" class="contact-section" aria-labelledby="contact-title">
+  <!-- Decorative background -->
+  <div class="contact-bg-grid" aria-hidden="true"></div>
+  <div class="contact-bg-glow" aria-hidden="true"></div>
+
+  <div class="contact-container">
+
+    <!-- Header -->
+    <header class="contact-header">
+      <div class="contact-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span data-i18n="contactEyebrow">{t.contactEyebrow}</span>
+        <span class="eyebrow-line"></span>
+      </div>
+      <h2 id="contact-title" class="contact-title">
+        <span data-i18n="contactTitleMain">{t.contactTitleMain}</span>
+        <span class="title-highlight" data-i18n="contactTitleHighlight">{t.contactTitleHighlight}</span>
+      </h2>
+      <p class="contact-desc" data-i18n="contactDesc">{t.contactDesc}</p>
+    </header>
+
+    <!-- Card -->
+    <div class="contact-card">
+
+      <!-- Success state (hidden by default) -->
+      <div class="contact-success" id="contact-success" hidden>
+        <div class="success-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 data-i18n="contactSuccessTitle">{t.contactSuccessTitle}</h3>
+        <p data-i18n="contactSuccessDesc">{t.contactSuccessDesc}</p>
+      </div>
+
+      <!-- Form -->
+      <form
+        id="contact-form-el"
+        class="contact-form"
+        novalidate
+        aria-label="Formulaire de contact"
+      >
+        <!-- Row 1: Nom + Salon -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cf-name" data-i18n="contactNameLabel">{t.contactNameLabel}</label>
+            <input
+              id="cf-name"
+              name="name"
+              type="text"
+              autocomplete="name"
+              placeholder={t.contactNamePlaceholder}
+              data-i18n-placeholder="contactNamePlaceholder"
+              required
+              aria-required="true"
+              aria-describedby="cf-name-error"
+            />
+            <span class="field-error" id="cf-name-error" role="alert" aria-live="polite"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="cf-salon" data-i18n="contactSalonLabel">{t.contactSalonLabel}</label>
+            <input
+              id="cf-salon"
+              name="salon"
+              type="text"
+              autocomplete="organization"
+              placeholder={t.contactSalonPlaceholder}
+              data-i18n-placeholder="contactSalonPlaceholder"
+              required
+              aria-required="true"
+              aria-describedby="cf-salon-error"
+            />
+            <span class="field-error" id="cf-salon-error" role="alert" aria-live="polite"></span>
+          </div>
+        </div>
+
+        <!-- Row 2: Téléphone + Email -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cf-phone" data-i18n="contactPhoneLabel">{t.contactPhoneLabel}</label>
+            <input
+              id="cf-phone"
+              name="phone"
+              type="tel"
+              autocomplete="tel"
+              placeholder={t.contactPhonePlaceholder}
+              data-i18n-placeholder="contactPhonePlaceholder"
+              required
+              aria-required="true"
+              aria-describedby="cf-phone-error"
+            />
+            <span class="field-error" id="cf-phone-error" role="alert" aria-live="polite"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="cf-email" data-i18n="contactEmailLabel">{t.contactEmailLabel}</label>
+            <input
+              id="cf-email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              placeholder={t.contactEmailPlaceholder}
+              data-i18n-placeholder="contactEmailPlaceholder"
+              required
+              aria-required="true"
+              aria-describedby="cf-email-error"
+            />
+            <span class="field-error" id="cf-email-error" role="alert" aria-live="polite"></span>
+          </div>
+        </div>
+
+        <!-- Row 3: Ville (half width) -->
+        <div class="form-row form-row--half">
+          <div class="form-group">
+            <label for="cf-ville" data-i18n="contactVilleLabel">{t.contactVilleLabel}</label>
+            <input
+              id="cf-ville"
+              name="ville"
+              type="text"
+              autocomplete="address-level2"
+              placeholder={t.contactVillePlaceholder}
+              data-i18n-placeholder="contactVillePlaceholder"
+              required
+              aria-required="true"
+              aria-describedby="cf-ville-error"
+            />
+            <span class="field-error" id="cf-ville-error" role="alert" aria-live="polite"></span>
+          </div>
+        </div>
+
+        <!-- Row 4: Message -->
+        <div class="form-group">
+          <label for="cf-message" data-i18n="contactMessageLabel">{t.contactMessageLabel}</label>
+          <textarea
+            id="cf-message"
+            name="message"
+            rows="4"
+            placeholder={t.contactMessagePlaceholder}
+            data-i18n-placeholder="contactMessagePlaceholder"
+            aria-describedby="cf-message-hint"
+          ></textarea>
+          <span class="field-hint" id="cf-message-hint" data-i18n="contactReplyNote">{t.contactReplyNote}</span>
+        </div>
+
+        <!-- Global error -->
+        <p class="form-global-error" id="cf-global-error" role="alert" aria-live="assertive" hidden></p>
+
+        <!-- Submit -->
+        <div class="form-footer">
+          <button type="submit" class="submit-btn" id="cf-submit">
+            <span class="submit-label" data-i18n="contactSubmitBtn">{t.contactSubmitBtn}</span>
+            <span class="submit-spinner" aria-hidden="true" hidden>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+              </svg>
+            </span>
+          </button>
+          <p class="reply-note" data-i18n="contactReplyNote">{t.contactReplyNote}</p>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  import { translations, type Language } from "../data/translations";
+
+  // ─── Google Apps Script web app URL ───────────────────────────────────────
+  // Replace this with your deployed Apps Script URL after the one-time setup.
+  const SCRIPT_URL = import.meta.env.PUBLIC_CONTACT_SCRIPT_URL || "";
+  // ──────────────────────────────────────────────────────────────────────────
+
+  const form      = document.getElementById("contact-form-el") as HTMLFormElement | null;
+  const successEl = document.getElementById("contact-success") as HTMLElement | null;
+  const submitBtn = document.getElementById("cf-submit") as HTMLButtonElement | null;
+  const globalErr = document.getElementById("cf-global-error") as HTMLElement | null;
+
+  if (!form) throw new Error("ContactSection: form element not found");
+
+  // ── i18n placeholder update (called by Navbar's applyLanguage) ────────────
+  // Navbar already handles [data-i18n] textContent swap.
+  // We additionally handle placeholder attributes here.
+  function updatePlaceholders(lang: Language) {
+    const dict = translations[lang];
+    form!.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>("[data-i18n-placeholder]").forEach((el) => {
+      const key = el.getAttribute("data-i18n-placeholder") as keyof typeof dict;
+      if (key && typeof dict[key] === "string") {
+        el.placeholder = dict[key] as string;
+      }
+    });
+  }
+
+  // Listen for language changes dispatched by Navbar
+  document.addEventListener("spark:langchange", (e: Event) => {
+    updatePlaceholders((e as CustomEvent<Language>).detail);
+  });
+
+  // ── Validation helpers ────────────────────────────────────────────────────
+  function getLang(): Language {
+    return (document.documentElement.getAttribute("lang") as Language) || "fr";
+  }
+
+  function getDict() {
+    return translations[getLang()];
+  }
+
+  function showError(inputId: string, message: string) {
+    const input = document.getElementById(inputId) as HTMLInputElement | null;
+    const errorEl = document.getElementById(`${inputId}-error`) as HTMLElement | null;
+    if (!input || !errorEl) return;
+    input.setAttribute("aria-invalid", "true");
+    input.classList.add("input--error");
+    errorEl.textContent = message;
+  }
+
+  function clearError(inputId: string) {
+    const input = document.getElementById(inputId) as HTMLInputElement | null;
+    const errorEl = document.getElementById(`${inputId}-error`) as HTMLElement | null;
+    if (!input || !errorEl) return;
+    input.removeAttribute("aria-invalid");
+    input.classList.remove("input--error");
+    errorEl.textContent = "";
+  }
+
+  function isValidEmail(v: string) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+  }
+
+  function isValidPhone(v: string) {
+    // Accepts Moroccan / international formats: digits, spaces, +, -, ()
+    return /^[\d\s\+\-\(\)]{7,20}$/.test(v.trim());
+  }
+
+  function validateForm(data: FormData): boolean {
+    const dict = getDict();
+    let valid = true;
+
+    const fields: Array<{ id: string; value: string; check: () => boolean; errorKey: keyof typeof dict }> = [
+      {
+        id: "cf-name",
+        value: (data.get("name") as string || "").trim(),
+        check: () => (data.get("name") as string || "").trim().length > 0,
+        errorKey: "contactRequiredError",
+      },
+      {
+        id: "cf-salon",
+        value: (data.get("salon") as string || "").trim(),
+        check: () => (data.get("salon") as string || "").trim().length > 0,
+        errorKey: "contactRequiredError",
+      },
+      {
+        id: "cf-phone",
+        value: (data.get("phone") as string || "").trim(),
+        check: () => isValidPhone(data.get("phone") as string || ""),
+        errorKey: "contactPhoneError",
+      },
+      {
+        id: "cf-email",
+        value: (data.get("email") as string || "").trim(),
+        check: () => isValidEmail(data.get("email") as string || ""),
+        errorKey: "contactEmailError",
+      },
+      {
+        id: "cf-ville",
+        value: (data.get("ville") as string || "").trim(),
+        check: () => (data.get("ville") as string || "").trim().length > 0,
+        errorKey: "contactRequiredError",
+      },
+    ];
+
+    // Also require phone / email to not be empty first
+    fields.forEach((f) => {
+      clearError(f.id);
+      if (!f.check()) {
+        // If the value is empty, show required error instead of format error
+        const isEmpty = f.value.length === 0;
+        const msgKey: keyof typeof dict = isEmpty ? "contactRequiredError" : f.errorKey;
+        showError(f.id, dict[msgKey] as string);
+        valid = false;
+      }
+    });
+
+    return valid;
+  }
+
+  // ── Inline validation on blur ─────────────────────────────────────────────
+  (["cf-name", "cf-salon", "cf-phone", "cf-email", "cf-ville"] as const).forEach((id) => {
+    const el = document.getElementById(id) as HTMLInputElement | null;
+    el?.addEventListener("blur", () => {
+      const dict = getDict();
+      const value = el.value.trim();
+
+      if (id === "cf-email") {
+        if (!value) showError(id, dict.contactRequiredError);
+        else if (!isValidEmail(value)) showError(id, dict.contactEmailError);
+        else clearError(id);
+      } else if (id === "cf-phone") {
+        if (!value) showError(id, dict.contactRequiredError);
+        else if (!isValidPhone(value)) showError(id, dict.contactPhoneError);
+        else clearError(id);
+      } else {
+        if (!value) showError(id, dict.contactRequiredError);
+        else clearError(id);
+      }
+    });
+
+    // Clear error on input after blur
+    el?.addEventListener("input", () => {
+      if (el.classList.contains("input--error")) clearError(id);
+    });
+  });
+
+  // ── Submit ────────────────────────────────────────────────────────────────
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const dict = getDict();
+    const data = new FormData(form);
+
+    if (!validateForm(data)) return;
+
+    // Loading state
+    const label   = submitBtn?.querySelector<HTMLElement>(".submit-label");
+    const spinner = submitBtn?.querySelector<HTMLElement>(".submit-spinner");
+    if (submitBtn) submitBtn.disabled = true;
+    if (label)   label.hidden   = true;
+    if (spinner) spinner.hidden = false;
+    if (globalErr) globalErr.hidden = true;
+
+    const payload = {
+      name:    (data.get("name")    as string).trim(),
+      salon:   (data.get("salon")   as string).trim(),
+      phone:   (data.get("phone")   as string).trim(),
+      email:   (data.get("email")   as string).trim(),
+      ville:   (data.get("ville")   as string).trim(),
+      message: (data.get("message") as string || "").trim(),
+    };
+
+    try {
+      if (!SCRIPT_URL) {
+        // Dev fallback: simulate success when no script URL is configured
+        console.info("[ContactSection] No SCRIPT_URL set — simulating success.", payload);
+        await new Promise((r) => setTimeout(r, 800));
+        showSuccess();
+        return;
+      }
+
+      const res = await fetch(SCRIPT_URL, {
+        method: "POST",
+        // Google Apps Script requires no-cors or a CORS-enabled deployment
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      // no-cors response type is "opaque" — we assume success if no network error
+      showSuccess();
+    } catch {
+      if (label)   label.hidden   = false;
+      if (spinner) spinner.hidden = true;
+      if (submitBtn) submitBtn.disabled = false;
+      if (globalErr) {
+        globalErr.textContent = dict.contactErrorMsg;
+        globalErr.hidden = false;
+      }
+    }
+  });
+
+  function showSuccess() {
+    if (form)      form.hidden      = true;
+    if (successEl) successEl.hidden = false;
+    successEl?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+</script>
+
+<style>
+  /* ── Section shell ─────────────────────────────────────────────────────── */
+  .contact-section {
+    position: relative;
+    padding: 100px 0;
+    background-color: var(--color-bg-light);
+    overflow: hidden;
+    transition: var(--theme-transition);
+  }
+
+  [data-theme="dark"] .contact-section {
+    background-color: var(--color-surface);
+  }
+
+  /* Decorative grid (matches other sections) */
+  .contact-bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(var(--color-teal-soft) 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events: none;
+  }
+
+  /* Soft glow top-right */
+  .contact-bg-glow {
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0, 168, 150, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  [data-theme="dark"] .contact-bg-glow {
+    background: radial-gradient(circle, rgba(100, 238, 234, 0.08) 0%, transparent 70%);
+  }
+
+  /* ── Container ─────────────────────────────────────────────────────────── */
+  .contact-container {
+    width: min(var(--container-width), calc(100% - 48px));
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ── Header ────────────────────────────────────────────────────────────── */
+  .contact-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .contact-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: var(--color-teal);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .eyebrow-line {
+    display: block;
+    width: 28px;
+    height: 2px;
+    background: var(--color-teal);
+    border-radius: 2px;
+  }
+
+  .contact-title {
+    margin: 0 0 16px;
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(32px, 4.5vw, 52px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--color-text-main);
+  }
+
+  .title-highlight {
+    color: var(--color-teal);
+    display: block;
+  }
+
+  .contact-desc {
+    margin: 0 auto;
+    max-width: 540px;
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--color-text-muted);
+  }
+
+  /* ── Card ──────────────────────────────────────────────────────────────── */
+  .contact-card {
+    max-width: 860px;
+    margin: 0 auto;
+    background: var(--color-card);
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--radius-lg);
+    padding: 52px 56px;
+    box-shadow: var(--shadow-lg);
+    transition: var(--theme-transition);
+  }
+
+  [data-theme="dark"] .contact-card {
+    background: var(--color-surface);
+    border-color: rgba(100, 238, 234, 0.12);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  }
+
+  /* ── Success state ─────────────────────────────────────────────────────── */
+  .contact-success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 48px 24px;
+    gap: 16px;
+  }
+
+  .success-icon {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background: rgba(0, 168, 150, 0.12);
+    color: var(--color-teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .success-icon svg {
+    width: 32px;
+    height: 32px;
+    stroke: var(--color-teal);
+  }
+
+  .contact-success h3 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--color-text-main);
+  }
+
+  .contact-success p {
+    margin: 0;
+    font-size: 16px;
+    color: var(--color-text-muted);
+  }
+
+  /* ── Form layout ───────────────────────────────────────────────────────── */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .form-row--half {
+    grid-template-columns: 1fr;
+    max-width: calc(50% - 10px); /* match half a row */
+  }
+
+  /* ── Form group ────────────────────────────────────────────────────────── */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .form-group label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-text-main);
+    letter-spacing: 0.01em;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 13px 16px;
+    border-radius: var(--radius-sm);
+    border: 1.5px solid var(--color-border);
+    background: var(--color-bg-light);
+    color: var(--color-text-main);
+    font-family: inherit;
+    font-size: 15px;
+    line-height: 1.5;
+    outline: none;
+    transition:
+      border-color 150ms ease,
+      box-shadow 150ms ease,
+      background-color 150ms ease;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  [data-theme="dark"] .form-group input,
+  [data-theme="dark"] .form-group textarea {
+    background: var(--color-bg-light);
+    border-color: var(--color-border);
+    color: var(--color-text-main);
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: var(--color-text-light);
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: var(--color-teal);
+    box-shadow: 0 0 0 3px rgba(0, 168, 150, 0.15);
+  }
+
+  [data-theme="dark"] .form-group input:focus,
+  [data-theme="dark"] .form-group textarea:focus {
+    box-shadow: 0 0 0 3px rgba(100, 238, 234, 0.15);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 110px;
+  }
+
+  /* Error state on inputs */
+  .form-group input.input--error,
+  .form-group textarea.input--error {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
+  }
+
+  /* ── Field error & hint ────────────────────────────────────────────────── */
+  .field-error {
+    font-size: 12px;
+    font-weight: 600;
+    color: #ef4444;
+    min-height: 16px;
+  }
+
+  .field-hint {
+    font-size: 12px;
+    color: var(--color-text-light);
+    margin-top: 2px;
+  }
+
+  /* ── Global error ──────────────────────────────────────────────────────── */
+  .form-global-error {
+    font-size: 14px;
+    font-weight: 600;
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.07);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: var(--radius-sm);
+    padding: 12px 16px;
+    margin: 0;
+  }
+
+  /* ── Form footer ───────────────────────────────────────────────────────── */
+  .form-footer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+
+  /* ── Submit button ─────────────────────────────────────────────────────── */
+  .submit-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 36px;
+    border-radius: var(--radius-full);
+    border: none;
+    cursor: pointer;
+    background: var(--color-teal);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    box-shadow: 0 8px 24px rgba(0, 168, 150, 0.3);
+    transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, opacity 180ms ease;
+    white-space: nowrap;
+  }
+
+  .submit-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    background: var(--color-teal-light);
+    box-shadow: 0 12px 32px rgba(0, 168, 150, 0.4);
+  }
+
+  .submit-btn:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  .submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  /* Spinner animation */
+  .submit-spinner svg {
+    width: 20px;
+    height: 20px;
+    stroke: #fff;
+    animation: spin 0.9s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  .reply-note {
+    margin: 0;
+    font-size: 13px;
+    color: var(--color-text-light);
+  }
+
+  /* ── RTL ───────────────────────────────────────────────────────────────── */
+  [dir="rtl"] .contact-header,
+  [dir="rtl"] .contact-form {
+    text-align: right;
+  }
+
+  [dir="rtl"] .contact-eyebrow {
+    direction: rtl;
+  }
+
+  [dir="rtl"] .form-footer {
+    flex-direction: row-reverse;
+  }
+
+  /* ── Responsive — Tablet ───────────────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .contact-card {
+      padding: 44px 40px;
+    }
+  }
+
+  /* ── Responsive — Mobile ───────────────────────────────────────────────── */
+  @media (max-width: 768px) {
+    .contact-section {
+      padding: 72px 0;
+    }
+
+    .contact-container {
+      width: calc(100% - 32px);
+    }
+
+    .contact-header {
+      margin-bottom: 40px;
+    }
+
+    .contact-card {
+      padding: 32px 24px;
+      border-radius: var(--radius-md);
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .form-row--half {
+      max-width: 100%;
+    }
+
+    .form-footer {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 14px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      min-height: 52px;
+    }
+
+    .reply-note {
+      text-align: center;
+    }
+  }
+
+  /* ── Responsive — Small phones ─────────────────────────────────────────── */
+  @media (max-width: 480px) {
+    .contact-section {
+      padding: 56px 0;
+    }
+
+    .contact-container {
+      width: calc(100% - 24px);
+    }
+
+    .contact-card {
+      padding: 24px 16px;
+    }
+
+    .contact-desc {
+      font-size: 15px;
+    }
+  }
+</style>
