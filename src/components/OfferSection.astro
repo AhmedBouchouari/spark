@@ -46,6 +46,13 @@ const features = [
   },
 ];
 import { translations } from "../data/translations";
+const tw = translations.fr;
+const whyPoints = [
+  { titleKey: "d1Title", descKey: "d1Desc", title: tw.d1Title, desc: tw.d1Desc },
+  { titleKey: "d2Title", descKey: "d2Desc", title: tw.d2Title, desc: tw.d2Desc },
+  { titleKey: "d3Title", descKey: "d3Desc", title: tw.d3Title, desc: tw.d3Desc },
+  { titleKey: "d4Title", descKey: "d4Desc", title: tw.d4Title, desc: tw.d4Desc },
+];
 const waBase = import.meta.env.PUBLIC_WHATSAPP_URL || "https://wa.me/212605767055";
 const whatsappUrl = `${waBase}?text=${encodeURIComponent(translations.fr.whatsappMessage)}`;
 ---
@@ -63,7 +70,7 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(translations.fr.whatsap
         <div class="heading-main">
           <span class="heading-index" data-i18n="offerIndex">PROPOSITION SPARK</span>
           <h2 id="offer-title">
-            <span data-i18n="offerTitleMain">Un abonnement mensuel</span><br />
+            <span data-i18n="offerTitleMain">Un abonnement mensuel</span>
             <span data-i18n="offerTitleHighlight">simple & sans surprise.</span>
           </h2>
         </div>
@@ -87,14 +94,14 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(translations.fr.whatsap
           <div class="plan-information">
             <div class="plan-icon">S</div>
             <div class="plan-copy">
-              <span class="plan-label font-mono" data-i18n="planBadge">FORMULE UNIQUE</span>
+              <span class="plan-label" data-i18n="planBadge">FORMULE UNIQUE</span>
               <h3 data-i18n="planTitle">Spark Growth System</h3>
               <p data-i18n="planSubtitle">Système complet d'acquisition Beauté & Santé</p>
             </div>
           </div>
 
           <div class="price">
-            <span class="price-amount font-mono" data-i18n="priceAmount">1 500</span>
+            <span class="price-amount" data-i18n="priceAmount">1 500</span>
             <span class="price-currency" data-i18n="priceCurrency">DH</span>
             <span class="price-period" data-i18n="pricePeriod">/ mois</span>
           </div>
@@ -106,14 +113,14 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(translations.fr.whatsap
               <span class="included-label" data-i18n="includedLabel">CE QUI EST INCLUS</span>
               <span class="included-subtitle" data-i18n="includedSubtitle">Gestion intégrale de votre acquisition client</span>
             </div>
-            <span class="included-count font-mono" data-i18n="includedBadge">PACK TOUT-EN-UN</span>
+            <span class="included-count" data-i18n="includedBadge">PACK TOUT-EN-UN</span>
           </div>
 
           <div class="included-grid">
             {features.map((group) => (
               <div class="feature-group">
                 <div class="feature-group-header">
-                  <span class="feature-number font-mono">{group.number}</span>
+                  <span class="feature-number">{group.number}</span>
                   <div>
                     <span class="feature-title" data-i18n={group.categoryKey}>{group.category}</span>
                   </div>
@@ -151,34 +158,31 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(translations.fr.whatsap
         </div>
       </article>
 
-      <aside class="offer-visual">
+      <aside id="why-spark" class="offer-visual" aria-labelledby="why-title">
         <div class="visual-top">
-          <span class="visual-eyebrow" data-i18n="visualEyebrow">CROISSANCE ESTIMÉE</span>
-          <h3>
-            <span data-i18n="visualTitleMain">Des résultats</span><br />
-            <span data-i18n="visualTitleHighlight">dès le 1er mois.</span>
+          <span class="visual-eyebrow" data-i18n="whyEyebrow">POURQUOI CHOISIR SPARK</span>
+          <h3 id="why-title">
+            <span data-i18n="whyTitleMain">Pas une agence</span>{" "}
+            <span data-i18n="whyTitleHighlight">généraliste.</span>
           </h3>
         </div>
 
-        <div class="growth-graph" aria-hidden="true">
-          <svg class="growth-line" viewBox="0 0 500 200" preserveAspectRatio="none">
-            <path class="graph-area" d="M0 160 C100 140, 200 110, 300 80 C400 50, 450 30, 500 20 L500 200 L0 200 Z" fill="rgba(0, 168, 150, 0.15)"></path>
-            <path class="graph-path" d="M0 160 C100 140, 200 110, 300 80 C400 50, 450 30, 500 20" fill="none" stroke="#00a896" stroke-width="3"></path>
-          </svg>
-        </div>
+        <ul class="why-list">
+          {whyPoints.map((pt) => (
+            <li class="why-item">
+              <span class="why-check" aria-hidden="true">✓</span>
+              <div>
+                <strong data-i18n={pt.titleKey}>{pt.title}</strong>
+                <small data-i18n={pt.descKey}>{pt.desc}</small>
+              </div>
+            </li>
+          ))}
+        </ul>
 
-        <div class="visual-metrics">
-          <div class="metric">
-            <span class="metric-label" data-i18n="visualMetric1Label">CIBLAGE</span>
-            <strong data-i18n="visualMetric1Val">LOCAL</strong>
-            <small data-i18n="visualMetric1Note">Dans votre zone</small>
-          </div>
-          <div class="metric">
-            <span class="metric-label" data-i18n="visualMetric2Label">CONTACT</span>
-            <strong data-i18n="visualMetric2Val">WHATSAPP</strong>
-            <small data-i18n="visualMetric2Note">Direct & réactif</small>
-          </div>
-        </div>
+        <blockquote class="why-quote">
+          <span data-i18n="manifestoP">Vous n'avez pas besoin d'une agence qui promet tout.</span>
+          <strong data-i18n="manifestoStrong">Vous avez besoin d'un système qui remplit votre agenda.</strong>
+        </blockquote>
       </aside>
     </div>
   </div>
@@ -247,6 +251,9 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(translations.fr.whatsap
 
   .heading-main h2 span {
     display: block;
+  }
+
+  .heading-main h2 span + span {
     color: var(--color-teal);
   }
 
@@ -540,50 +547,67 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(translations.fr.whatsap
     color: #ffffff;
   }
 
-  .visual-top h3 span {
+  .visual-top h3 span + span {
     color: #64eeea;
   }
 
-  .growth-graph {
-    margin: 30px 0;
-    height: 140px;
-  }
-
-  .growth-line {
-    width: 100%;
-    height: 100%;
-  }
-
-  .visual-metrics {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+  .why-list {
+    list-style: none;
+    margin: 24px 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
     gap: 16px;
   }
 
-  .metric {
-    background: rgba(255, 255, 255, 0.08);
-    padding: 14px;
-    border-radius: 12px;
+  .why-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
   }
 
-  .metric-label {
-    font-size: 9px;
+  .why-check {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 12px;
     font-weight: 800;
-    color: #94a3b8;
-    letter-spacing: 0.05em;
+    background: rgba(100, 238, 234, 0.15);
+    color: #64eeea;
   }
 
-  .metric strong {
+  .why-item strong {
     display: block;
     font-size: 15px;
-    font-weight: 800;
-    color: #64eeea;
-    margin-top: 2px;
+    font-weight: 700;
+    color: #ffffff;
   }
 
-  .metric small {
-    font-size: 11px;
+  .why-item small {
+    display: block;
+    margin-top: 2px;
+    font-size: 13px;
+    line-height: 1.5;
     color: rgba(255, 255, 255, 0.7);
+  }
+
+  .why-quote {
+    margin: 0;
+    padding: 16px 18px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .why-quote strong {
+    display: block;
+    margin-top: 4px;
+    color: #64eeea;
   }
 
   @media (max-width: 1024px) {

@@ -47,7 +47,7 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(t.whatsappMessage)}`;
         novalidate
         aria-label="Formulaire de contact"
       >
-        <!-- Row 1: Nom + Salon -->
+        <!-- Row 1: Nom + Téléphone -->
         <div class="form-row">
           <div class="form-group">
             <label for="cf-name" data-i18n="contactNameLabel">{t.contactNameLabel}</label>
@@ -66,31 +66,13 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(t.whatsappMessage)}`;
           </div>
 
           <div class="form-group">
-            <label for="cf-salon" data-i18n="contactSalonLabel">{t.contactSalonLabel}</label>
-            <input
-              id="cf-salon"
-              name="salon"
-              type="text"
-              autocomplete="organization"
-              placeholder={t.contactSalonPlaceholder}
-              data-i18n-placeholder="contactSalonPlaceholder"
-              required
-              aria-required="true"
-              aria-describedby="cf-salon-error"
-            />
-            <span class="field-error" id="cf-salon-error" role="alert" aria-live="polite"></span>
-          </div>
-        </div>
-
-        <!-- Row 2: Téléphone + Email -->
-        <div class="form-row">
-          <div class="form-group">
             <label for="cf-phone" data-i18n="contactPhoneLabel">{t.contactPhoneLabel}</label>
             <input
               id="cf-phone"
               name="phone"
               type="tel"
               autocomplete="tel"
+              dir="ltr"
               placeholder={t.contactPhonePlaceholder}
               data-i18n-placeholder="contactPhonePlaceholder"
               required
@@ -99,26 +81,27 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(t.whatsappMessage)}`;
             />
             <span class="field-error" id="cf-phone-error" role="alert" aria-live="polite"></span>
           </div>
-
-          <div class="form-group">
-            <label for="cf-email" data-i18n="contactEmailLabel">{t.contactEmailLabel}</label>
-            <input
-              id="cf-email"
-              name="email"
-              type="email"
-              autocomplete="email"
-              placeholder={t.contactEmailPlaceholder}
-              data-i18n-placeholder="contactEmailPlaceholder"
-              required
-              aria-required="true"
-              aria-describedby="cf-email-error"
-            />
-            <span class="field-error" id="cf-email-error" role="alert" aria-live="polite"></span>
-          </div>
         </div>
 
-        <!-- Row 3: Ville (half width) -->
-        <div class="form-row form-row--half">
+        <!-- Row 2: Spécialité + Ville -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cf-specialty" data-i18n="contactSpecialtyLabel">{t.contactSpecialtyLabel}</label>
+            <select
+              id="cf-specialty"
+              name="specialty"
+              required
+              aria-required="true"
+              aria-describedby="cf-specialty-error"
+            >
+              <option value="" data-i18n="contactSpecialtyPlaceholder">{t.contactSpecialtyPlaceholder}</option>
+              {t.niches.map((niche, idx) => (
+                <option value={translations.fr.niches[idx]} data-i18n-niche={idx}>{niche}</option>
+              ))}
+            </select>
+            <span class="field-error" id="cf-specialty-error" role="alert" aria-live="polite"></span>
+          </div>
+
           <div class="form-group">
             <label for="cf-ville" data-i18n="contactVilleLabel">{t.contactVilleLabel}</label>
             <input
@@ -128,11 +111,7 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(t.whatsappMessage)}`;
               autocomplete="address-level2"
               placeholder={t.contactVillePlaceholder}
               data-i18n-placeholder="contactVillePlaceholder"
-              required
-              aria-required="true"
-              aria-describedby="cf-ville-error"
             />
-            <span class="field-error" id="cf-ville-error" role="alert" aria-live="polite"></span>
           </div>
         </div>
 
@@ -145,9 +124,7 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(t.whatsappMessage)}`;
             rows="4"
             placeholder={t.contactMessagePlaceholder}
             data-i18n-placeholder="contactMessagePlaceholder"
-            aria-describedby="cf-message-hint"
           ></textarea>
-          <span class="field-hint" id="cf-message-hint" data-i18n="contactReplyNote">{t.contactReplyNote}</span>
         </div>
 
         <!-- Global error -->
@@ -221,6 +198,9 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(t.whatsappMessage)}`;
     updatePlaceholders((e as CustomEvent<Language>).detail);
   });
 
+  // Navbar may apply a saved language before this listener exists, so sync once on load.
+  updatePlaceholders((document.documentElement.getAttribute("lang") as Language) || "fr");
+
   // ── Validation helpers ────────────────────────────────────────────────────
   function getLang(): Language {
     return (document.documentElement.getAttribute("lang") as Language) || "fr";
@@ -248,10 +228,6 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(t.whatsappMessage)}`;
     errorEl.textContent = "";
   }
 
-  function isValidEmail(v: string) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
-  }
-
   function isValidPhone(v: string) {
     // Accepts Moroccan / international formats: digits, spaces, +, -, ()
     return /^[\d\s\+\-\(\)]{7,20}$/.test(v.trim());
@@ -269,27 +245,15 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(t.whatsappMessage)}`;
         errorKey: "contactRequiredError",
       },
       {
-        id: "cf-salon",
-        value: (data.get("salon") as string || "").trim(),
-        check: () => (data.get("salon") as string || "").trim().length > 0,
-        errorKey: "contactRequiredError",
-      },
-      {
         id: "cf-phone",
         value: (data.get("phone") as string || "").trim(),
         check: () => isValidPhone(data.get("phone") as string || ""),
         errorKey: "contactPhoneError",
       },
       {
-        id: "cf-email",
-        value: (data.get("email") as string || "").trim(),
-        check: () => isValidEmail(data.get("email") as string || ""),
-        errorKey: "contactEmailError",
-      },
-      {
-        id: "cf-ville",
-        value: (data.get("ville") as string || "").trim(),
-        check: () => (data.get("ville") as string || "").trim().length > 0,
+        id: "cf-specialty",
+        value: (data.get("specialty") as string || "").trim(),
+        check: () => (data.get("specialty") as string || "").trim().length > 0,
         errorKey: "contactRequiredError",
       },
     ];
@@ -310,17 +274,13 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(t.whatsappMessage)}`;
   }
 
   // ── Inline validation on blur ─────────────────────────────────────────────
-  (["cf-name", "cf-salon", "cf-phone", "cf-email", "cf-ville"] as const).forEach((id) => {
-    const el = document.getElementById(id) as HTMLInputElement | null;
-    el?.addEventListener("blur", () => {
+  (["cf-name", "cf-phone", "cf-specialty"] as const).forEach((id) => {
+    const el = document.getElementById(id) as HTMLInputElement | HTMLSelectElement | null;
+    el?.addEventListener(id === "cf-specialty" ? "change" : "blur", () => {
       const dict = getDict();
       const value = el.value.trim();
 
-      if (id === "cf-email") {
-        if (!value) showError(id, dict.contactRequiredError);
-        else if (!isValidEmail(value)) showError(id, dict.contactEmailError);
-        else clearError(id);
-      } else if (id === "cf-phone") {
+      if (id === "cf-phone") {
         if (!value) showError(id, dict.contactRequiredError);
         else if (!isValidPhone(value)) showError(id, dict.contactPhoneError);
         else clearError(id);
@@ -355,11 +315,12 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(t.whatsappMessage)}`;
 
     const payload = {
       name:    (data.get("name")    as string).trim(),
-      salon:   (data.get("salon")   as string).trim(),
+      salon:   "",
       phone:   (data.get("phone")   as string).trim(),
-      email:   (data.get("email")   as string).trim(),
-      ville:   (data.get("ville")   as string).trim(),
-      message: (data.get("message") as string || "").trim(),
+      email:   "",
+      ville:   (data.get("ville")   as string || "").trim(),
+      // The sheet has no specialty column, so it is prepended to the message.
+      message: ["[" + (data.get("specialty") as string).trim() + "]", (data.get("message") as string || "").trim()].filter(Boolean).join(" "),
     };
 
     try {
@@ -588,12 +549,13 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(t.whatsappMessage)}`;
   }
 
   .form-group input,
+  .form-group select,
   .form-group textarea {
     width: 100%;
     padding: 13px 16px;
     border-radius: var(--radius-sm);
     border: 1.5px solid var(--color-border);
-    background: var(--color-bg-light);
+    background-color: var(--color-bg-light);
     color: var(--color-text-main);
     font-family: inherit;
     font-size: 15px;
@@ -609,8 +571,9 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(t.whatsappMessage)}`;
   }
 
   [data-theme="dark"] .form-group input,
+  [data-theme="dark"] .form-group select,
   [data-theme="dark"] .form-group textarea {
-    background: var(--color-bg-light);
+    background-color: var(--color-bg-light);
     border-color: var(--color-border);
     color: var(--color-text-main);
   }
@@ -621,6 +584,7 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(t.whatsappMessage)}`;
   }
 
   .form-group input:focus,
+  .form-group select:focus,
   .form-group textarea:focus {
     border-color: var(--color-teal);
     box-shadow: 0 0 0 3px rgba(0, 168, 150, 0.15);
@@ -631,6 +595,18 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(t.whatsappMessage)}`;
     box-shadow: 0 0 0 3px rgba(100, 238, 234, 0.15);
   }
 
+  .form-group select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-inline-end: 36px;
+  }
+
+  [dir="rtl"] .form-group select {
+    background-position: left 14px center;
+  }
+
   .form-group textarea {
     resize: vertical;
     min-height: 110px;
@@ -638,6 +614,7 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(t.whatsappMessage)}`;
 
   /* Error state on inputs */
   .form-group input.input--error,
+  .form-group select.input--error,
   .form-group textarea.input--error {
     border-color: #ef4444;
     box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);

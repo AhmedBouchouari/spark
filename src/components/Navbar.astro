@@ -16,30 +16,6 @@ const whatsappUrl =
 
 <header class="site-header">
 
-  <!-- TOP BANNER -->
-  <div class="top-banner">
-    <div class="top-banner-container">
-
-      <span class="pulse-dot"></span>
-
-      <span class="banner-text" data-i18n="solutionFor">
-        {t.solutionFor}
-      </span>
-
-      <div class="niche-pills">
-        {
-          t.niches.map((niche, idx) => (
-            <span class="niche-pill" data-i18n-niche={idx}>
-              {niche}
-            </span>
-          ))
-        }
-      </div>
-
-    </div>
-  </div>
-
-
   <!-- NAVBAR -->
   <nav class="navbar">
 
@@ -84,11 +60,11 @@ const whatsappUrl =
       </a>
 
       <a
-        href="#why-spark"
+        href="#faq"
         class="nav-link"
-        data-i18n="navWhySpark"
+        data-i18n="navFaq"
       >
-        {t.navWhySpark}
+        {t.navFaq}
       </a>
 
       <a
@@ -288,11 +264,11 @@ const whatsappUrl =
     </a>
 
     <a
-      href="#why-spark"
+      href="#faq"
       class="mobile-nav-link"
-      data-i18n="navWhySpark"
+      data-i18n="navFaq"
     >
-      {t.navWhySpark}
+      {t.navFaq}
     </a>
 
     <a
@@ -1165,7 +1141,7 @@ const whatsappUrl =
      MOBILE
      ========================================== */
 
-  @media (max-width: 820px) {
+  @media (max-width: 1100px) {
 
     .desktop-navigation,
     .nav-cta {

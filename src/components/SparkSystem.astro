@@ -63,7 +63,7 @@ const steps = [
         <div class="outcome-copy">
           <span class="section-index" data-i18n="systemIndex">COMMENT ÇA MARCHE</span>
           <h2 id="system-title">
-            <span data-i18n="systemTitleMain">Un processus en 4 étapes</span><br />
+            <span data-i18n="systemTitleMain">Un processus en 4 étapes</span>
             <span data-i18n="systemTitleHighlight">simple & automatique.</span>
           </h2>
         </div>
@@ -210,6 +210,9 @@ const steps = [
 
   .outcome-copy h2 span {
     display: block;
+  }
+
+  .outcome-copy h2 span + span {
     color: var(--color-teal);
   }
 

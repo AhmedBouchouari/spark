@@ -138,3 +138,15 @@ button {
 .animate-pulse-glow {
   animation: pulse-glow 2.5s infinite cubic-bezier(0.4, 0, 0.6, 1);
 }
+/* Arabic: the Latin fonts have no Arabic glyphs, so RTL text uses IBM Plex Sans Arabic */
+[dir="rtl"] body,
+[dir="rtl"] body *:not(svg):not(svg *) {
+  font-family: 'IBM Plex Sans Arabic', 'Plus Jakarta Sans', system-ui, sans-serif !important;
+}
+
+/* Keep numbers like "+35%" and "1 500" in left-to-right order inside Arabic text */
+.stat-value,
+.price-amount {
+  unicode-bidi: isolate;
+  direction: ltr;
+}

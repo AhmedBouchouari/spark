@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import { getImage } from "astro:assets";
+import ogSource from "../assets/images/hero/medecin-esthetique.webp";
 
 interface Props {
   title?: string;
@@ -10,6 +12,13 @@ const {
   title = "SPARK — Système de Croissance pour Centres Esthétiques, Médecins & Kinés",
   description = "Acquisition de patientes et clientes pour Centres d'Esthétique, Médecins Esthétiques et Cabinet de Kinésithérapie. Moins de trous dans l'agenda, plus de rendez-vous confirmés.",
 } = Astro.props;
+
+// Social share preview (WhatsApp, Facebook, LinkedIn). Set `site` in astro.config.mjs
+// to the real domain so these URLs are absolute in production.
+const ogImage = await getImage({ src: ogSource, width: 1200, height: 630, fit: "cover", format: "jpg" });
+const base = Astro.site ?? Astro.url;
+const ogImageUrl = new URL(ogImage.src, base).href;
+const canonicalUrl = new URL(Astro.url.pathname, base).href;
 ---
 
 <!doctype html>
@@ -19,6 +28,22 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <link rel="canonical" href={canonicalUrl} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_MA" />
+    <meta property="og:locale:alternate" content="ar_MA" />
+    <meta property="og:site_name" content="SPARK" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     
     <!-- Anti-flicker Theme & Language Initialization -->
@@ -45,7 +70,7 @@ const {
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet" />
   </head>
 
   <body>

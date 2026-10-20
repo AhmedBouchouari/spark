@@ -67,7 +67,7 @@ const caseStudies = [
     <div class="stats-grid">
       {stats.map((stat) => (
         <div class="stat-card">
-          <span class="stat-value font-mono" data-i18n={stat.valKey}>
+          <span class="stat-value" data-i18n={stat.valKey}>
             {stat.value}
           </span>
           <div class="stat-body">
@@ -446,7 +446,13 @@ const caseStudies = [
 
   @media (max-width: 640px) {
     .stats-grid {
-      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .stat-card {
+      padding: 18px 16px;
+    }
+    .stat-value {
+      font-size: 30px;
     }
     .featured-card {
       padding: 30px 20px;

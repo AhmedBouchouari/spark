@@ -6,17 +6,17 @@ import { translations } from "../data/translations";
    DESKTOP IMAGES
    ========================================== */
 
-import imgBeaute from "../assets/images/hero/Salon de beauté.webp";
-import imgMedecin from "../assets/images/hero/Médecin esthétique.webp";
-import imgKine from "../assets/images/hero/Cabinet kinésithérapie.webp";
+import imgBeaute from "../assets/images/hero/salon-beaute.webp";
+import imgMedecin from "../assets/images/hero/medecin-esthetique.webp";
+import imgKine from "../assets/images/hero/cabinet-kine.webp";
 
 /* ==========================================
    MOBILE IMAGES
    ========================================== */
 
-import imgBeauteMobile from "../assets/images/hero/spark mb1.png";
-import imgMedecinMobile from "../assets/images/hero/spark mb2.png";
-import imgKineMobile from "../assets/images/hero/spark mb3.png";
+import imgBeauteMobile from "../assets/images/hero/mobile-salon-beaute.png";
+import imgMedecinMobile from "../assets/images/hero/mobile-medecin-esthetique.png";
+import imgKineMobile from "../assets/images/hero/mobile-cabinet-kine.png";
 
 
 /* ==========================================
@@ -337,6 +337,11 @@ const whatsappUrl =
         </a>
 
       </div>
+
+      <p class="hero-price-note">
+        <span class="hero-price-dot" aria-hidden="true"></span>
+        <span data-i18n="heroPriceNote">1 500 DH / mois · Sans engagement</span>
+      </p>
 
 
       <!-- =====================================
@@ -992,7 +997,26 @@ const whatsappUrl =
 
     flex-wrap: wrap;
 
-    margin-bottom: 42px;
+    margin-bottom: 16px;
+  }
+
+
+  .hero-price-note {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 34px;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+
+  .hero-price-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #64eeea;
   }
 
 

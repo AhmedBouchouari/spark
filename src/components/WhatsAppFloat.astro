@@ -1,0 +1,50 @@
+---
+import { translations } from "../data/translations";
+const t = translations.fr;
+const waBase = import.meta.env.PUBLIC_WHATSAPP_URL || "https://wa.me/212605767055";
+const whatsappUrl = `${waBase}?text=${encodeURIComponent(t.whatsappMessage)}`;
+---
+
+<a
+  href={whatsappUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="wa-float"
+  aria-label="WhatsApp"
+  data-whatsapp-link
+>
+  <svg viewBox="0 0 24 24" aria-hidden="true" width="26" height="26" fill="currentColor">
+    <path d="M12.012 2c-5.506 0-9.989 4.478-9.989 9.984 0 1.758.459 3.413 1.264 4.852l-1.341 4.9 5.019-1.316c1.393.759 2.977 1.189 4.647 1.189 5.506 0 9.989-4.478 9.989-9.989 0-5.506-4.483-9.984-9.989-9.984zm5.789 14.129c-.244.685-1.42 1.309-1.961 1.365-.494.052-1.139.076-3.298-.813-2.76-1.137-4.542-3.948-4.68-4.133-.137-.184-1.121-1.492-1.121-2.845 0-1.353.709-2.018.961-2.285.252-.267.551-.334.734-.334.184 0 .367.002.527.009.171.008.4.004.596.474.206.494.708 1.728.77 1.854.062.126.103.275.02.438-.083.163-.125.267-.247.412-.122.145-.258.324-.367.435-.122.122-.25.254-.108.497.142.244.631 1.042 1.354 1.686.93.829 1.714 1.087 1.958 1.209.244.122.387.103.53-.061.143-.164.618-.72.783-.967.165-.247.33-.206.556-.122.226.084 1.439.678 1.686.802.247.124.412.185.473.288.061.103.061.602-.183 1.287z"/>
+  </svg>
+  <span class="wa-float-label" data-i18n="waFloatLabel">{t.waFloatLabel}</span>
+</a>
+
+<style>
+  /* Shown on phones and tablets only, where the page is long and WhatsApp is the main channel */
+  .wa-float {
+    display: none;
+  }
+
+  @media (max-width: 900px) {
+    .wa-float {
+      position: fixed;
+      bottom: 18px;
+      inset-inline-end: 18px;
+      z-index: 90;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 18px 12px 14px;
+      border-radius: 999px;
+      background: #25d366;
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 700;
+      box-shadow: 0 10px 25px -8px rgba(37, 211, 102, 0.6);
+    }
+
+    .wa-float:active {
+      transform: scale(0.97);
+    }
+  }
+</style>

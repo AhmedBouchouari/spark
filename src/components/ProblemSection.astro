@@ -30,16 +30,6 @@ const problems = [
     consequence: "Incertitude et gaspillage de votre budget marketing.",
     icon: "ads",
   },
-  {
-    number: "04",
-    titleKey: "p4Title",
-    descKey: "p4Desc",
-    impactKey: "p4Impact",
-    title: "Pas le temps de faire du marketing",
-    description: "Votre cœur de métier est de soigner et sublimer, pas de passer 4h/jour à paramétrer des pubs.",
-    consequence: "La communication passe toujours au second plan.",
-    icon: "time",
-  },
 ];
 ---
 
@@ -118,18 +108,6 @@ const problems = [
       </div>
     </div>
 
-    <!-- PIVOT HINGE -->
-    <div class="ps-pivot" aria-hidden="true">
-      <div class="ps-pivot-line"></div>
-      <div class="ps-pivot-node">
-        <span class="ps-pivot-dot"></span>
-      </div>
-      <div class="ps-pivot-labels">
-        <span data-i18n="pivotLabelLeft">LE CONSTAT</span>
-        <span data-i18n="pivotLabelRight">LA SOLUTION SPARK</span>
-      </div>
-    </div>
-
     <!-- CHAPTER TWO — LA SOLUTION -->
     <div class="chapter chapter-solution">
       <div class="ps-resolution">
@@ -167,13 +145,6 @@ const problems = [
               </div>
             </div>
 
-            <div class="ps-pillar">
-              <span class="ps-pillar-num">03</span>
-              <div>
-                <strong data-i18n="solutionPillar3Title">Zéro Gestion Technique</strong>
-                <p data-i18n="solutionPillar3Desc">Nous gérons tout A à Z pour que vous vous concentriez sur vos soins.</p>
-              </div>
-            </div>
           </div>
 
           <a href="#system" class="ps-cta" aria-label="Découvrir le fonctionnement du système">
@@ -253,8 +224,9 @@ const problems = [
 
   .ps-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+    margin-bottom: 48px;
   }
 
   .ps-card {
@@ -511,10 +483,13 @@ const problems = [
     transform: translateY(-2px);
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 720px) {
     .ps-grid {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr;
     }
+  }
+
+  @media (max-width: 1024px) {
     .ps-heading-row, .ps-resolution {
       grid-template-columns: 1fr;
       gap: 30px;
