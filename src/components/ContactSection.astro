@@ -320,8 +320,7 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(t.whatsappMessage)}`;
       email:   "",
       ville:   (data.get("ville")   as string || "").trim(),
       specialty: (data.get("specialty") as string).trim(),
-      // Also prepended to the message so it still reaches older sheets without a specialty column.
-      message: ["[" + (data.get("specialty") as string).trim() + "]", (data.get("message") as string || "").trim()].filter(Boolean).join(" "),
+      message: (data.get("message") as string || "").trim(),
     };
 
     try {
