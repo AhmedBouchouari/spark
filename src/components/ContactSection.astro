@@ -319,7 +319,8 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(t.whatsappMessage)}`;
       phone:   (data.get("phone")   as string).trim(),
       email:   "",
       ville:   (data.get("ville")   as string || "").trim(),
-      // The sheet has no specialty column, so it is prepended to the message.
+      specialty: (data.get("specialty") as string).trim(),
+      // Also prepended to the message so it still reaches older sheets without a specialty column.
       message: ["[" + (data.get("specialty") as string).trim() + "]", (data.get("message") as string || "").trim()].filter(Boolean).join(" "),
     };
 
