@@ -5,32 +5,37 @@
 
 :root {
   /* Medical Luxury Light Theme (Default) */
-  --color-primary: #0a2540;
-  --color-primary-hover: #14385c;
-  --color-blue-accent: #0f4c81;
-  --color-teal: #00a896;
-  --color-teal-light: #028090;
-  --color-teal-soft: rgba(0, 168, 150, 0.08);
-  --color-gold: #c5a059;
-  --color-gold-soft: rgba(197, 160, 89, 0.12);
+  --color-primary: #15302A;
+  --color-primary-hover: #1F4A3E;
+  --color-blue-accent: #1F4A3E;
+  --color-teal: #2F6B57;
+  --color-teal-light: #245544;
+  --color-teal-soft: rgba(47, 107, 87, 0.08);
+  --color-gold: #E9A23B;
+  --color-gold-soft: rgba(233, 162, 59, 0.14);
   
-  --color-bg-light: #fafcff;
+  --color-bg-light: #F5F7F4;
   --color-surface: #ffffff;
-  --color-surface-hover: #f1f6fa;
+  --color-surface-hover: #EDF2EE;
   --color-card: #ffffff;
-  --color-card-border: #e2e8f0;
+  --color-card-border: #DDE5DF;
   
-  --color-text-main: #0f172a;
-  --color-text-muted: #64748b;
-  --color-text-light: #94a3b8;
+  --color-text-main: #15302A;
+  --color-text-muted: #56655E;
+  --color-text-light: #8A9A92;
   
-  --color-border: #e2e8f0;
-  --color-border-soft: #f1f5f9;
+  --color-border: #DDE5DF;
+  --color-border-soft: #EDF2EE;
+
+  /* A booked appointment slot: the one warm accent on the page */
+  --color-booked: #E9A23B;
+  --color-booked-ink: #3B2A0E;
+  --color-slot: #E3EBE5;
 
   --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
   --shadow-md: 0 10px 30px -10px rgba(10, 37, 64, 0.08);
   --shadow-lg: 0 20px 45px -15px rgba(10, 37, 64, 0.12);
-  --shadow-glow: 0 0 25px rgba(0, 168, 150, 0.2);
+  --shadow-glow: 0 0 25px rgba(47, 107, 87, 0.2);
 
   --radius-sm: 10px;
   --radius-md: 16px;
@@ -43,37 +48,40 @@
 
 [data-theme="dark"] {
   /* Medical Luxury Dark Theme (Rich Deep Slate Navy) */
-  --color-primary: #64eeea;
-  --color-primary-hover: #00a896;
-  --color-blue-accent: #1e3a8a;
-  --color-teal: #64eeea;
-  --color-teal-light: #00a896;
-  --color-teal-soft: rgba(100, 238, 234, 0.12);
-  --color-gold: #e5c158;
-  --color-gold-soft: rgba(229, 193, 88, 0.15);
+  --color-primary: #EAF0EC;
+  --color-primary-hover: #8CCBAF;
+  --color-blue-accent: #1F4A3E;
+  --color-teal: #8CCBAF;
+  --color-teal-light: #6FB394;
+  --color-teal-soft: rgba(140, 203, 175, 0.12);
+  --color-gold: #E9A23B;
+  --color-gold-soft: rgba(233, 162, 59, 0.16);
   
-  --color-bg-light: #080e1a;
-  --color-surface: #0f172a;
-  --color-surface-hover: #1e293b;
-  --color-card: #0f172a;
-  --color-card-border: #1e293b;
+  --color-bg-light: #0E1C18;
+  --color-surface: #142723;
+  --color-surface-hover: #1C342D;
+  --color-card: #142723;
+  --color-card-border: #1C342D;
   
-  --color-text-main: #f8fafc;
-  --color-text-muted: #cbd5e1;
-  --color-text-light: #94a3b8;
+  --color-text-main: #EAF0EC;
+  --color-text-muted: #A9BAB2;
+  --color-text-light: #7E918A;
   
-  --color-border: #1e293b;
-  --color-border-soft: #0f172a;
+  --color-border: #1C342D;
+  --color-border-soft: #142723;
+
+  --color-slot: #1A302A;
+  --color-booked-ink: #2A1D08;
 
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
   --shadow-lg: 0 20px 45px -15px rgba(0, 0, 0, 0.6);
-  --shadow-glow: 0 0 25px rgba(100, 238, 234, 0.25);
+  --shadow-glow: 0 0 25px rgba(233, 162, 59, 0.25);
 }
 
 html {
   scroll-behavior: smooth;
-  font-family: 'Plus Jakarta Sans', Inter, system-ui, -apple-system, sans-serif;
+  font-family: 'IBM Plex Sans', Inter, system-ui, -apple-system, sans-serif;
 }
 
 body {
@@ -141,7 +149,7 @@ button {
 /* Arabic: the Latin fonts have no Arabic glyphs, so RTL text uses IBM Plex Sans Arabic */
 [dir="rtl"] body,
 [dir="rtl"] body *:not(svg):not(svg *) {
-  font-family: 'IBM Plex Sans Arabic', 'Plus Jakarta Sans', system-ui, sans-serif !important;
+  font-family: 'IBM Plex Sans Arabic', 'IBM Plex Sans', system-ui, sans-serif !important;
 }
 
 /* Keep numbers like "+35%" and "1 500" in left-to-right order inside Arabic text */
