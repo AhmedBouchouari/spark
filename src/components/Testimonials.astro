@@ -498,4 +498,45 @@ const caseStudies = [
       justify-content: center;
     }
   }
+
+  /* Phone layout: shorter section, client cards swipe sideways */
+  @media (max-width: 640px) {
+    .testimonials-section {
+      padding: 64px 0;
+    }
+    .testimonials-h2 {
+      font-size: 30px;
+      line-height: 1.15;
+    }
+    .testimonials-lead {
+      font-size: 15px;
+    }
+    .featured-card {
+      border-radius: 20px;
+    }
+    .featured-quote {
+      font-size: 17px;
+      line-height: 1.55;
+    }
+    .featured-watermark {
+      display: none;
+    }
+    .cases-grid {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      margin-inline: -24px;
+      padding: 0 24px 6px;
+      scrollbar-width: none;
+    }
+    .cases-grid::-webkit-scrollbar {
+      display: none;
+    }
+    .case-card {
+      flex: 0 0 84%;
+      scroll-snap-align: center;
+      padding: 20px;
+    }
+  }
 </style>

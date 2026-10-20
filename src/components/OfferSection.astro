@@ -634,4 +634,48 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(translations.fr.whatsap
       justify-content: center;
     }
   }
+
+  /* Phone layout: tighter card, fewer labels */
+  @media (max-width: 640px) {
+    .offer {
+      padding: 64px 0;
+    }
+    .heading-index,
+    .included-count {
+      display: none;
+    }
+    .offer-heading {
+      gap: 14px;
+      margin: 14px 0 28px;
+    }
+    .heading-main h2 {
+      font-size: 30px;
+      line-height: 1.15;
+    }
+    .heading-side p {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .pricing-card {
+      border-radius: 20px;
+    }
+    .pricing-top,
+    .included,
+    .pricing-footer {
+      padding: 20px;
+    }
+    .price-amount {
+      font-size: 38px;
+    }
+    .included-grid {
+      gap: 18px;
+    }
+    .feature {
+      font-size: 14px;
+    }
+    .offer-visual {
+      padding: 24px 20px;
+      border-radius: 20px;
+    }
+  }
 </style>

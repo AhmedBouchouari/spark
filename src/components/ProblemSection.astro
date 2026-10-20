@@ -504,4 +504,63 @@ const problems = [
       padding: 30px 20px;
     }
   }
+
+  /* Phone layout: compact rows instead of tall template cards */
+  @media (max-width: 640px) {
+    .ps {
+      padding: 64px 0;
+    }
+    .ps-heading-row {
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .ps-h2 {
+      font-size: 30px;
+      line-height: 1.15;
+    }
+    .ps-lead {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .ps-grid {
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+    .ps-card {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      column-gap: 14px;
+      align-items: start;
+      padding: 16px;
+      border-radius: 14px;
+    }
+    .ps-card-head {
+      margin: 0;
+    }
+    .ps-card-num,
+    .ps-card-label,
+    .ps-card-foot {
+      display: none;
+    }
+    .ps-card-body h3 {
+      margin: 2px 0 4px;
+      font-size: 16px;
+    }
+    .ps-card-body p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    .ps-resolution {
+      padding: 28px 20px;
+      border-radius: 20px;
+    }
+    .ps-resolution-h2 {
+      font-size: 26px;
+      line-height: 1.2;
+    }
+    .ps-resolution-body {
+      font-size: 15px;
+    }
+  }
 </style>

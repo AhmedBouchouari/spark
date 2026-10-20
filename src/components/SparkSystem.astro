@@ -459,4 +459,97 @@ const steps = [
       grid-template-columns: 1fr;
     }
   }
+
+  /* Phone layout: steps as a vertical timeline, one label per section */
+  @media (max-width: 640px) {
+    .system-section {
+      padding: 64px 0;
+    }
+    .section-index,
+    .story-side-label,
+    .process-service,
+    .process-title {
+      display: none;
+    }
+    .outcome-layout {
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .outcome-copy h2 {
+      font-size: 30px;
+      line-height: 1.15;
+    }
+    .outcome-description p {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .story {
+      border-radius: 18px;
+      margin-bottom: 36px;
+    }
+    .story-image {
+      min-height: 220px;
+    }
+    .story-side {
+      padding: 22px 20px;
+    }
+    .story-side h3 {
+      font-size: 22px;
+      line-height: 1.25;
+    }
+    .process {
+      gap: 0;
+    }
+    .process-step {
+      position: relative;
+      padding: 0 0 24px;
+      padding-inline-start: 52px;
+      background: none;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+    .process-step:hover {
+      transform: none;
+      box-shadow: none;
+    }
+    .process-step::before {
+      content: "";
+      position: absolute;
+      top: 40px;
+      bottom: 4px;
+      inset-inline-start: 17px;
+      width: 2px;
+      background: var(--color-border);
+    }
+    .process-step:last-child {
+      padding-bottom: 0;
+    }
+    .process-step:last-child::before {
+      display: none;
+    }
+    .process-top {
+      position: absolute;
+      top: 0;
+      inset-inline-start: 0;
+      margin: 0;
+    }
+    .process-number {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--color-teal);
+      color: #ffffff;
+      font-size: 13px;
+    }
+    .process-step h4 {
+      margin: 6px 0 4px;
+      font-size: 16px;
+    }
+    .process-step p {
+      font-size: 14px;
+    }
+  }
 </style>
