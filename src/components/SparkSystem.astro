@@ -552,4 +552,23 @@ const steps = [
       font-size: 14px;
     }
   }
+
+  /* Calmer typography: no eyebrow labels, no accent word, no decorative arrows */
+  .section-eyebrow,
+  .section-index,
+  .story-topline,
+  .story-side-label,
+  .caption-label,
+  .process-service,
+  .process-title,
+  .outcome-arrow {
+    display: none;
+  }
+  .outcome-copy h2 span + span,
+  .story-side h3 span {
+    color: inherit;
+  }
+  .process-step:hover {
+    transform: none;
+  }
 </style>

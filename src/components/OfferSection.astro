@@ -314,7 +314,7 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(translations.fr.whatsap
   .plan-icon {
     width: 44px;
     height: 44px;
-    background: #15302A;
+    background: #001F66;
     color: #ffffff;
     font-weight: 800;
     font-size: 18px;
@@ -491,13 +491,13 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(translations.fr.whatsap
   .offer-button--primary {
     background: var(--color-teal);
     color: #ffffff;
-    box-shadow: 0 6px 20px rgba(47, 107, 87, 0.25);
+    box-shadow: 0 6px 20px rgba(31, 79, 209, 0.25);
   }
 
   .offer-button--primary:hover {
     transform: translateY(-2px);
     background: var(--color-teal-light);
-    box-shadow: 0 10px 28px rgba(47, 107, 87, 0.38);
+    box-shadow: 0 10px 28px rgba(31, 79, 209, 0.38);
   }
 
   .offer-button--wa {
@@ -517,7 +517,7 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(translations.fr.whatsap
   }
 
   .offer-visual {
-    background: linear-gradient(135deg, #15302A 0%, #1F4A3E 100%);
+    background: linear-gradient(135deg, #001F66 0%, #0B3A9E 100%);
     border-radius: 24px;
     padding: 32px;
     color: #ffffff;
@@ -528,7 +528,7 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(translations.fr.whatsap
   }
 
   [data-theme="dark"] .offer-visual {
-    background: linear-gradient(135deg, #142723 0%, #1C342D 100%);
+    background: linear-gradient(135deg, #0B1A45 0%, #13255C 100%);
     border: 1px solid rgba(233, 162, 59, 0.2);
   }
 
@@ -677,5 +677,19 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(translations.fr.whatsap
       padding: 24px 20px;
       border-radius: 20px;
     }
+  }
+
+  /* Calmer typography: no eyebrow labels, no accent word, no decorative arrows */
+  .offer-header .eyebrow,
+  .heading-index,
+  .included-label,
+  .included-count,
+  .visual-eyebrow,
+  .offer .arrow {
+    display: none;
+  }
+  .heading-main h2 span + span,
+  .visual-top h3 span + span {
+    color: inherit;
   }
 </style>

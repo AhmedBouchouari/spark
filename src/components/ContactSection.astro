@@ -392,7 +392,7 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(t.whatsappMessage)}`;
     right: -120px;
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, rgba(47, 107, 87, 0.12) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(31, 79, 209, 0.12) 0%, transparent 70%);
     pointer-events: none;
   }
 
@@ -489,7 +489,7 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(t.whatsappMessage)}`;
     width: 68px;
     height: 68px;
     border-radius: 50%;
-    background: rgba(47, 107, 87, 0.12);
+    background: rgba(31, 79, 209, 0.12);
     color: var(--color-teal);
     display: flex;
     align-items: center;
@@ -587,7 +587,7 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(t.whatsappMessage)}`;
   .form-group select:focus,
   .form-group textarea:focus {
     border-color: var(--color-teal);
-    box-shadow: 0 0 0 3px rgba(47, 107, 87, 0.15);
+    box-shadow: 0 0 0 3px rgba(31, 79, 209, 0.15);
   }
 
   [data-theme="dark"] .form-group input:focus,
@@ -671,7 +671,7 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(t.whatsappMessage)}`;
     font-size: 15px;
     font-weight: 800;
     letter-spacing: 0.01em;
-    box-shadow: 0 8px 24px rgba(47, 107, 87, 0.3);
+    box-shadow: 0 8px 24px rgba(31, 79, 209, 0.3);
     transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, opacity 180ms ease;
     white-space: nowrap;
   }
@@ -679,7 +679,7 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(t.whatsappMessage)}`;
   .submit-btn:hover:not(:disabled) {
     transform: translateY(-2px);
     background: var(--color-teal-light);
-    box-shadow: 0 12px 32px rgba(47, 107, 87, 0.4);
+    box-shadow: 0 12px 32px rgba(31, 79, 209, 0.4);
   }
 
   .submit-btn:active:not(:disabled) {
@@ -825,5 +825,15 @@ const whatsappUrl = `${waBase}?text=${encodeURIComponent(t.whatsappMessage)}`;
     .contact-desc {
       font-size: 15px;
     }
+  }
+
+  /* Calmer typography: no eyebrow labels, no accent word */
+  .contact-eyebrow {
+    display: none;
+  }
+  .contact-title .title-highlight {
+    color: inherit;
+    background: none;
+    -webkit-text-fill-color: currentColor;
   }
 </style>

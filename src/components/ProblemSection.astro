@@ -365,7 +365,7 @@ const problems = [
   }
 
   .ps-resolution {
-    background: linear-gradient(135deg, #15302A 0%, #1F4A3E 100%);
+    background: linear-gradient(135deg, #001F66 0%, #0B3A9E 100%);
     border-radius: 24px;
     padding: 50px;
     color: #ffffff;
@@ -377,7 +377,7 @@ const problems = [
   }
 
   [data-theme="dark"] .ps-resolution {
-    background: linear-gradient(135deg, #142723 0%, #1C342D 100%);
+    background: linear-gradient(135deg, #0B1A45 0%, #13255C 100%);
     border: 1px solid rgba(233, 162, 59, 0.2);
   }
 
@@ -435,7 +435,7 @@ const problems = [
     font-size: 14px;
     font-weight: 800;
     color: #E9A23B;
-    background: rgba(47, 107, 87, 0.2);
+    background: rgba(31, 79, 209, 0.2);
     width: 32px;
     height: 32px;
     border-radius: 8px;
@@ -466,7 +466,7 @@ const problems = [
     width: 100%;
     padding: 16px;
     border-radius: 12px;
-    background: #2F6B57;
+    background: #1F4FD1;
     color: #ffffff;
     font-weight: 700;
     font-size: 15px;
@@ -479,7 +479,7 @@ const problems = [
   }
 
   .ps-cta:hover {
-    background: #245544;
+    background: #1A43B3;
     transform: translateY(-2px);
   }
 
@@ -562,5 +562,22 @@ const problems = [
     .ps-resolution-body {
       font-size: 15px;
     }
+  }
+
+  /* Calmer typography: no eyebrow labels, no accent word, no decorative arrows */
+  .ps-eyebrow,
+  .ps-resolution-eyebrow,
+  .ps-card-label,
+  .ps-consequence-label,
+  .ps-cta-icon {
+    display: none;
+  }
+  .ps-h2 em,
+  .ps-resolution-h2 em {
+    color: inherit;
+    font-style: normal;
+  }
+  .ps-card:hover {
+    transform: none;
   }
 </style>

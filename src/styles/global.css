@@ -5,37 +5,37 @@
 
 :root {
   /* Medical Luxury Light Theme (Default) */
-  --color-primary: #15302A;
-  --color-primary-hover: #1F4A3E;
-  --color-blue-accent: #1F4A3E;
-  --color-teal: #2F6B57;
-  --color-teal-light: #245544;
-  --color-teal-soft: rgba(47, 107, 87, 0.08);
+  --color-primary: #001F66;
+  --color-primary-hover: #0B3A9E;
+  --color-blue-accent: #0B3A9E;
+  --color-teal: #1F4FD1;
+  --color-teal-light: #1A43B3;
+  --color-teal-soft: rgba(31, 79, 209, 0.08);
   --color-gold: #E9A23B;
   --color-gold-soft: rgba(233, 162, 59, 0.14);
   
-  --color-bg-light: #F5F7F4;
+  --color-bg-light: #F5F7FC;
   --color-surface: #ffffff;
-  --color-surface-hover: #EDF2EE;
+  --color-surface-hover: #EEF2FA;
   --color-card: #ffffff;
-  --color-card-border: #DDE5DF;
+  --color-card-border: #DCE3F0;
   
-  --color-text-main: #15302A;
-  --color-text-muted: #56655E;
-  --color-text-light: #8A9A92;
+  --color-text-main: #001F66;
+  --color-text-muted: #55607A;
+  --color-text-light: #8A93A8;
   
-  --color-border: #DDE5DF;
-  --color-border-soft: #EDF2EE;
+  --color-border: #DCE3F0;
+  --color-border-soft: #EEF2FA;
 
   /* A booked appointment slot: the one warm accent on the page */
   --color-booked: #E9A23B;
   --color-booked-ink: #3B2A0E;
-  --color-slot: #E3EBE5;
+  --color-slot: #E6ECF7;
 
   --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
   --shadow-md: 0 10px 30px -10px rgba(10, 37, 64, 0.08);
   --shadow-lg: 0 20px 45px -15px rgba(10, 37, 64, 0.12);
-  --shadow-glow: 0 0 25px rgba(47, 107, 87, 0.2);
+  --shadow-glow: 0 0 25px rgba(31, 79, 209, 0.2);
 
   --radius-sm: 10px;
   --radius-md: 16px;
@@ -48,29 +48,29 @@
 
 [data-theme="dark"] {
   /* Medical Luxury Dark Theme (Rich Deep Slate Navy) */
-  --color-primary: #EAF0EC;
-  --color-primary-hover: #8CCBAF;
-  --color-blue-accent: #1F4A3E;
-  --color-teal: #8CCBAF;
-  --color-teal-light: #6FB394;
-  --color-teal-soft: rgba(140, 203, 175, 0.12);
+  --color-primary: #EEF2FF;
+  --color-primary-hover: #7FA2FF;
+  --color-blue-accent: #0B3A9E;
+  --color-teal: #4F7DFF;
+  --color-teal-light: #3D6EF5;
+  --color-teal-soft: rgba(127, 162, 255, 0.12);
   --color-gold: #E9A23B;
   --color-gold-soft: rgba(233, 162, 59, 0.16);
   
-  --color-bg-light: #0E1C18;
-  --color-surface: #142723;
-  --color-surface-hover: #1C342D;
-  --color-card: #142723;
-  --color-card-border: #1C342D;
+  --color-bg-light: #071233;
+  --color-surface: #0B1A45;
+  --color-surface-hover: #13255C;
+  --color-card: #0B1A45;
+  --color-card-border: #13255C;
   
-  --color-text-main: #EAF0EC;
-  --color-text-muted: #A9BAB2;
-  --color-text-light: #7E918A;
+  --color-text-main: #EEF2FF;
+  --color-text-muted: #AAB4CC;
+  --color-text-light: #7D88A3;
   
-  --color-border: #1C342D;
-  --color-border-soft: #142723;
+  --color-border: #13255C;
+  --color-border-soft: #0B1A45;
 
-  --color-slot: #1A302A;
+  --color-slot: #13255C;
   --color-booked-ink: #2A1D08;
 
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
@@ -157,4 +157,18 @@ button {
 .price-amount {
   unicode-bidi: isolate;
   direction: ltr;
+}
+
+/* The hero keeps its original look (font and colors) by request */
+.hero {
+  --color-bg-light: #fafcff;
+  --color-teal: #00a896;
+  --color-teal-light: #028090;
+  font-family: 'Plus Jakarta Sans', Inter, system-ui, -apple-system, sans-serif;
+}
+
+[data-theme="dark"] .hero {
+  --color-bg-light: #080e1a;
+  --color-teal: #64eeea;
+  --color-teal-light: #00a896;
 }
